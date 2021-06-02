@@ -1,5 +1,11 @@
+import MainLayout from "./Components/Layout/MainLayout";
+
 function App() {
-  return <div class="app border border-1">Hello</div>;
+  return (
+    <div className="ft-app">
+      <MainLayout />
+    </div>
+  );
 }
 
 export default App;
