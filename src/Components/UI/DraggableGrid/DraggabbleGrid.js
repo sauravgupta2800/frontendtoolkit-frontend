@@ -21,6 +21,8 @@ const DraggableGrid = () => {
           setLayouts(layouts);
         }}
         rowHeight={30}
+        containerPadding={[30, 30]}
+        margin={[20, 20]}
         style={{ minWidth: "100%" }}
       >
         <div key="a" data-grid={{ x: 0, y: 0, w: 2, h: 5, minW: 1, minH: 5 }}>

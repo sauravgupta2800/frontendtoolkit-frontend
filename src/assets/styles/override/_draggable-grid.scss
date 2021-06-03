@@ -6,7 +6,17 @@
   //     #fcfcff 0%,
   //     #efeee7 100%
   //   );
-  background: $light3;
+  background: $prime97;
+
+  .react-grid-item {
+    background: $light100;
+    box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.12);
+    border: 1px solid $prime88;
+    border-radius: 6px;
+    & > .react-resizable-handle::after {
+      border-color: $prime;
+    }
+  }
 }
 .react-grid-item {
   background: red;
