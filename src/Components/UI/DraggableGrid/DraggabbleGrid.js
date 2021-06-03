@@ -1,6 +1,6 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
 import React, { useState } from "react";
-
+//https://github.com/react-grid-layout/react-grid-layout/issues/1373
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};
 
