@@ -1,10 +1,10 @@
 @import "./abstracts//variables";
 
-@import "./base//base";
+@import "./base/base";
 
-@import "./override//draggable-grid";
+@import "./override/draggable-grid";
 
 @import "./component/app";
 @import "./component/main-layout";
 @import "./component/sidebar";
-@import "./component//header";
+@import "./component/header";

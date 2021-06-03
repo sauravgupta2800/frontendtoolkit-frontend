@@ -8,6 +8,7 @@
   &__header {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
+    z-index: 1;
   }
   &__sidebar {
     grid-column: 1 / span 1;
@@ -19,5 +20,6 @@
     overflow-x: hidden;
     overflow-y: hidden;
     height: calc(100vh - 6rem);
+    z-index: 0;
   }
 }
