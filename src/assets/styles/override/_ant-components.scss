@@ -1,0 +1,26 @@
+.packages-autocomplete-dropdown {
+  .ant-select-item-option-selected {
+    &:not(.ant-select-item-option-disabled) {
+      background: none;
+      font-weight: normal;
+    }
+  }
+  .ant-select-item-option {
+    &:not(:last-child) {
+      border-bottom: 1px solid $light2;
+    }
+  }
+  .ant-select-item-option-active {
+    &:hover {
+      background: $prime97;
+    }
+  }
+  .ant-select-item-option-content {
+    white-space: pre-line;
+  }
+  .ant-select-item-option-active {
+    &:not(.ant-select-item-option-disabled) {
+      background-color: $prime97;
+    }
+  }
+}
