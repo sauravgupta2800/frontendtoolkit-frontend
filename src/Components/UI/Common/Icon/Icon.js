@@ -4,9 +4,10 @@ import useDynamicSVGImport from "../../../customHooks/useDynamicSVGImport";
 const Icon = ({
   withWrapper = true,
   size = "md",
-  id = "npm",
+  id,
   iconClass = "",
   wrapperClass = "",
+  showCursor = true,
 }) => {
   const { error, loading, SvgIcon } = useDynamicSVGImport(id);
   if (error) {
@@ -19,7 +20,8 @@ const Icon = ({
     return (
       <div
         className={[
-          "d-inline-flex justify-content-center align-items-center ",
+          "d-inline-flex justify-content-center align-items-center rounded",
+          showCursor && "cursor-pointer",
           withWrapper && `ft-icon-wrapper ft-icon-wrapper-${size}`,
           wrapperClass,
         ].join(" ")}

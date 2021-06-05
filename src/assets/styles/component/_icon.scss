@@ -45,3 +45,15 @@ $icon-sizes: (
     }
   }
 }
+
+.ft-card-action-icon {
+  & .ft-icon-wrapper {
+    color: $prime-shade-62;
+    &:hover {
+      background: $prime93;
+      .ft-icon {
+        color: $prime;
+      }
+    }
+  }
+}
