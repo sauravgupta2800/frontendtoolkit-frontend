@@ -1,3 +1,94 @@
 .ft-scroll-y {
   overflow-y: scroll;
 }
+
+// BOX-SHADOW
+.ft-normal-hover {
+  &:hover {
+    box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.2);
+  }
+}
+
+.ft-style-1-shadow {
+  box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.12);
+}
+
+.ft-style-2-shadow {
+  box-shadow: 0px 9px 18px rgba(42, 83, 204, 0.08);
+}
+
+// BACKGROUP_COLOR
+.ft-bg-prime {
+  background: $prime;
+}
+.ft-bg-prime98 {
+  background: $prime98;
+}
+.ft-bg-prime97 {
+  background: $prime97;
+}
+.ft-bg-prime93 {
+  background: $prime93;
+}
+.ft-bg-prime88 {
+  background: $prime88;
+}
+.ft-bg-black {
+  background: $black;
+}
+.ft-bg-dar1 {
+  background: $dark1;
+}
+.ft-bg-dark2 {
+  background: $dark2;
+}
+.ft-bg-light1 {
+  background: $light1;
+}
+.ft-bg-light2 {
+  background: $light2;
+}
+.ft-bg-light3 {
+  background: $light3;
+}
+.ft-bg-light100 {
+  background: $light100;
+}
+
+// COLOR
+.ft-color-prime {
+  color: $prime;
+}
+.ft-color-prime98 {
+  color: $prime98;
+}
+.ft-color-prime97 {
+  color: $prime97;
+}
+.ft-color-prime93 {
+  color: $prime93;
+}
+.ft-color-prime88 {
+  color: $prime88;
+}
+.ft-color-black {
+  color: $black;
+}
+.ft-color-dar1 {
+  color: $dark1;
+}
+.ft-color-dark2 {
+  color: $dark2;
+}
+.ft-color-light1 {
+  color: $light1;
+}
+.ft-color-light2 {
+  color: $light2;
+}
+.ft-color-light3 {
+  color: $light3;
+}
+.ft-color-light100 {
+  color: $light100;
+}

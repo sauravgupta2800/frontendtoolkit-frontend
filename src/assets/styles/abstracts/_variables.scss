@@ -15,22 +15,3 @@ $light1: #bec5da;
 $light2: #efefef;
 $light3: #f9f9f9;
 $light100: #ffffff;
-
-/*
-0: normal-hover: box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.2);
-1:  box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.12);
-2: box-shadow: 0px 9px 18px rgba(42, 83, 204, 0.08);
-*/
-.ft-normal-hover {
-  &:hover {
-    box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.2);
-  }
-}
-
-.ft-style-1-shadow {
-  box-shadow: 0px 2px 4px rgba(42, 83, 204, 0.12);
-}
-
-.ft-style-2-shadow {
-  box-shadow: 0px 9px 18px rgba(42, 83, 204, 0.08);
-}
