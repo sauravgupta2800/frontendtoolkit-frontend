@@ -24,6 +24,7 @@ const DraggableGrid = () => {
         containerPadding={[30, 30]}
         margin={[20, 20]}
         style={{ minWidth: "100%" }}
+        isBounded={true}
       >
         <div key="a" data-grid={{ x: 0, y: 0, w: 2, h: 5, minW: 1, minH: 5 }}>
           Some content

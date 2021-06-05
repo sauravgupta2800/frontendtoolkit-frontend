@@ -28,9 +28,7 @@
     "extends": [
       "react-app"
     ],
-    "rules": {
-      "additional-rule": "warn"
-    },
+    "rules": {},
     "overrides": [
       {
         "files": [
