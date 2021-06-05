@@ -1,6 +1,15 @@
 .ft-scroll-y {
   overflow-y: scroll;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+.long-and-truncated {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 // BOX-SHADOW
 .ft-normal-hover {

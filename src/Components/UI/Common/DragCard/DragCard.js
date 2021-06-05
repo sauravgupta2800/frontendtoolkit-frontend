@@ -1,8 +1,12 @@
+import Icon from "../Icon/Icon";
+
 const DragCard = () => {
   return (
-    <div class="w-100 h-100 border rounded-3 d-flex flex-column ft-bg-light100 p-5">
-      <div class="d-flex justify-content-between">
-        <div>1</div>
+    <div className="w-100 h-100 border rounded-3 d-flex flex-column ft-bg-light100 p-5">
+      <div className="d-flex justify-content-between">
+        <div>
+          <Icon size={"lg"} withWrapper={true} iconClass={"ft-color-prime"} />
+        </div>
         <div>2</div>
       </div>
       <div>B</div>
