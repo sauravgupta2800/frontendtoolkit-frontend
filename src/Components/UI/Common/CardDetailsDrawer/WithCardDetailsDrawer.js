@@ -27,10 +27,11 @@ const WithCardDetailsDrawer = ({
     <div className="w-100 h-100">
       {rest.children}
       <Drawer
+        width={800}
         visible={visible}
         title={titleNode()}
         placement="right"
-        closable={false}
+        closable={true}
         onClose={onClose}
       >
         <p>Some contents...</p>
