@@ -34,6 +34,7 @@ const WithCardDetailsDrawer = ({
         placement="right"
         closable={true}
         onClose={onClose}
+        destroyOnClose={true}
         closeIcon={
           <div className="ft-card-action-icon">
             <Icon id={"cross"} size="lg" title={"Close"} />

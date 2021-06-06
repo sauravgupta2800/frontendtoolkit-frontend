@@ -5,6 +5,7 @@ import PackageSearch from "./PackageSearch";
 
 const PackageCard = ({ ...rest }) => {
   const [visibleDrawer, setVisible] = useState(false);
+  const [packageDetails, setPackageDetails] = useState({});
 
   const infoHandler = () => {
     console.log("info handler");
@@ -15,7 +16,13 @@ const PackageCard = ({ ...rest }) => {
 
   const onOptionSelect = (data) => {
     console.log("onOptionSelect", data);
+    setPackageDetails({ package: data });
     setVisible(true);
+  };
+
+  const drawerCloseHandler = () => {
+    setVisible(false);
+    setPackageDetails({});
   };
 
   const contentSlot = () => {
@@ -30,10 +37,11 @@ const PackageCard = ({ ...rest }) => {
     <DragCard
       class="w-100 h-100"
       visible={visibleDrawer}
-      onClose={() => setVisible(false)}
+      onDrawerClose={drawerCloseHandler}
       onInfoClick={infoHandler}
       onDeleteClick={deleteHandler}
       contentSlot={contentSlot()}
+      drawerExtraDetails={packageDetails}
       {...rest}
     />
   );
