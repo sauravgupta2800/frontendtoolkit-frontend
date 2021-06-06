@@ -10,28 +10,28 @@ const PackageSearch = ({ onOptionSelect, clearOnSelect = false }) => {
   const debouncedValue = useDebounce(value, 500);
 
   useEffect(() => {
+    const fetchPackages = async (q = "") => {
+      if (!q) {
+        setOptions([]);
+        return;
+      }
+      const params = {
+        q,
+      };
+      setLoading(true);
+      try {
+        const { data } = await axios.get(PACKAGE.PACKAGE_LIST, { params });
+        const list = data.data.map((item) => renderItem(item.package));
+        setOptions(list);
+      } catch {
+        //
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchPackages(debouncedValue);
   }, [debouncedValue]);
 
-  const fetchPackages = async (q = "") => {
-    if (!q) {
-      setOptions([]);
-      return;
-    }
-    const params = {
-      q,
-    };
-    setLoading(true);
-    try {
-      const { data } = await axios.get(PACKAGE.PACKAGE_LIST, { params });
-      const list = data.data.map((item) => renderItem(item.package));
-      setOptions(list);
-    } catch {
-      //
-    } finally {
-      setLoading(false);
-    }
-  };
   const onChange = (data) => {
     setValue(data);
   };

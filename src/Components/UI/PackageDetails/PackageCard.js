@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import DragCard from "../Common/DragCard/DragCard";
 import PackageSearch from "./PackageSearch";
 
 const PackageCard = ({ ...rest }) => {
+  const [visibleDrawer, setVisible] = useState(false);
+
   const infoHandler = () => {
     console.log("info handler");
   };
@@ -13,6 +15,7 @@ const PackageCard = ({ ...rest }) => {
 
   const onOptionSelect = (data) => {
     console.log("onOptionSelect", data);
+    setVisible(true);
   };
 
   const contentSlot = () => {
@@ -26,10 +29,12 @@ const PackageCard = ({ ...rest }) => {
   return (
     <DragCard
       class="w-100 h-100"
-      {...rest}
+      visible={visibleDrawer}
+      onClose={() => setVisible(false)}
       onInfoClick={infoHandler}
       onDeleteClick={deleteHandler}
       contentSlot={contentSlot()}
+      {...rest}
     />
   );
 };
