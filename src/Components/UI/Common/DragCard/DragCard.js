@@ -40,6 +40,7 @@ const DragCard = ({
               size={"sm"}
               withWrapper={false}
               showCursor={false}
+              wrapperClass={"cursor-grab"}
               iconClass="ft-color-light1"
             />
           </div>

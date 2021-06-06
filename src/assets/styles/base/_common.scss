@@ -4,6 +4,12 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.cursor-grab {
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
 .long-and-truncated {
   flex: 1;
   white-space: nowrap;
