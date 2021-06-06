@@ -13,7 +13,7 @@ export const COMPONENTS = [
       subTitle: "find the cost of adding a npm package to your bundle",
       detailComponent: PackageDrawerDetails,
     },
-    dataGrid: { x: 0, y: 0, w: 2, h: 3, minW: 1, minH: 2 },
+    dataGrid: { x: 0, y: 0, w: 3, h: 5, minW: 3, minH: 4 },
   },
   {
     component: Test2,
