@@ -3,6 +3,7 @@ import { Bar } from "react-chartjs-2";
 import axios from "axios";
 import { PACKAGE } from "./../../../shared/endpoints";
 import isEmpty from "lodash/isEmpty";
+import RowSeparator from "../Common/Separator/RowSeparator";
 
 const options = {
   scales: {
@@ -70,7 +71,12 @@ const VersionHistoryChart = ({ packageName }) => {
   }, [packageName]);
   return (
     <Fragment>
-      {!isEmpty(data) && <Bar data={data} redraw={false} options={options} />}
+      {!isEmpty(data) && (
+        <div>
+          <RowSeparator title="version history" />
+          <Bar className="px-5" data={data} redraw={false} options={options} />
+        </div>
+      )}
     </Fragment>
   );
 };

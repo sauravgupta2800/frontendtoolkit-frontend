@@ -5,6 +5,7 @@ import { PACKAGE } from "../../../shared/endpoints";
 import { bytesToSize } from "./../../utils";
 import isEmpty from "lodash/isEmpty";
 import VersionHistoryChart from "./VersionHistoryChart";
+import RowSeparator from "../Common/Separator/RowSeparator";
 
 const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
   const [state, setState] = useState({
@@ -43,7 +44,7 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
 
   return (
     <div>
-      <div className="w-100 d-flex align-items-center justify-content-center">
+      <div className="w-100 d-flex align-items-center justify-content-center mb-5">
         <div className="w-70">
           <PackageSearch
             name={drawerExtraDetails.package || ""}
@@ -51,57 +52,65 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
           />
         </div>
       </div>
-      {/* Size row */}
-      {!isEmpty(state.sizeDetails) ? (
-        <div className="d-flex flex-column justify-content-center align-items-center my-5">
-          <div className="text-uppercase fs-1 ft-color-dark3 mb-4">
-            bundle size
+
+      {!isEmpty(state.sizeDetails) && (
+        <div className="w-100">
+          {/* Details row */}
+          <RowSeparator title="details" wrapClass="mb-0" />
+          <div className="px-5">
+            <div className="ft-fs-2">{state.sizeDetails.name}</div>
+            {state.sizeDetails.description && (
+              <div className="ft-color-dark2">
+                {state.sizeDetails.description}
+              </div>
+            )}
           </div>
-          <div className="d-flex">
-            {state.sizeDetails.size && (
-              <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5">
-                <div className="d-flex justify-content-center align-items-end">
-                  <div className="ft-fs-1 fw-bold">
-                    {bytesToSize(state.sizeDetails.size).value}
+          {/* Size row */}
+          <RowSeparator title="bundle size" />
+          <div className="d-flex flex-column justify-content-center align-items-center my-5 px-5">
+            <div className="d-flex">
+              {state.sizeDetails.size && (
+                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5">
+                  <div className="d-flex justify-content-center align-items-end">
+                    <div className="ft-fs-1 fw-bold">
+                      {bytesToSize(state.sizeDetails.size).value}
+                    </div>
+                    <div className="ft-fs-2 fw-bold ft-color-dark2 ms-2">
+                      {bytesToSize(state.sizeDetails.size).label}
+                    </div>
                   </div>
-                  <div className="ft-fs-2 fw-bold ft-color-dark2 ms-2">
-                    {bytesToSize(state.sizeDetails.size).label}
+                  <div className="ft-color-dark2 text-uppercase">minified</div>
+                </div>
+              )}
+              {state.sizeDetails.gzip && (
+                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5">
+                  <div className="d-flex justify-content-center align-items-end">
+                    <div className="ft-fs-1 fw-bold">
+                      {bytesToSize(state.sizeDetails.gzip).value}
+                    </div>
+                    <div className="ft-fs-2 fw-bold ft-color-dark2 ms-2">
+                      {bytesToSize(state.sizeDetails.gzip).label}
+                    </div>
+                  </div>
+                  <div className="ft-color-dark2 text-uppercase">
+                    minified + Gzipped
                   </div>
                 </div>
-                <div className="ft-color-dark2 text-uppercase">minified</div>
-              </div>
-            )}
-            {state.sizeDetails.gzip && (
-              <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5">
-                <div className="d-flex justify-content-center align-items-end">
-                  <div className="ft-fs-1 fw-bold">
-                    {bytesToSize(state.sizeDetails.gzip).value}
+              )}
+              {state.sizeDetails.version && (
+                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6">
+                  <div className="d-flex justify-content-center align-items-end">
+                    <div className="ft-fs-1 fw-bold">
+                      {state.sizeDetails.version}
+                    </div>
                   </div>
-                  <div className="ft-fs-2 fw-bold ft-color-dark2 ms-2">
-                    {bytesToSize(state.sizeDetails.gzip).label}
-                  </div>
+                  <div className="ft-color-dark2 text-uppercase">version</div>
                 </div>
-                <div className="ft-color-dark2 text-uppercase">
-                  minified + Gzipped
-                </div>
-              </div>
-            )}
-            {state.sizeDetails.version && (
-              <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6">
-                <div className="d-flex justify-content-center align-items-end">
-                  <div className="ft-fs-1 fw-bold">
-                    {state.sizeDetails.version}
-                  </div>
-                </div>
-                <div className="ft-color-dark2 text-uppercase">version</div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
-      ) : (
-        state.fetchingSize && <div>Loading state</div>
       )}
-
       {/* Chart */}
       <div>
         {state.packageName && (
