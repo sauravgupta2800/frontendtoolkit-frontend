@@ -7,6 +7,7 @@ const WithCardDetailsDrawer = ({
   title,
   visible = false,
   onClose,
+  detailComponent,
   ...rest
 }) => {
   const titleNode = () => {
@@ -19,7 +20,7 @@ const WithCardDetailsDrawer = ({
           showCursor={false}
           iconClass={"ft-color-prime"}
         />
-        <div className="fs-2 fw-bold ms-3 ft-color-dark">{title}</div>
+        <div className="fs-1 fw-bold ms-3 ft-color-dark">{title}</div>
       </div>
     );
   };
@@ -33,10 +34,15 @@ const WithCardDetailsDrawer = ({
         placement="right"
         closable={true}
         onClose={onClose}
+        closeIcon={
+          <div className="ft-card-action-icon">
+            <Icon id={"cross"} size="lg" title={"Close"} />
+          </div>
+        }
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        {React.createElement(detailComponent, {
+          ...rest,
+        })}
       </Drawer>
     </div>
   );

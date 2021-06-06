@@ -1,14 +1,17 @@
 import { Test2, Test3 } from "./Test1";
 import PackageCard from "../../UI/PackageDetails/PackageCard";
+import PackageDrawerDetails from "../../UI/PackageDetails/PackageDrawerDetails";
 
 export const COMPONENTS = [
   {
     component: PackageCard,
     key: "a",
     props: {
+      key_name: "package_search",
       id: "npm",
       title: "Package Details",
       subTitle: "find the cost of adding a npm package to your bundle",
+      detailComponent: PackageDrawerDetails,
     },
     dataGrid: { x: 0, y: 0, w: 2, h: 3, minW: 1, minH: 2 },
   },
