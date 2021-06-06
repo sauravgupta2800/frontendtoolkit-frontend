@@ -5,6 +5,11 @@ export const COMPONENTS = [
   {
     component: PackageCard,
     key: "a",
+    props: {
+      id: "npm",
+      title: "Package Details",
+      subTitle: "find the cost of adding a npm package to your bundle",
+    },
     dataGrid: { x: 0, y: 0, w: 2, h: 3, minW: 1, minH: 2 },
   },
   {

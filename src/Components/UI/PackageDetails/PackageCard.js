@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DragCard from "../Common/DragCard/DragCard";
 import PackageSearch from "./PackageSearch";
 
-const PackageCard = () => {
+const PackageCard = ({ ...rest }) => {
   const infoHandler = () => {
     console.log("info handler");
   };
@@ -18,9 +18,6 @@ const PackageCard = () => {
   const contentSlot = () => {
     return (
       <div className="w-100">
-        <div className="mt-3 ft-color-dark2 fs-4">
-          find the cost of adding a npm package to your bundle
-        </div>
         <PackageSearch clearOnSelect={true} onOptionSelect={onOptionSelect} />
       </div>
     );
@@ -29,7 +26,7 @@ const PackageCard = () => {
   return (
     <DragCard
       class="w-100 h-100"
-      title={"Package Details"}
+      {...rest}
       onInfoClick={infoHandler}
       onDeleteClick={deleteHandler}
       contentSlot={contentSlot()}

@@ -3,7 +3,8 @@ import React from "react";
 
 const DragCard = ({
   id = "npm",
-  title = "Card Details",
+  title = "title",
+  subTitle = "sub title",
   onInfoClick,
   onDeleteClick,
   ...rest
@@ -46,7 +47,8 @@ const DragCard = ({
           </div>
         </div>
       </div>
-      <div className="w-100 d-flex justify-content-center">
+      <div className="w-100 d-flex flex-column justify-content-center">
+        <div className="mt-4 mb-3 ft-color-dark2 fs-4">{subTitle}</div>
         {rest.contentSlot}
       </div>
       <div className="w-100 d-flex justify-content-center">

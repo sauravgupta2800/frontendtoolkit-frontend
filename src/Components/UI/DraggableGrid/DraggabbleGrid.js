@@ -40,7 +40,10 @@ const DraggableGrid = () => {
         </div> */}
         {COMPONENTS.map((item) => (
           <div key={item.key} data-grid={item.dataGrid}>
-            {React.createElement(item.component, { key: item.key })}
+            {React.createElement(item.component, {
+              key: item.key,
+              ...item.props,
+            })}
           </div>
         ))}
       </ResponsiveGridLayout>
