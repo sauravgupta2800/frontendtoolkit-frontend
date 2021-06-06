@@ -3,11 +3,19 @@ import { AutoComplete, Input } from "antd";
 import useDebounce from "../../customHooks/useDebounce";
 import axios from "axios";
 import { PACKAGE } from "./../../../shared/endpoints";
-const PackageSearch = ({ onOptionSelect, clearOnSelect = false }) => {
+const PackageSearch = ({
+  onOptionSelect,
+  clearOnSelect = false,
+  name = "",
+}) => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState([]);
   const debouncedValue = useDebounce(value, 500);
+
+  useEffect(() => {
+    setValue(name);
+  }, [name]);
 
   useEffect(() => {
     const fetchPackages = async (q = "") => {

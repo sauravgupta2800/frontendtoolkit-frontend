@@ -25,7 +25,10 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
     <div>
       <div className="w-100 d-flex align-items-center justify-content-center">
         <div className="w-70">
-          <PackageSearch onOptionSelect={onOptionSelect} />
+          <PackageSearch
+            name={drawerExtraDetails.package || ""}
+            onOptionSelect={onOptionSelect}
+          />
         </div>
       </div>
       {/* Size row */}
