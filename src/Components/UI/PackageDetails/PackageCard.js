@@ -3,12 +3,28 @@ import React, { useState } from "react";
 import DragCard from "../Common/DragCard/DragCard";
 import PackageSearch from "./PackageSearch";
 
+import queryString from "query-string";
+import axios from "axios";
+
 const PackageCard = ({ ...rest }) => {
   const [visibleDrawer, setVisible] = useState(false);
   const [packageDetails, setPackageDetails] = useState({});
 
-  const infoHandler = () => {
+  const searchQueryParams = queryString.stringify({
+    "search_query[]": ["vue", "react", "@angular/core"],
+  });
+
+  const infoHandler = async () => {
     console.log("info handler");
+    await axios(
+      `https://api.npmtrends.com/s/related_packages?${searchQueryParams}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    );
   };
   const deleteHandler = () => {
     console.log("delete handler");
