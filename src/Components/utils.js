@@ -37,3 +37,15 @@ export const bytesToSize = (bytes) => {
   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
   return { value: Math.round(bytes / Math.pow(1024, i), 2), label: sizes[i] };
 };
+
+export const intToString = (value) => {
+  var suffixes = ["", "k", "m", "b", "t"];
+  var suffixNum = Math.floor(("" + value).length / 3);
+  var shortValue = parseFloat(
+    (suffixNum !== 0 ? value / Math.pow(1000, suffixNum) : value).toPrecision(2)
+  );
+  if (shortValue % 1 !== 0) {
+    shortValue = shortValue.toFixed(1);
+  }
+  return shortValue + suffixes[suffixNum];
+};
