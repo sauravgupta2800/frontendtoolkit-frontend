@@ -1,8 +1,7 @@
-import { Test2, Test3 } from "./Test1";
 import PackageCard from "../../UI/PackageDetails/PackageCard";
 import PackageDrawerDetails from "../../UI/PackageDetails/PackageDrawerDetails";
 import PackageCompareCard from "../../UI/PackageCompare/PackageCompareCard";
-
+import PackageCompareDrawerDetails from "../PackageCompare/PackageCompareDrawerDetails";
 export const COMPONENTS = [
   {
     component: PackageCard,
@@ -24,13 +23,8 @@ export const COMPONENTS = [
       id: "npm",
       title: "Package Compare",
       subTitle: "Compare package download counts over time",
-      detailComponent: PackageDrawerDetails,
+      detailComponent: PackageCompareDrawerDetails,
     },
     dataGrid: { x: 3, y: 0, w: 3, h: 5, minW: 3, minH: 4 },
-  },
-  {
-    component: Test3,
-    key: "c",
-    dataGrid: { x: 4, y: 0, w: 2, h: 5, minW: 1, minH: 5 },
   },
 ];

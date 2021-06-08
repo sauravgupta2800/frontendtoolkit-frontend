@@ -7,11 +7,16 @@ const DragCard = ({
   title = "title",
   subTitle = "sub title",
   visibleDrawer = false,
-  onInfoClick,
-  onDeleteClick,
   onDrawerClose,
   ...rest
 }) => {
+  const onInfoClick = async () => {
+    console.log("info handler");
+  };
+  const onDeleteClick = () => {
+    console.log("delete handler");
+  };
+
   return (
     <WithCardDetailsDrawer
       id={id}
