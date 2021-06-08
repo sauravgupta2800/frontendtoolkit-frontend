@@ -23,6 +23,7 @@ export const COMPONENTS = [
       id: "npm",
       title: "Package Compare",
       subTitle: "Compare package download counts over time",
+      drawerWidth: 1000,
       detailComponent: PackageCompareDrawerDetails,
     },
     dataGrid: { x: 3, y: 0, w: 3, h: 5, minW: 3, minH: 4 },

@@ -28,7 +28,7 @@ const WithCardDetailsDrawer = ({
     <div className="w-100 h-100">
       {rest.children}
       <Drawer
-        width={800}
+        width={rest.drawerWidth || 800}
         visible={visible}
         title={titleNode()}
         placement="right"
