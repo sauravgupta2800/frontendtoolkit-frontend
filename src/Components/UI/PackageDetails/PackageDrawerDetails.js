@@ -56,7 +56,7 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
       {!isEmpty(state.sizeDetails) && (
         <div className="w-100">
           {/* Details row */}
-          <RowSeparator title="details" wrapClass="mb-0" />
+          <RowSeparator title="details" wrapClass="mb-1" />
           <div className="px-5">
             <div className="ft-fs-2">{state.sizeDetails.name}</div>
             {state.sizeDetails.description && (
