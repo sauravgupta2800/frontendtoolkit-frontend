@@ -2,6 +2,7 @@ import usePackageInfo from "../../customHooks/usePackageInfo";
 import PackageSearch from "./../PackageDetails/PackageSearch";
 import DownloadDropdown from "./DownloadDropdown";
 import SuggestedPackages from "./SuggestedPackages";
+import DiscoLoader from "../Common/Loader/DiscoLoader";
 
 const PackageCompareDrawerDetails = ({ ...rest }) => {
   const {
@@ -14,6 +15,7 @@ const PackageCompareDrawerDetails = ({ ...rest }) => {
 
   return (
     <div>
+      <DiscoLoader />
       <div>
         <div>
           <PackageSearch
