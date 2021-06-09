@@ -21,4 +21,13 @@ export const DROPDOWN_OPTIONS = [
   },
 ];
 
+export const COLORS = [
+  "#754fa0",
+  "#09b7bf",
+  "#90d36b",
+  "#0ab9ee",
+  "#e78c0",
+  "#ed1b72",
+];
+
 export const DEFAULT_OPTION = "2";

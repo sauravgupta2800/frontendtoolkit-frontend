@@ -5,7 +5,7 @@ const PackagePopover = ({ name, description, stars, downloads, ...rest }) => {
   const content = (
     <div>
       <p>{description}</p>
-      <p class="d-flex">
+      <p className="d-flex">
         <div className="d-flex align-items-center">
           <Icon id="star" size="tiny" />
           <div className="ft-color-dark2">{intToString(stars)}</div>
