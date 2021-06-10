@@ -195,7 +195,6 @@ const usePackageInfo = (name) => {
 
   const onPackageSelect = async (packageName) => {
     setStateWith("currentPackage", packageName);
-    console.log("packageName", packageName);
   };
 
   const onFilterSelect = (key) => {

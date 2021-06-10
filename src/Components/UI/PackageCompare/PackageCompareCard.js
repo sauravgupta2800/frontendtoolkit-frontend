@@ -8,7 +8,6 @@ const PackageCompareCard = ({ ...rest }) => {
   const [packageDetails, setPackageDetails] = useState({});
 
   const onOptionSelect = (data) => {
-    console.log("onOptionSelect", data);
     setPackageDetails({ package: data });
     setVisible(true);
   };

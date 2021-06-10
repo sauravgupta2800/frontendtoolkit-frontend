@@ -22,7 +22,6 @@ const useDynamicSVGImport = (name, options = {}) => {
         ).default;
 
         if (onCompleted) {
-          console.log("ImportedIconRef.current", ImportedIconRef.current);
           onCompleted(name, ImportedIconRef.current);
         }
       } catch (err) {
