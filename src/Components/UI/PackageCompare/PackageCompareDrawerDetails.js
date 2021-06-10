@@ -4,6 +4,7 @@ import DownloadDropdown from "./DownloadDropdown";
 import SuggestedPackages from "./SuggestedPackages";
 import SelectedPackages from "./SelectedPackages";
 import DiscoLoader from "../Common/Loader/DiscoLoader";
+import RowSeparator from "../Common/Separator/RowSeparator";
 
 const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
@@ -26,18 +27,19 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
             onOptionSelect={(name) => onPackageSelect(name)}
           />
         </div>
-        <div className="d-flex align-items-center">
-          <SelectedPackages
-            selectedPackages={packages}
-            onRemoveClick={() => {}}
-          />
-          <SuggestedPackages
-            suggestedPackages={suggestedPackages}
-            onPackageSelect={(name) => onPackageSelect(name)}
-          />
-        </div>
+      </div>
+      <div className="d-flex align-items-center my-5">
+        <SelectedPackages
+          selectedPackages={packages}
+          onRemoveClick={() => {}}
+        />
+        <SuggestedPackages
+          suggestedPackages={suggestedPackages}
+          onPackageSelect={(name) => onPackageSelect(name)}
+        />
       </div>
       <div>
+        <RowSeparator title="Select past download filter in" />
         <DownloadDropdown value={selectedFilterKey} onSelect={onFilterSelect} />
       </div>
     </div>
