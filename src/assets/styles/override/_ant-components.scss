@@ -67,3 +67,13 @@
 .ant-popover-inner-content {
   max-width: 400px;
 }
+.ant-table-wrapper {
+  border: 1px solid $prime93;
+  border-bottom-width: 0;
+  .ant-table-thead {
+    border-bottom: 1px solid $prime93;
+  }
+}
+.ant-table-thead > tr > th {
+  font-weight: 600;
+}
