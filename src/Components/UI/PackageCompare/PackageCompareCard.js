@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-
+import React from "react";
 import DragCard from "../Common/DragCard/DragCard";
 import PackageSearch from "../PackageDetails/PackageSearch";
+import { useDispatch } from "react-redux";
+import { setDrawerData } from "../../../store/cardSlice";
+import { useHistory } from "react-router-dom";
 
 const PackageCompareCard = ({ ...rest }) => {
-  const [visibleDrawer, setVisible] = useState(false);
-  const [packageDetails, setPackageDetails] = useState({});
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const onOptionSelect = (data) => {
-    setPackageDetails({ package: data });
-    setVisible(true);
-  };
-
-  const drawerCloseHandler = () => {
-    setVisible(false);
-    setPackageDetails({});
+    dispatch(setDrawerData({ package: data }));
+    history.replace(`/cards/${rest.key_name}`);
   };
 
   const contentSlot = () => {
@@ -26,14 +23,7 @@ const PackageCompareCard = ({ ...rest }) => {
   };
 
   return (
-    <DragCard
-      className="w-100 h-100"
-      visible={visibleDrawer}
-      onDrawerClose={drawerCloseHandler}
-      contentSlot={contentSlot()}
-      drawerExtraDetails={packageDetails}
-      {...rest}
-    />
+    <DragCard className="w-100 h-100" contentSlot={contentSlot()} {...rest} />
   );
 };
 

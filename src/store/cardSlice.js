@@ -7,11 +7,9 @@ export const cardSlice = createSlice({
   },
   reducers: {
     setDrawerData: (state, action) => {
-      console.log("action: ", action);
       state.details = action.payload;
     },
     resetDrawerData: (state) => {
-      console.log("state: ==> rest");
       state.details = {};
     },
   },
