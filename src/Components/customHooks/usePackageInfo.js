@@ -31,7 +31,6 @@ const usePackageInfo = (name) => {
   }, [name]);
 
   useEffect(() => {
-    console.log("package change ho gaya 1");
     const fetchPackageDetails = async (packageName) => {
       setStateWith("fetchingPackages", true);
       try {
@@ -92,11 +91,7 @@ const usePackageInfo = (name) => {
   }, [state.currentPackage]);
 
   useEffect(() => {
-    console.log("package change ho gaya 2");
     const fetchSmilarPackagesData = async (packageNames) => {
-      console.log("fetchSmilarPackagesData");
-      // const packages = cloneDeep(state.packages.map((p) => p.name));
-      console.log("packages:", state.packages);
       setStateWith("fetchingSuggestedPackages", true);
       try {
         let suggestedPackages = [];
@@ -158,7 +153,7 @@ const usePackageInfo = (name) => {
         } catch {
           //
         }
-        console.log("suggestedPackages: ", suggestedPackages);
+
         setStateWith("suggestedPackages", suggestedPackages);
       } catch {
         //
@@ -173,7 +168,26 @@ const usePackageInfo = (name) => {
 
   useEffect(() => {
     if (notInitialRender.current) {
-      console.log("selectedFilterKey");
+      const fetchDownloads = async () => {
+        const packages = state.packages.map((p) => p.name);
+        try {
+          const downloadDetails = await Promise.all(
+            packages.map((name) =>
+              getRangeDownload(name, state.selectedFilterKey)
+            )
+          );
+
+          const updatedPackages = state.packages.map((oldDetails, index) => {
+            const { downloads } = downloadDetails[index].data.data;
+            return {
+              ...oldDetails,
+              downloads,
+            };
+          });
+          setStateWith("packages", updatedPackages);
+        } catch {}
+      };
+      fetchDownloads();
     } else {
       notInitialRender.current = true;
     }
