@@ -57,3 +57,27 @@ $icon-sizes: (
     }
   }
 }
+
+.ft-table-action-icon {
+  & .ft-icon-wrapper {
+    color: #24292e;
+    &:hover {
+      // background: $prime93;
+      .ft-icon {
+        color: gray;
+      }
+    }
+  }
+}
+
+.ft-table-action-icon-red {
+  & .ft-icon-wrapper {
+    color: #cb3837;
+    &:hover {
+      // background: $prime93;
+      .ft-icon {
+        color: red;
+      }
+    }
+  }
+}
