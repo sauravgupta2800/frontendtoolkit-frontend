@@ -49,18 +49,27 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
       </div>
       <div>
         <RowSeparator title="Select past download filter in" />
-        <DownloadDropdown value={selectedFilterKey} onSelect={onFilterSelect} />
+        <div className="px-5">
+          <DownloadDropdown
+            value={selectedFilterKey}
+            onSelect={onFilterSelect}
+          />
+        </div>
       </div>
       <div>
-        <RowSeparator title="Compare Chart" />
-        <CompareChart
-          packages={packages}
-          selectedFilterKey={selectedFilterKey}
-        />
+        <RowSeparator title="Compare Chart" wrapClass="my-5" />
+        <div className="px-5">
+          <CompareChart
+            packages={packages}
+            selectedFilterKey={selectedFilterKey}
+          />
+        </div>
       </div>
       <div>
-        <RowSeparator title="Package Stats" />
-        <PackageTable packages={packages} />
+        <RowSeparator title="Package Stats" wrapClass="mt-5" />
+        <div className="px-5">
+          <PackageTable packages={packages} />
+        </div>
       </div>
     </div>
   );

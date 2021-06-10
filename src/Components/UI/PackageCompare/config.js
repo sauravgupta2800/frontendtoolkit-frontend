@@ -3,42 +3,42 @@ import moment from "moment";
 export const DROPDOWN_OPTIONS = [
   {
     title: "Last week",
-    key: "last-week",
+    key: "one-week",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(1, "weeks").format("YYYY-MM-DD"),
     timeUnit: "day",
   },
   {
     title: "1 Months",
-    key: "1",
+    key: "one-month",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(1, "months").format("YYYY-MM-DD"),
     timeUnit: "week",
   },
   {
     title: "3 Months",
-    key: "2",
+    key: "three-months",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(3, "months").format("YYYY-MM-DD"),
     timeUnit: "month",
   },
   {
     title: "6 Months",
-    key: "3",
+    key: "six-months",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(6, "months").format("YYYY-MM-DD"),
     timeUnit: "month",
   },
   {
     title: "9 Months",
-    key: "4",
+    key: "nine-months",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(9, "months").format("YYYY-MM-DD"),
     timeUnit: "month",
   },
   {
     title: "1 Year",
-    key: "5",
+    key: "one-year",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(12, "months").format("YYYY-MM-DD"),
     timeUnit: "quarter",
@@ -58,4 +58,4 @@ export const getColor = (index) => {
   return COLORS[index % COLORS.length];
 };
 
-export const DEFAULT_OPTION = "5";
+export const DEFAULT_OPTION = DROPDOWN_OPTIONS[2].key;

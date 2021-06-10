@@ -7,6 +7,7 @@ import RowSeparator from "../Common/Separator/RowSeparator";
 
 const options = {
   scales: {
+    responsive: true,
     yAxes: [
       {
         stacked: true,
