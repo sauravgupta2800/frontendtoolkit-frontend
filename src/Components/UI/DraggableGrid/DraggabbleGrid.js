@@ -39,10 +39,10 @@ const DraggableGrid = () => {
           Some content
         </div> */}
         {COMPONENTS.map((item) => (
-          <div key={item.key} data-grid={item.dataGrid}>
+          <div key={item.key_name} data-grid={item.dataGrid}>
             {React.createElement(item.component, {
-              key: item.key,
-              ...item.props,
+              key: item.key_name,
+              ...item,
             })}
           </div>
         ))}

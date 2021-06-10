@@ -9,10 +9,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./assets/styles/main.scss";
 
 import App from "./App";
-
+import store from "../src/store/store";
+import { Provider } from "react-redux";
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
