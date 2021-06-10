@@ -71,7 +71,19 @@ const columns = [
 ];
 
 const PackageTable = ({ packages }) => {
-  return <Table columns={columns} dataSource={packages} pagination={false} />;
+  return (
+    <Table
+      key="table"
+      columns={columns}
+      dataSource={packages.map((item, index) => {
+        return {
+          ...item,
+          key: index + 1,
+        };
+      })}
+      pagination={false}
+    />
+  );
 };
 
 export default PackageTable;

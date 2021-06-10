@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { DEFAULT_OPTION, getColor } from "../UI/PackageCompare/config";
 import {
   getSimilarPackage,
@@ -19,6 +19,8 @@ const usePackageInfo = (name) => {
     fetchingSuggestedPackages: false,
     selectedFilterKey: DEFAULT_OPTION,
   });
+
+  const notInitialRender = useRef(false);
 
   useEffect(() => {
     setStateWith("currentPackage", "");
@@ -168,6 +170,14 @@ const usePackageInfo = (name) => {
     if (state.currentPackage && !packages.includes(state.currentPackage))
       fetchSmilarPackagesData(packages.concat(state.currentPackage));
   }, [state.currentPackage]);
+
+  useEffect(() => {
+    if (notInitialRender.current) {
+      console.log("selectedFilterKey");
+    } else {
+      notInitialRender.current = true;
+    }
+  }, [state.selectedFilterKey]);
 
   const onPackageSelect = async (packageName) => {
     setStateWith("currentPackage", packageName);

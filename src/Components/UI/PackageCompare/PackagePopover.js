@@ -12,16 +12,20 @@ const PackagePopover = ({
     <div>
       <p>{description}</p>
       <div className="d-flex">
-        <div className="d-flex align-items-center">
-          <Icon id="star" size="tiny" />
-          <div className="ft-color-dark2">{intToString(stars)}</div>
-        </div>
-        <div className="ms-4 d-flex align-items-center">
-          <Icon id="download" size="tiny" />
-          <div className="ft-color-dark2">{`${intToString(
-            downloadsInWeek
-          )} / week`}</div>
-        </div>
+        {stars && (
+          <div className="d-flex align-items-center">
+            <Icon id="star" size="tiny" />
+            <div className="ft-color-dark2">{intToString(stars)}</div>
+          </div>
+        )}
+        {downloadsInWeek && (
+          <div className="ms-4 d-flex align-items-center">
+            <Icon id="download" size="tiny" />
+            <div className="ft-color-dark2">{`${intToString(
+              downloadsInWeek
+            )} / week`}</div>
+          </div>
+        )}
       </div>
     </div>
   );
