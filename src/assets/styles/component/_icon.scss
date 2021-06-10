@@ -81,3 +81,14 @@ $icon-sizes: (
     }
   }
 }
+
+.ft-card-action-icon-prime {
+  & .ft-icon-wrapper {
+    color: $prime-shade-62;
+    &:hover {
+      .ft-icon {
+        color: $prime;
+      }
+    }
+  }
+}

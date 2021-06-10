@@ -49,6 +49,7 @@ const usePackageInfo = (name) => {
             created_at,
             open_issues_count: issues,
             watchers_count: stars,
+            homepage,
           } = response[1].data.data;
 
           const { downloads: downloadsInWeek } = response[2].data.data;
@@ -64,6 +65,7 @@ const usePackageInfo = (name) => {
             stars,
             created_at,
             issues,
+            homepage,
           };
 
           setStateWith(
@@ -139,6 +141,7 @@ const usePackageInfo = (name) => {
               created_at,
               open_issues_count: issues,
               watchers_count: stars,
+              homepage,
             } = repoResponse[index].data.data;
             return {
               ...item,
@@ -147,6 +150,7 @@ const usePackageInfo = (name) => {
               created_at,
               issues,
               stars,
+              homepage,
             };
           });
         } catch {

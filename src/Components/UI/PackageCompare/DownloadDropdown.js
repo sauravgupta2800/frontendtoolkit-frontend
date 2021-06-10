@@ -19,7 +19,9 @@ const DownloadDropdown = ({ value, onSelect }) => {
   );
 
   const getTitle = () => {
-    return DROPDOWN_OPTIONS.find((option) => option.key === value).title;
+    const { title } =
+      DROPDOWN_OPTIONS.find((option) => option.key === value) || {};
+    return title || "";
   };
 
   return (

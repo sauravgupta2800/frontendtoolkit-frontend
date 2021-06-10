@@ -46,7 +46,7 @@ const columns = [
       <div className="d-flex">
         <div className="ft-table-action-icon">
           <a href={record.repository} target="_blank" rel="noreferrer">
-            <Icon id="github" />
+            <Icon title="repository link" id="github" />
           </a>
         </div>
         <div className="ms-3 ft-table-action-icon-red">
@@ -55,9 +55,16 @@ const columns = [
             target="_blank"
             rel="noreferrer"
           >
-            <Icon id="npm" />
+            <Icon title="npm page" id="npm" />
           </a>
         </div>
+        {record.homepage && (
+          <div className="ms-3 ft-table-action-icon-prime">
+            <a href={record.homepage} target="_blank" rel="noreferrer">
+              <Icon title="homepage" id="home" />
+            </a>
+          </div>
+        )}
       </div>
     ),
   },
