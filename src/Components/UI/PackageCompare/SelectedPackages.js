@@ -10,7 +10,7 @@ export const SelectedPackage = ({
     <PackagePopover {...packageDetails} key={packageDetails.name}>
       <div
         size="large"
-        className={`selected-btns me-3 d-flex align-items-center justify-content-center px-4 rounded-3 ${wrapClass}`}
+        className={`selected-btns me-3 d-flex align-items-center justify-content-center px-4 rounded-3 mb-2 ${wrapClass}`}
         style={{ color: packageDetails.color }}
       >
         <span className="fs-3">{packageDetails.name}</span>
@@ -26,7 +26,7 @@ export const SelectedPackage = ({
 
 const SelectedPackages = ({ selectedPackages = [], onRemoveClick }) => {
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-wrap">
       {selectedPackages.map((packageDetails) => (
         <SelectedPackage
           key={packageDetails.name}

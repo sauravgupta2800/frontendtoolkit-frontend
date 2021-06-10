@@ -8,7 +8,7 @@ export const SuggestedPackage = ({ packageDetails, onPackageSelect }) => {
       <Button
         type="text"
         size="large"
-        className="me-3"
+        className="me-3 mb-2"
         onClick={() => onPackageSelect(packageDetails.name)}
       >
         <div className="d-flex align-items-center justify-content-center">
@@ -22,7 +22,7 @@ export const SuggestedPackage = ({ packageDetails, onPackageSelect }) => {
 
 const SuggestedPackages = ({ suggestedPackages = [], onPackageSelect }) => {
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-wrap">
       {suggestedPackages.map((packageDetails) => (
         <SuggestedPackage
           key={packageDetails.name}
