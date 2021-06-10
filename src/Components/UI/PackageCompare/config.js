@@ -2,6 +2,13 @@ import moment from "moment";
 
 export const DROPDOWN_OPTIONS = [
   {
+    title: "Last week",
+    key: "last-week",
+    end: moment().format("YYYY-MM-DD"),
+    start: moment().subtract(1, "weeks").format("YYYY-MM-DD"),
+    timeUnit: "day",
+  },
+  {
     title: "1 Months",
     key: "1",
     end: moment().format("YYYY-MM-DD"),
@@ -12,14 +19,14 @@ export const DROPDOWN_OPTIONS = [
     title: "3 Months",
     key: "2",
     end: moment().format("YYYY-MM-DD"),
-    start: moment().subtract(2, "months").format("YYYY-MM-DD"),
+    start: moment().subtract(3, "months").format("YYYY-MM-DD"),
     timeUnit: "month",
   },
   {
     title: "6 Months",
     key: "3",
     end: moment().format("YYYY-MM-DD"),
-    start: moment().subtract(3, "months").format("YYYY-MM-DD"),
+    start: moment().subtract(6, "months").format("YYYY-MM-DD"),
     timeUnit: "month",
   },
   {
@@ -27,7 +34,7 @@ export const DROPDOWN_OPTIONS = [
     key: "4",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(9, "months").format("YYYY-MM-DD"),
-    timeUnit: "quarter",
+    timeUnit: "month",
   },
   {
     title: "1 Year",

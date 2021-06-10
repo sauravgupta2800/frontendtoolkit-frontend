@@ -40,10 +40,12 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
           selectedPackages={packages}
           onRemoveClick={() => {}}
         />
-        <SuggestedPackages
-          suggestedPackages={suggestedPackages}
-          onPackageSelect={(name) => onPackageSelect(name)}
-        />
+        {!fetchingSuggestedPackages && (
+          <SuggestedPackages
+            suggestedPackages={suggestedPackages}
+            onPackageSelect={(name) => onPackageSelect(name)}
+          />
+        )}
       </div>
       <div>
         <RowSeparator title="Select past download filter in" />
@@ -51,7 +53,10 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
       </div>
       <div>
         <RowSeparator title="Compare Chart" />
-        <CompareChart packages={packages} />
+        <CompareChart
+          packages={packages}
+          selectedFilterKey={selectedFilterKey}
+        />
       </div>
       <div>
         <RowSeparator title="Package Stats" />
