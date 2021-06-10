@@ -5,6 +5,7 @@ import SuggestedPackages from "./SuggestedPackages";
 import SelectedPackages from "./SelectedPackages";
 import DiscoLoader from "../Common/Loader/DiscoLoader";
 import RowSeparator from "../Common/Separator/RowSeparator";
+import PackageTable from "./PackageTable";
 
 const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
@@ -41,6 +42,10 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
       <div>
         <RowSeparator title="Select past download filter in" />
         <DownloadDropdown value={selectedFilterKey} onSelect={onFilterSelect} />
+      </div>
+      <div>
+        <RowSeparator title="Package Stats" />
+        <PackageTable packages={packages} />
       </div>
     </div>
   );
