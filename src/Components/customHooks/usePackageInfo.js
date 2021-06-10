@@ -171,7 +171,7 @@ const usePackageInfo = (name) => {
   };
 
   const onFilterSelect = (key) => {
-    setStateWith("selectedFilter", key);
+    setStateWith("selectedFilterKey", key);
   };
 
   const setStateWith = (key, value) => {
