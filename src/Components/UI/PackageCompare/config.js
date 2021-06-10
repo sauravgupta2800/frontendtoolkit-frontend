@@ -6,30 +6,35 @@ export const DROPDOWN_OPTIONS = [
     key: "1",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(1, "months").format("YYYY-MM-DD"),
+    timeUnit: "week",
   },
   {
     title: "3 Months",
     key: "2",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(2, "months").format("YYYY-MM-DD"),
+    timeUnit: "month",
   },
   {
     title: "6 Months",
     key: "3",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(3, "months").format("YYYY-MM-DD"),
+    timeUnit: "month",
   },
   {
     title: "9 Months",
     key: "4",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(9, "months").format("YYYY-MM-DD"),
+    timeUnit: "quarter",
   },
   {
     title: "1 Year",
     key: "5",
     end: moment().format("YYYY-MM-DD"),
     start: moment().subtract(12, "months").format("YYYY-MM-DD"),
+    timeUnit: "quarter",
   },
 ];
 
@@ -46,4 +51,4 @@ export const getColor = (index) => {
   return COLORS[index % COLORS.length];
 };
 
-export const DEFAULT_OPTION = "2";
+export const DEFAULT_OPTION = "5";

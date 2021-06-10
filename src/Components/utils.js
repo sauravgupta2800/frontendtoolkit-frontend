@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const getFromLS = (key) => {
   let ls = {};
   if (global.localStorage) {
@@ -48,4 +50,25 @@ export const intToString = (value) => {
     shortValue = shortValue.toFixed(1);
   }
   return shortValue + suffixes[suffixNum];
+};
+
+export const groupDownloadsByPeriod = (dates, period = "week") => {
+  const downloadsGroupedByPeriod = {};
+
+  dates.forEach((date) => {
+    const startOfPeriodDate = moment(date.day)
+      .startOf(period)
+      .format("YYYY-MM-DD");
+
+    downloadsGroupedByPeriod[startOfPeriodDate] = downloadsGroupedByPeriod[
+      startOfPeriodDate
+    ]
+      ? downloadsGroupedByPeriod[startOfPeriodDate] + date.downloads
+      : date.downloads;
+  });
+
+  return Object.entries(downloadsGroupedByPeriod).map(([key, value]) => ({
+    period: moment(key).format("YYYY-MM-DD"),
+    downloads: value,
+  }));
 };
