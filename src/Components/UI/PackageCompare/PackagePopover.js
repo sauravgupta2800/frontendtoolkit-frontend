@@ -1,7 +1,13 @@
 import Icon from "./../Common/Icon/Icon";
 import { Popover } from "antd";
 import { intToString } from "../../utils";
-const PackagePopover = ({ name, description, stars, downloads, ...rest }) => {
+const PackagePopover = ({
+  name,
+  description,
+  stars,
+  downloadsInWeek,
+  ...rest
+}) => {
   const content = (
     <div>
       <p>{description}</p>
@@ -13,7 +19,7 @@ const PackagePopover = ({ name, description, stars, downloads, ...rest }) => {
         <div className="ms-4 d-flex align-items-center">
           <Icon id="download" size="tiny" />
           <div className="ft-color-dark2">{`${intToString(
-            downloads
+            downloadsInWeek
           )} / week`}</div>
         </div>
       </div>

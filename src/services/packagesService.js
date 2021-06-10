@@ -1,7 +1,7 @@
 import axios from "axios";
 import { PACKAGE } from "../shared/endpoints";
 import queryString from "query-string";
-
+import { DROPDOWN_OPTIONS } from "./../Components/UI/PackageCompare/config";
 /*
 
 
@@ -42,6 +42,17 @@ export const getDetails = (packageName) => {
 export const getWeeklyDownload = (packageName) => {
   return axios.get(PACKAGE.PACKAGE_DOWNLOADS, {
     params: { period: "last-week", package: packageName, type: "point" },
+  });
+};
+
+export const getRangeDownload = (packageName, key) => {
+  const getDate = () => {
+    const { start, end } =
+      DROPDOWN_OPTIONS.find((option) => option.key === key) || {};
+    return `${start}:${end}`;
+  };
+  return axios.get(PACKAGE.PACKAGE_DOWNLOADS, {
+    params: { period: getDate(), package: packageName },
   });
 };
 

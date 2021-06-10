@@ -2,33 +2,43 @@ import usePackageInfo from "../../customHooks/usePackageInfo";
 import PackageSearch from "./../PackageDetails/PackageSearch";
 import DownloadDropdown from "./DownloadDropdown";
 import SuggestedPackages from "./SuggestedPackages";
+import SelectedPackages from "./SelectedPackages";
 import DiscoLoader from "../Common/Loader/DiscoLoader";
 
-const PackageCompareDrawerDetails = ({ ...rest }) => {
+const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
     packages,
     suggestedPackages,
-    selectedFilter,
+    fetchingPackages,
+    fetchingSuggestedPackages,
+    selectedFilterKey,
     onFilterSelect,
     onPackageSelect,
-  } = usePackageInfo();
+  } = usePackageInfo(drawerExtraDetails.package);
 
   return (
     <div>
-      <DiscoLoader />
+      {(fetchingSuggestedPackages || fetchingPackages) && <DiscoLoader />}
       <div>
         <div>
           <PackageSearch
             clearOnSelect={true}
-            onOptionSelect={onPackageSelect}
+            onOptionSelect={(name) => onPackageSelect(name)}
           />
         </div>
-        <div>
-          <SuggestedPackages suggestedPackages={suggestedPackages} />
+        <div className="d-flex align-items-center">
+          <SelectedPackages
+            selectedPackages={packages}
+            onRemoveClick={() => {}}
+          />
+          <SuggestedPackages
+            suggestedPackages={suggestedPackages}
+            onPackageSelect={(name) => onPackageSelect(name)}
+          />
         </div>
       </div>
       <div>
-        <DownloadDropdown value={selectedFilter} onSelect={onFilterSelect} />
+        <DownloadDropdown value={selectedFilterKey} onSelect={onFilterSelect} />
       </div>
     </div>
   );
