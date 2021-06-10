@@ -18,6 +18,7 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
     selectedFilterKey,
     onFilterSelect,
     onPackageSelect,
+    onPackageRemove,
   } = usePackageInfo(drawerExtraDetails.package);
 
   return (
@@ -38,7 +39,7 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
       <div className="d-flex align-items-center flex-wrap my-3">
         <SelectedPackages
           selectedPackages={packages}
-          onRemoveClick={() => {}}
+          onRemoveClick={onPackageRemove}
         />
         {!fetchingSuggestedPackages && (
           <SuggestedPackages
@@ -56,15 +57,19 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
           />
         </div>
       </div>
-      <div>
-        <RowSeparator title="Compare Chart" wrapClass="my-5" />
-        <div className="px-5">
-          <CompareChart
-            packages={packages}
-            selectedFilterKey={selectedFilterKey}
-          />
+      {packages.length ? (
+        <div>
+          <RowSeparator title="Compare Chart" wrapClass="my-5" />
+          <div className="px-5">
+            <CompareChart
+              packages={packages}
+              selectedFilterKey={selectedFilterKey}
+            />
+          </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
       <div>
         <RowSeparator title="Package Stats" wrapClass="mt-5" />
         <div className="px-5">

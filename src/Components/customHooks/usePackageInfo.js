@@ -197,6 +197,11 @@ const usePackageInfo = (name) => {
     setStateWith("currentPackage", packageName);
   };
 
+  const onPackageRemove = (name) => {
+    const updatedPackages = state.packages.filter((item) => item.name !== name);
+    setStateWith("packages", updatedPackages);
+  };
+
   const onFilterSelect = (key) => {
     setStateWith("selectedFilterKey", key);
   };
@@ -214,6 +219,7 @@ const usePackageInfo = (name) => {
     ...state,
     onFilterSelect,
     onPackageSelect,
+    onPackageRemove,
   };
 };
 

@@ -31,7 +31,7 @@ const SelectedPackages = ({ selectedPackages = [], onRemoveClick }) => {
         <SelectedPackage
           key={packageDetails.name}
           packageDetails={packageDetails}
-          onRemoveClick={onRemoveClick}
+          onRemoveClick={() => onRemoveClick(packageDetails.name)}
         />
       ))}
     </div>
