@@ -82,12 +82,12 @@ $icon-sizes: (
   }
 }
 
-.ft-card-action-icon-prime {
+.ft-table-action-icon-prime {
   & .ft-icon-wrapper {
-    color: $prime93;
+    color: $prime-shade-45;
     &:hover {
       .ft-icon {
-        color: $prime97;
+        color: $prime-shade-65;
       }
     }
   }
