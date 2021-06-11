@@ -8,6 +8,7 @@ import RowSeparator from "../Common/Separator/RowSeparator";
 import PackageTable from "./PackageTable";
 import CompareChart from "./CompareChart";
 import Title from "./Title";
+import EmptyState from "./EmptyState";
 
 const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
@@ -48,34 +49,41 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
           />
         )}
       </div>
-      <div>
-        <RowSeparator title="Select past download filter in" />
-        <div className="px-5">
-          <DownloadDropdown
-            value={selectedFilterKey}
-            onSelect={onFilterSelect}
-          />
-        </div>
-      </div>
       {packages.length ? (
         <div>
-          <RowSeparator title="Compare Chart" wrapClass="my-5" />
-          <div className="px-5">
-            <CompareChart
-              packages={packages}
-              selectedFilterKey={selectedFilterKey}
-            />
+          <div>
+            <RowSeparator title="Select past download filter in" />
+            <div className="px-5">
+              <DownloadDropdown
+                value={selectedFilterKey}
+                onSelect={onFilterSelect}
+              />
+            </div>
+          </div>
+
+          <div>
+            <RowSeparator title="Compare Chart" wrapClass="my-5" />
+            <div className="px-5">
+              <CompareChart
+                packages={packages}
+                selectedFilterKey={selectedFilterKey}
+              />
+            </div>
+          </div>
+
+          <div>
+            <RowSeparator title="Package Stats" wrapClass="mt-5" />
+            <div className="px-5">
+              <PackageTable packages={packages} />
+            </div>
           </div>
         </div>
       ) : (
-        ""
+        <EmptyState
+          iconId="clipboard"
+          title="Please type and/or select some of the packages to view the details"
+        />
       )}
-      <div>
-        <RowSeparator title="Package Stats" wrapClass="mt-5" />
-        <div className="px-5">
-          <PackageTable packages={packages} />
-        </div>
-      </div>
     </div>
   );
 };
