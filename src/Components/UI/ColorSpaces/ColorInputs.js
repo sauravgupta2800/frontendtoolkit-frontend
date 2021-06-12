@@ -3,10 +3,12 @@ import { Input } from "antd";
 import { INPUT_VALUES } from "./config";
 import Icon from "../Common/Icon/Icon";
 import { fixedDecimal, fixedDecimalNoRoundOff } from "./../../utils";
+import { useClipboard } from "use-clipboard-copy";
 
 const ColorInputs = ({ onValueChange, ...rest }) => {
   const [originalValues, setOriginal] = useState({});
   const [currentValues, setCurrent] = useState({});
+  const clipboard = useClipboard({ copiedTimeout: 750 });
 
   useEffect(() => {
     const { rgb: rgba, hsl: hsla, hex } = rest;
@@ -31,11 +33,20 @@ const ColorInputs = ({ onValueChange, ...rest }) => {
     setCurrent(calculatedValues);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rest.rgb, rest.hex, rest.hsl]);
-  const addOnAfter = () => {
+
+  const addOnAfter = (key) => {
+    const value = `${currentValues[key]}`;
     return (
       <div>
         <div className="ft-table-action-icon-prime ">
-          <Icon id="copy-clipboard" size="sm" title="Copy to Clipboard" />
+          <Icon
+            id="copy-clipboard"
+            size="sm"
+            title={
+              clipboard.copied ? "Copied to Clipboard" : "Copy to Clipboard"
+            }
+            onClick={() => clipboard.copy(value)}
+          />
         </div>
       </div>
     );
@@ -69,7 +80,7 @@ const ColorInputs = ({ onValueChange, ...rest }) => {
             <Input
               placeholder={item.placeholder}
               size="large"
-              addonAfter={addOnAfter()}
+              addonAfter={addOnAfter(item.valueKey)}
               onBlur={(event) =>
                 handleOnBlur({
                   key: item.valueKey,
