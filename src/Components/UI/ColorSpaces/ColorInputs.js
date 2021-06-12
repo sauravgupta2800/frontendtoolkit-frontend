@@ -1,8 +1,36 @@
+import { useEffect, useState } from "react";
 import { Input } from "antd";
 import { INPUT_VALUES } from "./config";
 import Icon from "../Common/Icon/Icon";
+import { fixedDecimal, fixedDecimalNoRoundOff } from "./../../utils";
 
-const ColorInputs = ({ values }) => {
+const ColorInputs = ({ onValueChange, ...rest }) => {
+  const [originalValues, setOriginal] = useState({});
+  const [currentValues, setCurrent] = useState({});
+
+  useEffect(() => {
+    const { rgb: rgba, hsl: hsla, hex } = rest;
+
+    const calculatedValues = {
+      hex: `${hex}`,
+      rgb: `rgb(${fixedDecimalNoRoundOff(rgba.r)},${fixedDecimalNoRoundOff(
+        rgba.g
+      )},${fixedDecimalNoRoundOff(rgba.b)})`,
+      rgba: `rgba(${fixedDecimalNoRoundOff(rgba.r)},${fixedDecimalNoRoundOff(
+        rgba.g
+      )},${fixedDecimalNoRoundOff(rgba.b)},${fixedDecimalNoRoundOff(rgba.a)})`,
+      hsl: `hsl(${fixedDecimal(hsla.h)}deg,${fixedDecimal(
+        hsla.s * 100
+      )}%,${fixedDecimal(hsla.l * 100)}%)`,
+      hsla: `hsla(${fixedDecimal(hsla.h)}deg,${fixedDecimal(
+        hsla.s * 100
+      )}%,${fixedDecimal(hsla.l * 100)}%,${fixedDecimalNoRoundOff(hsla.a)})`,
+    };
+    console.log(calculatedValues, rgba, hsla, hex);
+    setOriginal(calculatedValues);
+    setCurrent(calculatedValues);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rest.rgb, rest.hex, rest.hsl]);
   const addOnAfter = () => {
     return (
       <div>
@@ -13,25 +41,50 @@ const ColorInputs = ({ values }) => {
     );
   };
 
-  const handleOnBlur = (e) => {
-    console.log(e);
+  const handleOnBlur = ({ key, value }) => {
+    setCurrent({ ...currentValues, [key]: originalValues[key] });
   };
 
-  const handleOnChange = (e) => {};
+  const isValid = (regEx, value) => {
+    return value && regEx.test(value);
+  };
+
+  const handleOnChange = ({ key, value, regEx, prepareValue }) => {
+    setCurrent({ ...currentValues, [key]: value });
+    if (regEx.test(value)) {
+      onValueChange(prepareValue ? prepareValue(value) : value);
+    }
+  };
 
   return (
     <div className="d-flex flex-wrap justify-content-between px-5">
       {INPUT_VALUES.map((item, index) => (
         <div className="w-45 my-3" key={index}>
-          <div>{item.title}</div>
+          {isValid(item.regEx, currentValues[item.valueKey]) ? (
+            <div className="fw-bold fs-4">{item.title}</div>
+          ) : (
+            <div className="fs-4 ft-color-red">{`Invalid ${item.title}`}</div>
+          )}
           <div>
             <Input
-              placeholder="Basic usage"
+              placeholder={item.placeholder}
               size="large"
               addonAfter={addOnAfter()}
-              onBlur={handleOnBlur}
-              value={values[item.valueKey]}
-              onChange={handleOnChange}
+              onBlur={(event) =>
+                handleOnBlur({
+                  key: item.valueKey,
+                  value: event.target.value,
+                })
+              }
+              value={currentValues[item.valueKey]}
+              onChange={(event) =>
+                handleOnChange({
+                  key: item.valueKey,
+                  value: event.target.value,
+                  regEx: item.regEx,
+                  prepareValue: item.prepareValue,
+                })
+              }
             />
           </div>
         </div>
