@@ -4,19 +4,21 @@ import { useDispatch } from "react-redux";
 import { setDrawerData } from "../../../store/cardSlice";
 import { useHistory } from "react-router-dom";
 
+import CardCustomColor from "./CardCustomColor";
+
 const ColorSpacesCard = ({ ...rest }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const onOptionSelect = (data) => {
-    dispatch(setDrawerData({ package: data }));
+  const onDetailsSelect = (colorHex) => {
+    dispatch(setDrawerData({ color: colorHex }));
     history.replace(`/cards/${rest.key_name}`);
   };
 
   const contentSlot = () => {
     return (
       <div className="w-100">
-        <button onClick={() => onOptionSelect({})}>Show </button>
+        <CardCustomColor onDetailsClick={onDetailsSelect} />
       </div>
     );
   };

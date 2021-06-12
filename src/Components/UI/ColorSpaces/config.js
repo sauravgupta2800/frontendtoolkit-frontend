@@ -80,13 +80,13 @@ export const INPUT_VALUES = [
 ];
 
 export const CUSTOM_COLORS = [
-  "#FF6900",
-  "#FCB900",
-  "#7BDCB5",
-  "#00D084",
-  "#8ED1FC",
-  "#0693E3",
-  "#ABB8C3",
-  "#EB144C",
-  "#F78DA7",
+  "#ff6900",
+  "#fcB900",
+  "#7bdcb5",
+  "#00d084",
+  "#8ed1fc",
+  "#0693e3",
+  "#abb8c3",
+  "#eb144c",
+  "#f78da7",
 ];
