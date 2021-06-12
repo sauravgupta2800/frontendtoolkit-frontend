@@ -48,6 +48,6 @@ export const COMPONENTS = [
     drawerWidth: 800,
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
-    dataGrid: { x: 6, y: 0, w: 3, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 6, y: 0, w: 3.3, h: 5.4, minW: 3, minH: 5 },
   },
 ];

@@ -77,3 +77,12 @@
 .ant-table-thead > tr > th {
   font-weight: 600;
 }
+
+.custom-color-input {
+  .ant-input-group-addon {
+    padding: 0;
+  }
+  .ant-input-lg {
+    height: 42px;
+  }
+}
