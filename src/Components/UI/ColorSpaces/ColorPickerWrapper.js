@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { CustomPicker } from "react-color";
 import ColorInputs from "./ColorInputs";
 const { Saturation, Hue, Alpha } = require("react-color/lib/components/common");
 
 const ColorPickerWrapper = ({ onChange, ...rest }) => {
+  useEffect(() => {
+    if (rest.defaultColor) onChange(rest.defaultColor);
+  }, []);
+
   return (
     <div className="">
       <div className="ft-color-picker">

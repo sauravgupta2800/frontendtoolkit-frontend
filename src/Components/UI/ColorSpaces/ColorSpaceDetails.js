@@ -1,7 +1,7 @@
 import ColorPickerWrapper from "./ColorPickerWrapper";
 
-const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
-  return <ColorPickerWrapper />;
+const ColorSpaceDetails = ({ drawerExtraDetails = {} }) => {
+  return <ColorPickerWrapper defaultColor={drawerExtraDetails.color || ""} />;
 };
 
-export default PackageDrawerDetails;
+export default ColorSpaceDetails;
