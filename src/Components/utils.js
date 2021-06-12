@@ -72,3 +72,13 @@ export const groupDownloadsByPeriod = (dates, period = "week") => {
     downloads: value,
   }));
 };
+
+export const fixedDecimal = (num, fixedTill) => {
+  return num.toFixed(fixedTill);
+};
+
+export const fixedDecimalNoRoundOff = (num, fixedTill) => {
+  var re = new RegExp("(\\d+\\.\\d{" + fixedTill + "})(\\d)"),
+    m = num.toString().match(re);
+  return m ? parseFloat(m[1]) : num.valueOf();
+};
