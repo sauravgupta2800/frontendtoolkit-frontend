@@ -19,6 +19,7 @@ const WithCardDetailsDrawer = ({
           withWrapper={false}
           showCursor={false}
           iconClass={"ft-color-prime"}
+          {...(rest.iconProps || {})}
         />
         <div className="fs-1 fw-bold ms-3 ft-color-dark">{title}</div>
       </div>

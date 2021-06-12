@@ -10,7 +10,11 @@ import ColorSpaceDetails from "../ColorSpaces/ColorSpaceDetails";
 export const COMPONENTS = [
   {
     key_name: "package-search",
-    id: "npm",
+    iconProps: {
+      id: "npm",
+      size: "xl",
+      iconClass: "ft-color-red",
+    },
     title: "Package Details",
     subTitle: "find the cost of adding a npm package to your bundle",
     component: PackageCard,
@@ -19,7 +23,11 @@ export const COMPONENTS = [
   },
   {
     key_name: "package-comapre",
-    id: "npm",
+    iconProps: {
+      id: "compare",
+      size: "lgx",
+      iconClass: "ft-color-green1",
+    },
     title: "Package Compare",
     subTitle: "Compare package download counts over time",
     drawerWidth: 1000,
@@ -29,7 +37,11 @@ export const COMPONENTS = [
   },
   {
     key_name: "color-spaces",
-    id: "npm",
+    iconProps: {
+      id: "pelette",
+      size: "lgx",
+      iconClass: "ft-color-green",
+    },
     title: "Color Conversion Space",
     subTitle:
       "Select Color and cpnvert into Other Colr spaces such as Hex, RGB, HSL etc",

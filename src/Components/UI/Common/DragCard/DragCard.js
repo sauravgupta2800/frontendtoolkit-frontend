@@ -2,7 +2,6 @@ import Icon from "../Icon/Icon";
 import React from "react";
 
 const DragCard = ({
-  id = "npm",
   title = "title",
   subTitle = "sub title",
   onDrawerClose,
@@ -20,11 +19,11 @@ const DragCard = ({
       <div className="d-flex justify-content-between">
         <div className="d-flex  align-items-center">
           <Icon
-            id={id}
             size={"xl"}
             withWrapper={false}
             showCursor={false}
             iconClass={"ft-color-prime"}
+            {...(rest.iconProps || {})}
           />
           <div className="fs-2 fw-bold ms-3 ft-color-dark">{title}</div>
         </div>
