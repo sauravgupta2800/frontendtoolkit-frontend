@@ -33,7 +33,7 @@ export const COMPONENTS = [
     title: "Color Conversion Space",
     subTitle:
       "Select Color and cpnvert into Other Colr spaces such as Hex, RGB, HSL etc",
-    drawerWidth: 1000,
+    drawerWidth: 800,
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
     dataGrid: { x: 6, y: 0, w: 3, h: 5, minW: 3, minH: 4 },
