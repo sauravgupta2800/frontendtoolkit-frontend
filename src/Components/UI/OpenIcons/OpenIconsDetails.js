@@ -16,12 +16,10 @@ const OpenIconsDetails = () => {
   });
 
   useEffect(() => {
-    console.log("first call");
     const fetchIcons = async () => {
       setStateWith("loading", true);
       try {
         const { data } = await axios.get(ICONS.ICONS_LIST);
-        console.log(data);
         const { data: list } = data;
         setStateWith("list", list);
         setStateWith("filteredList", list);
@@ -85,7 +83,7 @@ const OpenIconsDetails = () => {
           className="custom-color-input w-40"
         />
       </div>
-      <div className="ft-icon-details__details">
+      <div className="ft-icon-details__details pt-1">
         {state.loading ? (
           <div className="w-100 h-100 d-flex align-items-center justify-content-center">
             <Spin size="large" />

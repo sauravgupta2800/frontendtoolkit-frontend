@@ -28,7 +28,6 @@ const ColorInputs = ({ onValueChange, ...rest }) => {
         hsla.s * 100
       )}%,${fixedDecimal(hsla.l * 100)}%,${fixedDecimalNoRoundOff(hsla.a)})`,
     };
-    console.log(calculatedValues, rgba, hsla, hex);
     setOriginal(calculatedValues);
     setCurrent(calculatedValues);
     // eslint-disable-next-line react-hooks/exhaustive-deps
