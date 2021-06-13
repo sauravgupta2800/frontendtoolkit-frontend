@@ -86,3 +86,16 @@
     height: 42px;
   }
 }
+
+.ant-spin-dot-item {
+  background: $prime;
+}
+
+.ant-btn-primary {
+  background: $prime;
+  border-color: $prime;
+  &:hover {
+    background: $prime;
+    border-color: $prime;
+  }
+}

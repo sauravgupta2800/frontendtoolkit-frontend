@@ -1,0 +1,10 @@
+.ft-icon-details {
+  width: 100%;
+  height: 100%;
+  &__header {
+    height: 4rem;
+  }
+  &__details {
+    height: calc(100% - 4rem);
+  }
+}
