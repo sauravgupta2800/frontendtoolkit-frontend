@@ -1,4 +1,4 @@
-import Icon from "../Common/Icon/Icon";
+import Icon from "../Icon/Icon";
 
 const EmptyState = ({ iconId = "clipboard", title = "" }) => {
   return (

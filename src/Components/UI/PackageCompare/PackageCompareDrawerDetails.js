@@ -8,7 +8,7 @@ import RowSeparator from "../Common/Separator/RowSeparator";
 import PackageTable from "./PackageTable";
 import CompareChart from "./CompareChart";
 import Title from "./Title";
-import EmptyState from "./EmptyState";
+import EmptyState from "../Common/EmptyState/EmptyState";
 
 const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
