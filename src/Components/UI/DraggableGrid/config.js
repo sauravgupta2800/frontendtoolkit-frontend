@@ -56,9 +56,9 @@ export const COMPONENTS = [
   {
     key_name: "icons",
     iconProps: {
-      id: "npm",
-      size: "xl",
-      iconClass: "ft-color-red",
+      id: "code-slash",
+      size: "lgx",
+      iconClass: "ft-color-blue1",
     },
     title: "Icons",
     subTitle:

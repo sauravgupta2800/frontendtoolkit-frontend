@@ -72,11 +72,11 @@ $icon-sizes: (
 
 .ft-table-action-icon {
   & .ft-icon-wrapper {
-    color: #24292e;
+    color: $dark4;
     &:hover {
       // background: $prime93;
       .ft-icon {
-        color: gray;
+        color: $dark5;
       }
     }
   }
@@ -84,11 +84,11 @@ $icon-sizes: (
 
 .ft-table-action-icon-red {
   & .ft-icon-wrapper {
-    color: #cb3837;
+    color: $red1;
     &:hover {
       // background: $prime93;
       .ft-icon {
-        color: red;
+        color: $red2;
       }
     }
   }
