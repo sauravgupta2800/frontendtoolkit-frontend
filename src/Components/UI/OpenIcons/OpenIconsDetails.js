@@ -34,6 +34,15 @@ const OpenIconsDetails = () => {
     fetchIcons();
   }, []);
 
+  useEffect(() => {
+    const query = state.query.trim().toLowerCase();
+    const filteredList = state.list.filter((item) =>
+      item.name.toLowerCase().includes(query)
+    );
+    setStateWith("filteredList", filteredList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.query]);
+
   const setStateWith = (key, value) => {
     setState((prevState) => {
       return {
@@ -65,6 +74,7 @@ const OpenIconsDetails = () => {
           value={state.query}
           size="large"
           defaultValue="mysite"
+          onChange={(event) => setStateWith("query", event.target.value)}
           className="custom-color-input w-40"
         />
       </div>
