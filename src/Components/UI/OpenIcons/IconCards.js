@@ -1,8 +1,8 @@
 const IconCards = ({ list }) => {
   return (
-    <div className="w-100 h-100 d-flex flex-wrap">
+    <div className="d-flex flex-wrap">
       {list.map((item) => (
-        <IconCard item={item} />
+        <IconCard item={item} key={item.name} />
       ))}
     </div>
   );
@@ -10,7 +10,7 @@ const IconCards = ({ list }) => {
 
 const IconCard = ({ item }) => {
   return (
-    <div className="ft-icon-card w-fit m-3">
+    <div className="ft-icon-card w-fit h-fit m-3">
       <div className="icon-wrap ft-bg-prime98 ft-style-1-shadow-hover">
         <div className="w-100 h-100 d-flex align-items-center justify-content-center rounded-3">
           <img

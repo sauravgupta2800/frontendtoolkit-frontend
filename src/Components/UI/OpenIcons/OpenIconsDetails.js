@@ -67,7 +67,14 @@ const OpenIconsDetails = () => {
   return (
     <div className="ft-icon-details w-100 h-100">
       <div className="ft-icon-details__header d-flex justify-content-between align-items-center">
-        <div className="fs-3">{`Total Icons: ${123}`}</div>
+        <div className="fs-5 d-flex align-items-center">
+          {!state.loading && (
+            <>
+              <div className="fs-4 d-flex me-3">Showing Results: </div>
+              <div className="fs-3 d-flex ft-color-dark2">{`${state.filteredList.length} / ${state.list.length}`}</div>
+            </>
+          )}
+        </div>
         <Input
           placeholder="Search Icons"
           addonAfter={addOnAfter()}
