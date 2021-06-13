@@ -49,16 +49,13 @@ const CardCustomColor = ({ onDetailsClick, onChange, ...rest }) => {
     return (
       <Tooltip title="Details">
         <div
-          className="d-flex align-items-center justify-content-center px-2  rounded-end ft-bg-prime93"
+          className="d-flex align-items-center justify-content-center px-2 cursor-pointer  rounded-end ft-bg-prime93"
           style={{
             height: "40px",
           }}
+          onClick={() => onDetailsClick(originalValue)}
         >
-          <Icon
-            id="detail-more"
-            iconClass="ft-color-dark2"
-            onClick={() => onDetailsClick(originalValue)}
-          />
+          <Icon id="detail-more" iconClass="ft-color-dark2" />
         </div>
       </Tooltip>
     );
