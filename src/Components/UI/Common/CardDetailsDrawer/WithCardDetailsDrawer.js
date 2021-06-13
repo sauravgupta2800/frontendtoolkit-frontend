@@ -43,7 +43,7 @@ const WithCardDetailsDrawer = ({
         }
       >
         {visible && detailComponent && (
-          <div>
+          <div className="w-100 h-100">
             {React.createElement(detailComponent, {
               ...rest,
             })}

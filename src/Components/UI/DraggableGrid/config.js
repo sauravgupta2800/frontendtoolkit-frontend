@@ -7,6 +7,9 @@ import PackageCompareDrawerDetails from "../PackageCompare/PackageCompareDrawerD
 import ColorSpacesCard from "../ColorSpaces/ColorSpacesCard";
 import ColorSpaceDetails from "../ColorSpaces/ColorSpaceDetails";
 
+import OpenIconCard from "../OpenIcons/OpenIconCard";
+import OpenIconsDetails from "../OpenIcons/OpenIconsDetails";
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -49,5 +52,19 @@ export const COMPONENTS = [
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
     dataGrid: { x: 6, y: 0, w: 3.3, h: 5.4, minW: 3, minH: 5 },
+  },
+  {
+    key_name: "icons",
+    iconProps: {
+      id: "npm",
+      size: "xl",
+      iconClass: "ft-color-red",
+    },
+    title: "Icons",
+    subTitle:
+      "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
+    component: OpenIconCard,
+    detailComponent: OpenIconsDetails,
+    dataGrid: { x: 10, y: 0, w: 2.7, h: 5, minW: 2.7, minH: 4 },
   },
 ];

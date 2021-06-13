@@ -8,3 +8,7 @@ export const PACKAGE = {
   PACKAGE_DOWNLOADS: `${base}packages/downloads`, //https://github.com/npm/registry/blob/master/docs/download-counts.md
   PACKAGE_GIT_REPO: `${base}packages/repos`,
 };
+
+export const ICONS = {
+  ICONS_LIST: `${base}icons`,
+};

@@ -14,10 +14,10 @@ const Icon = ({
 }) => {
   const { error, loading, SvgIcon } = useDynamicSVGImport(id);
   if (error) {
-    return "error.message";
+    return "";
   }
   if (loading) {
-    return "Loading...";
+    return "";
   }
   if (SvgIcon) {
     return (
