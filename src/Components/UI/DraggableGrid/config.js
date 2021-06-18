@@ -10,6 +10,9 @@ import ColorSpaceDetails from "../ColorSpaces/ColorSpaceDetails";
 import OpenIconCard from "../OpenIcons/OpenIconCard";
 import OpenIconsDetails from "../OpenIcons/OpenIconsDetails";
 
+import Base64Card from "../Base64/Base64Card";
+import BaseExtraDetails from "../Base64/Base64Details";
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -66,5 +69,19 @@ export const COMPONENTS = [
     component: OpenIconCard,
     detailComponent: OpenIconsDetails,
     dataGrid: { x: 10, y: 0, w: 2.7, h: 5, minW: 2.7, minH: 4 },
+  },
+  {
+    key_name: "base-64",
+    iconProps: {
+      id: "code-slash",
+      size: "lgx",
+      iconClass: "ft-color-blue1",
+    },
+    title: "Base 64",
+    subTitle:
+      "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
+    component: Base64Card,
+    detailComponent: BaseExtraDetails,
+    dataGrid: { x: 0, y: 5, w: 2.7, h: 5, minW: 2.7, minH: 4 },
   },
 ];
