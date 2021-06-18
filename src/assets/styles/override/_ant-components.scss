@@ -99,3 +99,23 @@
     border-color: $prime;
   }
 }
+
+.ant-radio-group-solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: $prime;
+  border-color: $prime;
+  &:hover {
+    background: $prime;
+    border-color: $prime;
+  }
+}
+
+.ant-switch-checked {
+  background: $prime;
+}
+
+.ant-input-textarea {
+  &:hover {
+    border-color: $prime;
+  }
+}
