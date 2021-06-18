@@ -132,7 +132,10 @@ const Base64Details = ({ drawerExtraDetails }) => {
           size="large"
           disabled={state.liveConversion}
         >
-          {DATA[state.selectedType].btnTitle}
+          <div className="d-flex">
+            <Icon id={DATA[state.selectedType].iconId} size="sm" />
+            <div>{DATA[state.selectedType].btnTitle}</div>
+          </div>
         </Button>
       </div>
       <div className="mb-5 w-100">
