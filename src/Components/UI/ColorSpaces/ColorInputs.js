@@ -40,8 +40,8 @@ const ColorInputs = ({ onValueChange, ...rest }) => {
       <div>
         <div className="ft-table-action-icon-prime ">
           <Icon
-            id="copy-clipboard"
-            size="sm"
+            id="copy"
+            size="md"
             title={
               clipboard.copied ? "Copied to Clipboard" : "Copy to Clipboard"
             }
