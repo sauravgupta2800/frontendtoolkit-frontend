@@ -91,9 +91,9 @@ export const COMPONENTS = [
   {
     key_name: "encode-decode-base64",
     iconProps: {
-      id: "scan",
+      id: "shield",
       size: "lgx",
-      iconClass: "ft-color-green2",
+      iconClass: "ft-color-dark3",
     },
 
     title: "Base 64 Converter",
