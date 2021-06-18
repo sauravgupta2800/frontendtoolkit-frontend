@@ -109,7 +109,7 @@ const Base64Details = ({ drawerExtraDetails }) => {
           {DATA[state.selectedType].inputTitle}
         </div>
         <Input.TextArea
-          className="border rounded border-1 ft-style-1-shadow"
+          className="rounded ft-style-2-shadow"
           showCount
           value={state.inputValue}
           onChange={(evt) => onInputChange(evt.target.value)}
@@ -152,7 +152,7 @@ const Base64Details = ({ drawerExtraDetails }) => {
         </div>
         <Input.TextArea
           showCount
-          className="border rounded border-1 ft-style-1-shadow"
+          className="rounded ft-style-2-shadow"
           value={state.resultValue}
           onChange={(evt) => onResultChange(evt.target.value)}
           autoSize={{ minRows: 7 }}
