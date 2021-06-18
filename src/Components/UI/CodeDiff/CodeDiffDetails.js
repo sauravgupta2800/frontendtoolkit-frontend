@@ -130,7 +130,7 @@ const CodeDiffDetails = ({ drawerExtraDetails }) => {
             <EmptyState
               wrapClass="w-50"
               iconId="code-slash"
-              title="Please enter Original and Changed text then press Find Difference button to see the code differences."
+              title="Please enter Original and Changed text then press Find Difference button to see the code differences here."
             />
           </div>
         )}
