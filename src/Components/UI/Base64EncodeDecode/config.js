@@ -16,6 +16,7 @@ export const DATA = {
     inputPlaceholder: "Enter Plain data",
     resultPlaceholder: "Base64 from Plain text",
     btnTitle: "Encode",
+    switchText: "Live Encoding",
   },
   decode: {
     inputTitle: "Enter the text to Base64 Decode:",
@@ -23,5 +24,6 @@ export const DATA = {
     inputPlaceholder: "Enter Base64 Encoded data",
     resultPlaceholder: "Plain text from Base64",
     btnTitle: "Decode",
+    switchText: "Live Decoding",
   },
 };
