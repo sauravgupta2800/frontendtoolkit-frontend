@@ -10,8 +10,8 @@ import ColorSpaceDetails from "../ColorSpaces/ColorSpaceDetails";
 import OpenIconCard from "../OpenIcons/OpenIconCard";
 import OpenIconsDetails from "../OpenIcons/OpenIconsDetails";
 
-import Base64Card from "../Base64/Base64Card";
-import BaseExtraDetails from "../Base64/Base64Details";
+import CodeDiffCard from "../CodeDiff/CodeDiffCard";
+import CodeDiffDetails from "../CodeDiff/CodeDiffDetails";
 
 export const COMPONENTS = [
   {
@@ -71,17 +71,18 @@ export const COMPONENTS = [
     dataGrid: { x: 10, y: 0, w: 2.7, h: 5, minW: 2.7, minH: 4 },
   },
   {
-    key_name: "base-64",
+    key_name: "code-diff",
     iconProps: {
       id: "code-slash",
       size: "lgx",
       iconClass: "ft-color-blue1",
     },
-    title: "Base 64",
+    drawerWidth: 1100,
+    title: "Code Diff",
     subTitle:
-      "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
-    component: Base64Card,
-    detailComponent: BaseExtraDetails,
+      "Code Diff is a tool to compare text differences between two text files. Enter the contents of two files and click Find Difference",
+    component: CodeDiffCard,
+    detailComponent: CodeDiffDetails,
     dataGrid: { x: 0, y: 5, w: 2.7, h: 5, minW: 2.7, minH: 4 },
   },
 ];
