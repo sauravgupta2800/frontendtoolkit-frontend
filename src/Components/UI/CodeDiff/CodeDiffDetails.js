@@ -1,6 +1,7 @@
 import Editor, { DiffEditor } from "@monaco-editor/react";
 import { Button, Spin } from "antd";
 import { useState } from "react";
+import EmptyState from "../Common/EmptyState/EmptyState";
 
 const options = {
   quickSuggestions: {
@@ -113,16 +114,26 @@ const CodeDiffDetails = ({ drawerExtraDetails }) => {
         </Button>
       </div>
       <div className="pb-5">
-        <div className="border rounded border-1 ft-style-2-shadow">
-          <DiffEditor
-            height="300px"
-            original={state.diffOriginalText}
-            modified={state.diffChangedText}
-            keepCurrentOriginalModel={true}
-            options={options}
-            loading={<Spin size="large" />}
-          />
-        </div>
+        {state.diffOriginalText || state.diffChangedText ? (
+          <div className="border rounded border-1 ft-style-2-shadow">
+            <DiffEditor
+              height="300px"
+              original={state.diffOriginalText}
+              modified={state.diffChangedText}
+              keepCurrentOriginalModel={true}
+              options={options}
+              loading={<Spin size="large" />}
+            />
+          </div>
+        ) : (
+          <div className="d-flex justify-content-center">
+            <EmptyState
+              wrapClass="w-50"
+              iconId="code-slash"
+              title="Please enter Original and Changed text then press Find Difference button to see the code differences."
+            />
+          </div>
+        )}
       </div>
     </div>
   );

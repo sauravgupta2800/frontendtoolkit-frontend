@@ -91,6 +91,7 @@ const OpenIconsDetails = () => {
         ) : !state.filteredList.length ? (
           <div className="w-100 h-100 d-flex align-items-center justify-content-center">
             <EmptyState
+              wrapClass="w-75"
               iconId="emoji-expresseionless"
               title="No matching icons available"
             />
