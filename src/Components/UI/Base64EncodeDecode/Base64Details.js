@@ -17,6 +17,13 @@ const Base64Details = ({ drawerExtraDetails }) => {
   });
 
   useEffect(() => {
+    if (drawerExtraDetails?.type ?? false) {
+      setStateWith("selectedType", drawerExtraDetails.type);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     if (state.inputValue && state.liveConversion) {
       if (state.selectedType === "encode") {
         setStateWith(
@@ -84,7 +91,7 @@ const Base64Details = ({ drawerExtraDetails }) => {
     <div className="w-100 h-100">
       <div className="d-flex justify-content-center w-100">
         <Radio.Group
-          defaultValue={state.selectedType}
+          value={state.selectedType}
           size="large"
           buttonStyle="solid"
           onChange={(e) => onChange(e.target.value)}
