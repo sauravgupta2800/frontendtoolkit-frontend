@@ -6,6 +6,7 @@ const { Saturation, Hue, Alpha } = require("react-color/lib/components/common");
 const ColorPickerWrapper = ({ onChange, ...rest }) => {
   useEffect(() => {
     if (rest.defaultColor) onChange(rest.defaultColor);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

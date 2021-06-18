@@ -20,6 +20,7 @@ const CompareChart = ({ packages = [], selectedFilterKey }) => {
     },
   });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const loadChart = useCallback(() => {
     if (packages.length) {
       let labels = [];
