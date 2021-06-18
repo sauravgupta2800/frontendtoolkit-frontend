@@ -73,9 +73,9 @@ export const COMPONENTS = [
   {
     key_name: "code-diff",
     iconProps: {
-      id: "code-slash",
+      id: "scan",
       size: "lgx",
-      iconClass: "ft-color-blue1",
+      iconClass: "ft-color-green2",
     },
     drawerWidth: 1100,
     title: "Code Diff",

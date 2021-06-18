@@ -1,6 +1,7 @@
-import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
-import { Button } from "antd";
+import Editor, { DiffEditor } from "@monaco-editor/react";
+import { Button, Spin } from "antd";
 import { useState } from "react";
+
 const options = {
   quickSuggestions: {
     other: false,
@@ -43,7 +44,7 @@ const options = {
 //   lineNumbersMinChars: 0,
 //   },
 // };
-const BaseExtraDetails = ({ drawerExtraDetails }) => {
+const CodeDiffDetails = ({ drawerExtraDetails }) => {
   const [state, setState] = useState({
     originalText: "",
     changedText: "",
@@ -77,10 +78,11 @@ const BaseExtraDetails = ({ drawerExtraDetails }) => {
           <div className=" text-center fs-3 fw-bold mb-2">Original text</div>
           <div className="border rounded border-1 ft-style-2-shadow">
             <Editor
-              height="330px"
+              height="300px"
               defaultLanguage="javascript"
               defaultValue={state.originalText}
               //theme={"vs-dark"}
+              loading={<Spin size="large" />}
               onChange={(value) => setStateWith("originalText", value)}
               options={options}
             />
@@ -90,10 +92,10 @@ const BaseExtraDetails = ({ drawerExtraDetails }) => {
           <div className="text-center fs-3 fw-bold mb-2">Changed text</div>
           <div className="border rounded border-1 ft-style-2-shadow">
             <Editor
-              height="330px"
+              height="300px"
               defaultLanguage="javascript"
               defaultValue={state.changedText}
-              //theme={"vs-dark"}
+              loading={<Spin size="large" />}
               onChange={(value) => setStateWith("changedText", value)}
               options={options}
             />
@@ -110,15 +112,20 @@ const BaseExtraDetails = ({ drawerExtraDetails }) => {
           Find Difference
         </Button>
       </div>
-
-      <DiffEditor
-        height="40vh"
-        original={state.diffOriginalText}
-        modified={state.diffChangedText}
-        keepCurrentOriginalModel={true}
-      />
+      <div className="pb-5">
+        <div className="border rounded border-1 ft-style-2-shadow">
+          <DiffEditor
+            height="300px"
+            original={state.diffOriginalText}
+            modified={state.diffChangedText}
+            keepCurrentOriginalModel={true}
+            options={options}
+            loading={<Spin size="large" />}
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default BaseExtraDetails;
+export default CodeDiffDetails;

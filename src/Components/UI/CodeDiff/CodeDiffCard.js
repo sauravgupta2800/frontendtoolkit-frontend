@@ -3,6 +3,7 @@ import DragCard from "../Common/DragCard/DragCard";
 import { useDispatch } from "react-redux";
 import { setDrawerData } from "../../../store/cardSlice";
 import { useHistory } from "react-router-dom";
+import { Button } from "antd";
 
 const Base64Card = ({ ...rest }) => {
   const dispatch = useDispatch();
@@ -15,8 +16,10 @@ const Base64Card = ({ ...rest }) => {
 
   const contentSlot = () => {
     return (
-      <div className="w-100">
-        <button onClick={onDetailsSelect}>Open details</button>
+      <div className="w-100 d-flex justify-content-center">
+        <Button onClick={onDetailsSelect} className="my-4" type="primary">
+          Find Difference
+        </Button>
       </div>
     );
   };
