@@ -5,7 +5,7 @@ import { setDrawerData } from "../../../store/cardSlice";
 import { useHistory } from "react-router-dom";
 import { Button } from "antd";
 
-const CodeDiffCard = ({ ...rest }) => {
+const Base64Card = ({ ...rest }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -18,7 +18,7 @@ const CodeDiffCard = ({ ...rest }) => {
     return (
       <div className="w-100 d-flex justify-content-center">
         <Button onClick={onDetailsSelect} className="my-4" type="primary">
-          Find Difference
+          Encode/Decode
         </Button>
       </div>
     );
@@ -29,4 +29,4 @@ const CodeDiffCard = ({ ...rest }) => {
   );
 };
 
-export default CodeDiffCard;
+export default Base64Card;

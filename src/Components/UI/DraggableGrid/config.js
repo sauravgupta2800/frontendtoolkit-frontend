@@ -13,6 +13,9 @@ import OpenIconsDetails from "../OpenIcons/OpenIconsDetails";
 import CodeDiffCard from "../CodeDiff/CodeDiffCard";
 import CodeDiffDetails from "../CodeDiff/CodeDiffDetails";
 
+import Base64Card from "../Base64EncodeDecode/Base64Card";
+import Base64Details from "../Base64EncodeDecode/Base64Details";
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -83,6 +86,21 @@ export const COMPONENTS = [
       "Code Diff is a tool to compare text differences between two text files. Enter the contents of two files and click Find Difference",
     component: CodeDiffCard,
     detailComponent: CodeDiffDetails,
-    dataGrid: { x: 0, y: 5, w: 2.7, h: 5, minW: 2.7, minH: 4 },
+    dataGrid: { x: 0, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
+  },
+  {
+    key_name: "encode-decode-base64",
+    iconProps: {
+      id: "scan",
+      size: "lgx",
+      iconClass: "ft-color-green2",
+    },
+
+    title: "Base 64 Converter",
+    subTitle:
+      "Code Diff is a tool to compare text differences between two text files. Enter the contents of two files and click Find Difference",
+    component: Base64Card,
+    detailComponent: Base64Details,
+    dataGrid: { x: 3, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
   },
 ];
