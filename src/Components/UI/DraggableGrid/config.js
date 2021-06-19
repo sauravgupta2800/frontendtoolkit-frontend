@@ -19,6 +19,8 @@ import Base64Details from "../Base64EncodeDecode/Base64Details";
 import JSConversionCard from "../JSConversion/JSConversionCard";
 import JSConversionDetails from "../JSConversion/JSConversionDetails";
 
+import CSSConversionCard from "../CSSConversion/CSSConversionCard";
+import CSSConversionDetails from "../CSSConversion/CSSConversionDetails";
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -120,5 +122,20 @@ export const COMPONENTS = [
     component: JSConversionCard,
     detailComponent: JSConversionDetails,
     dataGrid: { x: 6, y: 5, w: 3, h: 6.5, minW: 3, minH: 5 },
+  },
+  {
+    key_name: "css-mini-and-format",
+    iconProps: {
+      id: "css3",
+      size: "xl",
+      iconClass: "ft-color-dark3",
+    },
+    drawerWidth: "90%",
+    title: "CSS Converter",
+    subTitle:
+      "Type you CSS code here and see it with correct formatted form or in minified form",
+    component: CSSConversionCard,
+    detailComponent: CSSConversionDetails,
+    dataGrid: { x: 9, y: 5, w: 3, h: 6.5, minW: 3, minH: 5 },
   },
 ];
