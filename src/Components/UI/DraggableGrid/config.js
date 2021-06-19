@@ -16,6 +16,9 @@ import CodeDiffDetails from "../CodeDiff/CodeDiffDetails";
 import Base64Card from "../Base64EncodeDecode/Base64Card";
 import Base64Details from "../Base64EncodeDecode/Base64Details";
 
+import JSConversionCard from "../JSConversion/JSConversionCard";
+import JSConversionDetails from "../JSConversion/JSConversionDetails";
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -102,5 +105,20 @@ export const COMPONENTS = [
     component: Base64Card,
     detailComponent: Base64Details,
     dataGrid: { x: 3, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
+  },
+  {
+    key_name: "js-ts-mini-and-format",
+    iconProps: {
+      id: "shield",
+      size: "lgx",
+      iconClass: "ft-color-dark3",
+    },
+
+    drawerWidth: "90%",
+    title: "JS/TS Converter",
+    subTitle: "something.......",
+    component: JSConversionCard,
+    detailComponent: JSConversionDetails,
+    dataGrid: { x: 6, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
   },
 ];
