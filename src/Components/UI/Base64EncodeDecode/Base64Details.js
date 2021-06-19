@@ -98,7 +98,10 @@ const Base64Details = ({ drawerExtraDetails }) => {
         >
           {TYPES.map((item) => (
             <Radio.Button key={item.key} value={item.key}>
-              {item.title}
+              <div className="d-flex align-items-center">
+                <Icon id={DATA[item.key].iconId} size="sm" />
+                <div className="ms-2">{item.title}</div>
+              </div>
             </Radio.Button>
           ))}
         </Radio.Group>
@@ -132,10 +135,7 @@ const Base64Details = ({ drawerExtraDetails }) => {
           size="large"
           disabled={state.liveConversion}
         >
-          <div className="d-flex">
-            <Icon id={DATA[state.selectedType].iconId} size="sm" />
-            <div>{DATA[state.selectedType].btnTitle}</div>
-          </div>
+          {DATA[state.selectedType].btnTitle}
         </Button>
       </div>
       <div className="mb-5 w-100">

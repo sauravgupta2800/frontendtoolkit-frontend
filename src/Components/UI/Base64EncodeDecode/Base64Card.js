@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { setDrawerData } from "../../../store/cardSlice";
 import { useHistory } from "react-router-dom";
 import { Radio } from "antd";
-import { TYPES } from "./config";
+import { TYPES, DATA } from "./config";
+import Icon from "../Common/Icon/Icon";
 
 const Base64Card = ({ ...rest }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,10 @@ const Base64Card = ({ ...rest }) => {
                 value={item.key}
                 onClick={() => onButtonClick(item.key)}
               >
-                {item.title}
+                <div className="d-flex align-items-center">
+                  <Icon id={DATA[item.key].iconId} size="xs" />
+                  <div className="ms-2">{item.title}</div>
+                </div>
               </Radio.Button>
             ))}
           </Radio.Group>
