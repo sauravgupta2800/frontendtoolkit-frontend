@@ -5,6 +5,8 @@ import prettier from "prettier/standalone";
 import parserTypeScript from "prettier/parser-typescript";
 import axios from "axios";
 import { MINIFY } from "../../../shared/endpoints";
+import { useClipboard } from "use-clipboard-copy";
+import Icon from "../Common/Icon/Icon";
 
 const options = {
   quickSuggestions: {
@@ -27,6 +29,7 @@ const options = {
 };
 
 const JSConversionDetails = ({ drawerExtraDetails }) => {
+  const clipboard = useClipboard({ copiedTimeout: 750 });
   const [state, setState] = useState({
     originalText: "",
     selectedType: "format",
@@ -129,6 +132,14 @@ const JSConversionDetails = ({ drawerExtraDetails }) => {
                 <Radio.Button value="format">Format</Radio.Button>
                 <Radio.Button value="minify">Minify</Radio.Button>
               </Radio.Group>
+            </div>
+            <div className="ft-card-action-icon">
+              <Icon
+                id="copy"
+                size="md"
+                title={clipboard.copied ? "Copied" : "Copy"}
+                onClick={() => clipboard.copy(state[state.selectedType])}
+              />
             </div>
           </div>
           <div className="border rounded ft-style-2-shadow">
