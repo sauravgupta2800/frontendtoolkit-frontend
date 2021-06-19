@@ -12,3 +12,7 @@ export const PACKAGE = {
 export const ICONS = {
   ICONS_LIST: `${base}icons`,
 };
+
+export const MINIFY = {
+  CODE_MINIFY: `${base}minify`,
+};

@@ -119,3 +119,8 @@
     border-color: $prime;
   }
 }
+
+.monaco-editor-container {
+  /* the up most container of the editor */
+  filter: invert(1) hue-rotate(170deg) brightness(0.8) grayscale(0.3);
+}
