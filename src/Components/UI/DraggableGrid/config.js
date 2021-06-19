@@ -83,7 +83,7 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "ft-color-green2",
     },
-    drawerWidth: 1100,
+    drawerWidth: "90%",
     title: "Code Diff",
     subTitle:
       "Code Diff is a tool to compare text differences between two text files. Enter the contents of two files and click Find Difference",
@@ -113,7 +113,6 @@ export const COMPONENTS = [
       size: "xl",
       iconClass: "ft-color-dark3",
     },
-
     drawerWidth: "90%",
     title: "JS/TS Converter",
     subTitle:

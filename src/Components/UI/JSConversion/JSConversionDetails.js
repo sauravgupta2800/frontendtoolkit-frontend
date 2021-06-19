@@ -120,7 +120,7 @@ const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
           <div className="w-100 fs-3 fw-bold mb-4">Original Text</div>
           <div className="border rounded border-1 ft-style-2-shadow">
             <Editor
-              height="80vh"
+              height="75vh"
               defaultLanguage="javascript"
               defaultValue={state.originalText}
               loading={<Spin size="large" />}
@@ -159,7 +159,7 @@ const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
           <div className="border rounded ft-style-2-shadow">
             <Editor
               className="monaco-editor-container"
-              height="80vh"
+              height="75vh"
               defaultLanguage="javascript"
               value={state[state.selectedType]}
               loading={<Spin size="large" />}
