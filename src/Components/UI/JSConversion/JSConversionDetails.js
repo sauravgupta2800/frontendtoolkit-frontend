@@ -7,7 +7,7 @@ import axios from "axios";
 import { MINIFY } from "../../../shared/endpoints";
 import { useClipboard } from "use-clipboard-copy";
 import Icon from "../Common/Icon/Icon";
-
+import { TYPES } from "./config";
 const options = {
   quickSuggestions: {
     other: false,
@@ -28,14 +28,24 @@ const options = {
   codeLens: false,
 };
 
-const JSConversionDetails = ({ drawerExtraDetails }) => {
+const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
   const clipboard = useClipboard({ copiedTimeout: 750 });
   const [state, setState] = useState({
     originalText: "",
-    selectedType: "format",
+    selectedType: TYPES[0].key,
     format: "",
     minify: "",
   });
+
+  useEffect(() => {
+    const { data = "", key } = drawerExtraDetails;
+    setStateWith("originalText", data);
+    if (key) {
+      console.log(data, key);
+      onChange(key);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleMinification = async () => {
     if (!state.originalText) {
@@ -49,7 +59,7 @@ const JSConversionDetails = ({ drawerExtraDetails }) => {
       });
       setStateWith("minify", data.data);
     } catch {
-      //
+      setStateWith("minify", "'Error : Not able to minify'");
     }
   };
 
@@ -66,7 +76,7 @@ const JSConversionDetails = ({ drawerExtraDetails }) => {
       });
       setStateWith("format", text);
     } catch {
-      //
+      setStateWith("format", "'Error : Not able to format'");
     }
   };
 
@@ -84,11 +94,12 @@ const JSConversionDetails = ({ drawerExtraDetails }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.originalText]);
 
-  const onChange = (value) => {
-    setStateWith("selectedType", value);
-    if (value === "format") {
+  const onChange = (key) => {
+    setStateWith("selectedType", key);
+    console.log("selected key is: ", key);
+    if (key === "format") {
       handleFormatting();
-    } else if (value === "minify") {
+    } else if (key === "minify") {
       handleMinification();
     }
   };
@@ -129,8 +140,11 @@ const JSConversionDetails = ({ drawerExtraDetails }) => {
                 size="large"
                 onChange={(e) => onChange(e.target.value)}
               >
-                <Radio.Button value="format">Format</Radio.Button>
-                <Radio.Button value="minify">Minify</Radio.Button>
+                {TYPES.map((item) => (
+                  <Radio.Button key={item.key} value={item.key}>
+                    {item.value}
+                  </Radio.Button>
+                ))}
               </Radio.Group>
             </div>
             <div className="ft-card-action-icon">
@@ -160,9 +174,3 @@ const JSConversionDetails = ({ drawerExtraDetails }) => {
 };
 
 export default JSConversionDetails;
-
-// prettier.format(state.originalText, {
-//     semi: false,
-//     parser: "typescript",
-//     plugins: [parserTypeScript],
-//   })

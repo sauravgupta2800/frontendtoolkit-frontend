@@ -119,6 +119,6 @@ export const COMPONENTS = [
     subTitle: "something.......",
     component: JSConversionCard,
     detailComponent: JSConversionDetails,
-    dataGrid: { x: 6, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 6, y: 5, w: 3, h: 6, minW: 3, minH: 4 },
   },
 ];
