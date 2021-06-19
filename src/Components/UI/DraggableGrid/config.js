@@ -109,16 +109,17 @@ export const COMPONENTS = [
   {
     key_name: "js-ts-mini-and-format",
     iconProps: {
-      id: "shield",
-      size: "lgx",
+      id: "javascript",
+      size: "xl",
       iconClass: "ft-color-dark3",
     },
 
     drawerWidth: "90%",
     title: "JS/TS Converter",
-    subTitle: "something.......",
+    subTitle:
+      "Type you JS/TS code here and see it with correct formatted form or in minified form",
     component: JSConversionCard,
     detailComponent: JSConversionDetails,
-    dataGrid: { x: 6, y: 5, w: 3, h: 6, minW: 3, minH: 4 },
+    dataGrid: { x: 6, y: 5, w: 3, h: 6.5, minW: 3, minH: 5 },
   },
 ];

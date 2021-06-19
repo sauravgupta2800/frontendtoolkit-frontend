@@ -79,6 +79,7 @@ const OpenIconsDetails = () => {
           value={state.query}
           size="large"
           defaultValue="mysite"
+          disabled={state.loading}
           onChange={(event) => setStateWith("query", event.target.value)}
           className="custom-color-input w-40"
         />

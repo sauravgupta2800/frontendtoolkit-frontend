@@ -17,17 +17,13 @@ const JSConversionCard = ({ ...rest }) => {
     history.replace(`/cards/${rest.key_name}`);
   };
 
-  const onResultChange = (value) => {
-    setValue(value);
-  };
-
   const contentSlot = () => {
     return (
       <div className="w-100 d-flex justify-content-center">
         <Input.TextArea
           className="w-100 rounded ft-style-1-shadow"
           value={value}
-          onChange={(evt) => onResultChange(evt.target.value)}
+          onChange={(evt) => setValue(evt.target.value)}
           autoSize={{ minRows: 4, maxRows: 4 }}
           placeholder={"Paste your code here"}
         />
@@ -38,6 +34,7 @@ const JSConversionCard = ({ ...rest }) => {
   const onButtonClick = (key) => {
     setOption(key);
     openDetails(key);
+    setValue("");
   };
 
   const actionSlot = () => {
