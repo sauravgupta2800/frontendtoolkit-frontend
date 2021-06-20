@@ -36,7 +36,7 @@ const FeDropdown = ({
       >
         <div className="ft-dropdown-content border py-3 px-4 cursor-pointer fs-4 fw-bold rounded">
           <div className="d-flex justify-content-between align-items-center">
-            <div>{getTitle()}</div>
+            <div className="fw-normal">{getTitle()}</div>
             <div className="ms-2 d-flex justify-content-center align-items-center">
               <Icon id="arrow-down" size="xs" />
             </div>

@@ -149,7 +149,7 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "",
     },
-    drawerWidth: "90%",
+    drawerWidth: 800,
     title: "CSS Font Preview",
     subTitle:
       "CSS font preview tool allows you to preview the font or change the settings of the font properties.",

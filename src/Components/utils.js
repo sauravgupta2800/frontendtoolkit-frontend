@@ -82,3 +82,23 @@ export const fixedDecimalNoRoundOff = (num, fixedTill) => {
     m = num.toString().match(re);
   return m ? parseFloat(m[1]) : num.valueOf();
 };
+
+export const editorOptions = {
+  quickSuggestions: {
+    other: false,
+    comments: false,
+    strings: false,
+  },
+  parameterHints: {
+    enabled: false,
+  },
+  minimap: {
+    enabled: false,
+  },
+  ordBasedSuggestions: false,
+  suggestOnTriggerCharacters: false,
+  acceptSuggestionOnEnter: "off",
+  tabCompletion: "off",
+  wordBasedSuggestions: false,
+  codeLens: false,
+};
