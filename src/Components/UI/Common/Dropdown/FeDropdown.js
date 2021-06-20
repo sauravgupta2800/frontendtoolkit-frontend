@@ -1,37 +1,35 @@
 import { Menu, Dropdown } from "antd";
-import { DROPDOWN_OPTIONS } from "./config";
-import Icon from "./../Common/Icon/Icon";
+import Icon from "../Icon/Icon";
 
-const DownloadDropdown = ({ value, onSelect }) => {
+const FeDropdown = ({ value, onSelect, options, wrapClass = "" }) => {
   const handleClick = ({ key }) => {
     onSelect(key);
   };
 
   const menu = (
     <Menu onClick={handleClick} selectedKeys={[value]}>
-      {DROPDOWN_OPTIONS.map((option) => (
+      {options.map((option) => (
         <Menu.Item key={option.key}>{option.title}</Menu.Item>
       ))}
     </Menu>
   );
 
   const getTitle = () => {
-    const { title } =
-      DROPDOWN_OPTIONS.find((option) => option.key === value) || {};
+    const { title } = options.find((option) => option.key === value) || {};
     return title || "";
   };
 
   return (
-    <div>
+    <div className={wrapClass}>
       <Dropdown
-        overlayClassName="ft-dropdown"
+        overlayClassName="ft-dropdown w-fit"
         overlay={menu}
         trigger={["click"]}
         placement="bottomCenter"
       >
         <div className="ft-dropdown-content border py-3 px-4 cursor-pointer fs-4 fw-bold rounded">
-          <div className="d-flex justify-content-center align-items-center">
-            {getTitle()}
+          <div className="d-flex justify-content-between align-items-center">
+            <div>{getTitle()}</div>
             <div className="ms-2 d-flex justify-content-center align-items-center">
               <Icon id="arrow-down" size="xs" />
             </div>
@@ -42,4 +40,4 @@ const DownloadDropdown = ({ value, onSelect }) => {
   );
 };
 
-export default DownloadDropdown;
+export default FeDropdown;

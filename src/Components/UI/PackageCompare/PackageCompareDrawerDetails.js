@@ -1,6 +1,6 @@
 import usePackageInfo from "../../customHooks/usePackageInfo";
 import PackageSearch from "./../PackageDetails/PackageSearch";
-import DownloadDropdown from "./DownloadDropdown";
+import FeDropdown from "../Common/Dropdown/FeDropdown";
 import SuggestedPackages from "./SuggestedPackages";
 import SelectedPackages from "./SelectedPackages";
 import DiscoLoader from "../Common/Loader/DiscoLoader";
@@ -9,6 +9,7 @@ import PackageTable from "./PackageTable";
 import CompareChart from "./CompareChart";
 import Title from "./Title";
 import EmptyState from "../Common/EmptyState/EmptyState";
+import { DROPDOWN_OPTIONS } from "./config";
 
 const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
@@ -54,9 +55,11 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
           <div>
             <RowSeparator title="Select past download filter in" />
             <div className="px-5">
-              <DownloadDropdown
+              <FeDropdown
+                wrapClass="w-30"
                 value={selectedFilterKey}
                 onSelect={onFilterSelect}
+                options={DROPDOWN_OPTIONS}
               />
             </div>
           </div>
