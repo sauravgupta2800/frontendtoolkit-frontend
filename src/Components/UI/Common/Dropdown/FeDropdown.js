@@ -1,22 +1,29 @@
 import { Menu, Dropdown } from "antd";
 import Icon from "../Icon/Icon";
 
-const FeDropdown = ({ value, onSelect, options, wrapClass = "" }) => {
-  const handleClick = ({ key }) => {
-    onSelect(key);
+const FeDropdown = ({
+  value,
+  onSelect,
+  options,
+  wrapClass = "",
+  valueKey = "key",
+  labelKey = "label",
+}) => {
+  const handleClick = (item) => {
+    onSelect(item[valueKey]);
   };
 
   const menu = (
     <Menu onClick={handleClick} selectedKeys={[value]}>
       {options.map((option) => (
-        <Menu.Item key={option.key}>{option.title}</Menu.Item>
+        <Menu.Item key={option[valueKey]}>{option[labelKey]}</Menu.Item>
       ))}
     </Menu>
   );
 
   const getTitle = () => {
-    const { title } = options.find((option) => option.key === value) || {};
-    return title || "";
+    const item = options.find((option) => option[valueKey] === value) || {};
+    return item[labelKey] || "";
   };
 
   return (

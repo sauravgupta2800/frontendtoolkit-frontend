@@ -59,6 +59,8 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
                 wrapClass="w-30"
                 value={selectedFilterKey}
                 onSelect={onFilterSelect}
+                valueKey="key"
+                labelKey="title"
                 options={DROPDOWN_OPTIONS}
               />
             </div>
