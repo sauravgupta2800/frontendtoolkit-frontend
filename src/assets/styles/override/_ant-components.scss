@@ -45,6 +45,10 @@
 }
 
 .ft-dropdown {
+  .ant-dropdown-menu {
+    max-height: 220px;
+    overflow-y: scroll;
+  }
   .ant-dropdown-menu-item {
     padding: 10px 30px;
     &-selected {
