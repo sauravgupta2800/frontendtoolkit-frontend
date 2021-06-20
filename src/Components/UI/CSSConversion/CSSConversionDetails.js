@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 import { useEffect, useState } from "react";
 import { Spin, Radio } from "antd";
 import prettier from "prettier/standalone";
-import parserTypeScript from "prettier/parser-typescript";
+import parserTypePostcss from "prettier/parser-postcss";
 import axios from "axios";
 import { MINIFY } from "../../../shared/endpoints";
 import { useClipboard } from "use-clipboard-copy";
@@ -56,6 +56,7 @@ const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
     try {
       const { data } = await axios.post(MINIFY.CODE_MINIFY, {
         code: state.originalText,
+        type: "css",
       });
       setStateWith("minify", data.data);
     } catch {
@@ -71,8 +72,8 @@ const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
     console.log("handleFormatting");
     try {
       const text = prettier.format(state.originalText, {
-        parser: "typescript",
-        plugins: [parserTypeScript],
+        parser: "css",
+        plugins: [parserTypePostcss],
       });
       setStateWith("format", text);
     } catch {
@@ -160,7 +161,7 @@ const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
             <Editor
               className="monaco-editor-container"
               height="75vh"
-              defaultLanguage="javascript"
+              language="scss"
               value={state[state.selectedType]}
               loading={<Spin size="large" />}
               onChange={(value) => setStateWith(state.selectedType, value)}
