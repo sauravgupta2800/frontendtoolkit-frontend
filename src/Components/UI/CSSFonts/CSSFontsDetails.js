@@ -8,9 +8,14 @@ import Editor from "@monaco-editor/react";
 import prettier from "prettier/standalone";
 import parserTypePostcss from "prettier/parser-postcss";
 import { editorOptions } from "./../../utils";
+import { useClipboard } from "use-clipboard-copy";
+import Icon from "../Common/Icon/Icon";
 
 const CSSFontsDetails = () => {
   const [state, setState] = useState({});
+  const [cssCode, setCSSCode] = useState("");
+  const [styleCode, setStyleCode] = useState({});
+  const clipboard = useClipboard({ copiedTimeout: 750 });
 
   useEffect(() => {
     console.log("use effect", FIELDS);
@@ -21,6 +26,38 @@ const CSSFontsDetails = () => {
     console.log("state: ", stateMap);
     setState(stateMap);
   }, []);
+
+  useEffect(() => {
+    if (!isEmpty(state)) {
+      console.log("state change");
+      // CSS Editor code
+      let fields = FIELDS.reduce((acc, { key }) => {
+        acc[key] = state[key].value;
+        return acc;
+      }, {});
+      fields = `{${Object.entries(fields)
+        .map(([k, v]) => `${k}:${v}`)
+        .join(";")}}`;
+      try {
+        fields = prettier.format(fields, {
+          parser: "css",
+          plugins: [parserTypePostcss],
+        });
+
+        setCSSCode(fields);
+      } catch {
+        //
+      }
+
+      // Style code
+      const styleCode = FIELDS.reduce((acc, { key, styleKey }) => {
+        acc[styleKey] = state[key].value;
+        return acc;
+      }, {});
+      setStyleCode(styleCode);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
 
   const onSliderChange = (key, value) => {
     setState((prevState) => {
@@ -48,40 +85,13 @@ const CSSFontsDetails = () => {
     console.log("onDropdownSelect: ", key, value);
   };
 
-  const getStyle = () => {
-    console.log("get style");
-    return FIELDS.reduce((acc, { key, styleKey }) => {
-      acc[styleKey] = state[key].value;
-      return acc;
-    }, {});
-  };
-
-  const getStyleToEditor = () => {
-    console.log("get style");
-    let fields = FIELDS.reduce((acc, { key }) => {
-      acc[key] = state[key].value;
-      return acc;
-    }, {});
-
-    const styleString = `{${Object.entries(fields)
-      .map(([k, v]) => `${k}:${v}`)
-      .join(";")}}`;
-
-    console.log("getStyleToEditor: ", styleString);
-
-    return prettier.format(styleString, {
-      parser: "css",
-      plugins: [parserTypePostcss],
-    });
-  };
-
   return (
     <Fragment>
       {!isEmpty(state) && (
         <div className="w-100 h-100">
           <RowSeparator title="Font Preview" />
           <div className="w-100 px-5">
-            <div className="w-100 p-4 border" style={getStyle()}>
+            <div className="w-100 p-4 border" style={styleCode}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
               dapibus mi tristique ante imperdiet gravida. Fusce nulla lorem,
               accumsan vel lobortis vitae, rutrum et leo. Aliquam sapien leo,
@@ -135,14 +145,22 @@ const CSSFontsDetails = () => {
             </div>
           </div>
 
-          <RowSeparator title="Font Settings" />
+          <RowSeparator title="CSS Code" />
           <div className="w-100 px-5 pb-5">
+            <div className="ft-card-action-icon d-flex justify-content-end mb-3">
+              <Icon
+                id="copy"
+                size="md"
+                title={clipboard.copied ? "Copied" : "Copy"}
+                onClick={() => clipboard.copy(cssCode)}
+              />
+            </div>
             <div className="border rounded border-1 ft-style-2-shadow">
               <Editor
                 height="230px"
                 language="scss"
                 theme="vs-dark"
-                value={getStyleToEditor()}
+                value={cssCode}
                 loading={<Spin size="medium" />}
                 options={{ ...editorOptions, readOnly: true }}
               />
