@@ -3,7 +3,7 @@ export const FIELDS = [
     key: "font-family",
     styleKey: "fontFamily",
     label: "Font Name",
-    defaultValue: "verdana, sans-serif",
+    defaultValue: 'courier, "courier new", monospace',
     options: [
       {
         key: 'courier, "courier new", monospace',

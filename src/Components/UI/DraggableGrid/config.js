@@ -155,6 +155,6 @@ export const COMPONENTS = [
       "CSS font preview tool allows you to preview the font or change the settings of the font properties.",
     component: CSSFontsCard,
     detailComponent: CSSFontsDetails,
-    dataGrid: { x: 0, y: 10, w: 3, h: 5, minW: 3, minH: 5 },
+    dataGrid: { x: 0, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },
   },
 ];

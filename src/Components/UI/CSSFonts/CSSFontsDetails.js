@@ -11,7 +11,7 @@ import { editorOptions } from "./../../utils";
 import { useClipboard } from "use-clipboard-copy";
 import Icon from "../Common/Icon/Icon";
 
-const CSSFontsDetails = () => {
+const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
   const [state, setState] = useState({});
   const [cssCode, setCSSCode] = useState("");
   const [styleCode, setStyleCode] = useState({});
@@ -20,7 +20,13 @@ const CSSFontsDetails = () => {
   useEffect(() => {
     console.log("use effect", FIELDS);
     const stateMap = FIELDS.reduce((acc, { key, styleKey, defaultValue }) => {
-      acc[key] = { styleKey, value: defaultValue };
+      acc[key] = {
+        styleKey,
+        value:
+          drawerExtraDetails?.fontKey && key === "font-family"
+            ? drawerExtraDetails?.fontKey
+            : defaultValue,
+      };
       return acc;
     }, {});
     console.log("state: ", stateMap);
