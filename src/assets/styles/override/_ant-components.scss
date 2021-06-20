@@ -119,3 +119,9 @@
   /* the up most container of the editor */
   filter: invert(1) hue-rotate(170deg) brightness(0.8) grayscale(0.3);
 }
+
+.ft-chrome-picker {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}

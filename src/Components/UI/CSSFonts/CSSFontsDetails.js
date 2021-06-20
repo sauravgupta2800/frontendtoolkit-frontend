@@ -10,6 +10,7 @@ import parserTypePostcss from "prettier/parser-postcss";
 import { editorOptions } from "./../../utils";
 import { useClipboard } from "use-clipboard-copy";
 import Icon from "../Common/Icon/Icon";
+import ColorChromePicker from "./ColorChromePicker";
 
 const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
   const [state, setState] = useState({});
@@ -75,10 +76,9 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
         },
       };
     });
-    console.log("onSliderChange: ", key, value);
   };
 
-  const onDropdownSelect = (key, value) => {
+  const setValue = (key, value) => {
     setState((prevState) => {
       return {
         ...prevState,
@@ -88,7 +88,6 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
         },
       };
     });
-    console.log("onDropdownSelect: ", key, value);
   };
 
   return (
@@ -117,13 +116,14 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
                   ) : (
                     <>
                       {item.key === "color" ? (
-                        <div>color</div>
+                        <ColorChromePicker
+                          color={state[item.key].value}
+                          onColorChange={(hex) => setValue(item.key, hex)}
+                        />
                       ) : (
                         <FeDropdown
                           value={state[item.key].value}
-                          onSelect={(value) =>
-                            onDropdownSelect(item.key, value)
-                          }
+                          onSelect={(value) => setValue(item.key, value)}
                           options={item.options}
                         />
                       )}
