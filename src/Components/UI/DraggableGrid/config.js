@@ -21,6 +21,10 @@ import JSConversionDetails from "../JSConversion/JSConversionDetails";
 
 import CSSConversionCard from "../CSSConversion/CSSConversionCard";
 import CSSConversionDetails from "../CSSConversion/CSSConversionDetails";
+
+import CSSFontsCard from "../CSSFonts/CSSFontsCard";
+import CSSFontsDetails from "../CSSFonts/CSSFontsDetails";
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -137,5 +141,20 @@ export const COMPONENTS = [
     component: CSSConversionCard,
     detailComponent: CSSConversionDetails,
     dataGrid: { x: 9, y: 5, w: 3, h: 6.5, minW: 3, minH: 5 },
+  },
+  {
+    key_name: "css-font-preview",
+    iconProps: {
+      id: "font",
+      size: "lgx",
+      iconClass: "",
+    },
+    drawerWidth: "90%",
+    title: "CSS Font Preview",
+    subTitle:
+      "CSS font preview tool allows you to preview the font or change the settings of the font properties.",
+    component: CSSFontsCard,
+    detailComponent: CSSFontsDetails,
+    dataGrid: { x: 0, y: 10, w: 3, h: 5, minW: 3, minH: 5 },
   },
 ];
