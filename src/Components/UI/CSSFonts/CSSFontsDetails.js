@@ -19,7 +19,6 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
   const clipboard = useClipboard({ copiedTimeout: 750 });
 
   useEffect(() => {
-    console.log("use effect", FIELDS);
     const stateMap = FIELDS.reduce((acc, { key, styleKey, defaultValue }) => {
       acc[key] = {
         styleKey,
@@ -30,13 +29,12 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
       };
       return acc;
     }, {});
-    console.log("state: ", stateMap);
     setState(stateMap);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (!isEmpty(state)) {
-      console.log("state change");
       // CSS Editor code
       let fields = FIELDS.reduce((acc, { key }) => {
         acc[key] = state[key].value;
@@ -106,13 +104,11 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
                     )}
                   </div>
                   {!!item.slider ? (
-                    <div>
-                      <Slider
-                        max={50}
-                        defaultValue={+state[item.key].value.slice(0, -2)}
-                        onChange={(value) => onSliderChange(item.key, value)}
-                      />
-                    </div>
+                    <Slider
+                      max={50}
+                      defaultValue={+state[item.key].value.slice(0, -2)}
+                      onChange={(value) => onSliderChange(item.key, value)}
+                    />
                   ) : (
                     <>
                       {item.key === "color" ? (
