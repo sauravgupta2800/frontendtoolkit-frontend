@@ -41,7 +41,6 @@ const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
     const { data = "", key } = drawerExtraDetails;
     setStateWith("originalText", data);
     if (key) {
-      console.log(data, key);
       onChange(key);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,7 +51,6 @@ const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
       setStateWith("minify", "");
       return;
     }
-    console.log("handleMinification");
     try {
       const { data } = await axios.post(MINIFY.CODE_MINIFY, {
         code: state.originalText,
@@ -68,7 +66,6 @@ const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
       setStateWith("format", "");
       return;
     }
-    console.log("handleFormatting");
     try {
       const text = prettier.format(state.originalText, {
         parser: "typescript",
@@ -96,7 +93,6 @@ const JSConversionDetails = ({ drawerExtraDetails = {} }) => {
 
   const onChange = (key) => {
     setStateWith("selectedType", key);
-    console.log("selected key is: ", key);
     if (key === "format") {
       handleFormatting();
     } else if (key === "minify") {
