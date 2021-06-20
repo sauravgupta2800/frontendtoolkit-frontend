@@ -101,14 +101,14 @@ export const FIELDS = [
   },
   {
     key: "text-align",
-    styleKey: "fontAlign",
+    styleKey: "textAlign",
     label: "Text Align",
     defaultValue: "left",
     options: [
       { key: "left", label: "Left" },
       { key: "right", label: "Right" },
       { key: "center", label: "Center" },
-      { key: "justify", label: "Justidy" },
+      { key: "justify", label: "Justify" },
     ],
   },
   {
