@@ -167,7 +167,7 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "",
     },
-    drawerWidth: 800,
+    drawerWidth: "90%",
     title: "SVG Convertor",
     subTitle: "svg-convertor",
     component: SVGConversionCard,
