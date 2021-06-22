@@ -125,3 +125,11 @@
     padding: 0;
   }
 }
+
+.ant-upload.ant-upload-drag {
+  border: 2px dashed $prime88;
+  border-radius: 6px;
+  &:hover {
+    border: 2px dashed $prime;
+  }
+}

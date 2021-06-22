@@ -3,22 +3,19 @@ import DragCard from "../Common/DragCard/DragCard";
 import { useDispatch } from "react-redux";
 import { setDrawerData } from "../../../store/cardSlice";
 import { useHistory } from "react-router-dom";
+import SVGUploadOrPaste from "./SVGUploadOrPaste";
 
 const SVGConversionCard = ({ ...rest }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const openDetails = () => {
-    dispatch(setDrawerData({}));
+  const openDetails = (svg) => {
+    dispatch(setDrawerData({ svg }));
     history.replace(`/cards/${rest.key_name}`);
   };
 
   const contentSlot = () => {
-    return (
-      <div className="w-100">
-        <button onClick={openDetails}>open</button>
-      </div>
-    );
+    return <SVGUploadOrPaste onUploaded={({ svg }) => openDetails(svg)} />;
   };
 
   return (
