@@ -25,6 +25,9 @@ import CSSConversionDetails from "../CSSConversion/CSSConversionDetails";
 import CSSFontsCard from "../CSSFonts/CSSFontsCard";
 import CSSFontsDetails from "../CSSFonts/CSSFontsDetails";
 
+import SVGConversionCard from "../SVGConversion/SVGConversionCard";
+import SVGConversionDetails from "../SVGConversion/SVGConversionDetails";
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -156,5 +159,19 @@ export const COMPONENTS = [
     component: CSSFontsCard,
     detailComponent: CSSFontsDetails,
     dataGrid: { x: 0, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },
+  },
+  {
+    key_name: "svg-convertor",
+    iconProps: {
+      id: "svg",
+      size: "lgx",
+      iconClass: "",
+    },
+    drawerWidth: 800,
+    title: "SVG Convertor",
+    subTitle: "svg-convertor",
+    component: SVGConversionCard,
+    detailComponent: SVGConversionDetails,
+    dataGrid: { x: 3, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },
   },
 ];
