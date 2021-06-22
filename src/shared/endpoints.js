@@ -16,3 +16,7 @@ export const ICONS = {
 export const MINIFY = {
   CODE_MINIFY: `${base}minify`,
 };
+
+export const SVG_OPTIMIZE = {
+  SETTING_OPTIONS: `${base}svgConvertor/config-list`,
+};

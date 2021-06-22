@@ -1,6 +1,17 @@
 .ft-svg-layout {
   &--left {
     width: 30rem;
+    .ft-optimized-settings {
+      &--header {
+        height: 5rem;
+      }
+      &--options {
+        height: calc(100% - 10rem);
+      }
+      &--footer {
+        height: 5rem;
+      }
+    }
   }
   &--right {
     width: calc(100% - 30rem);
