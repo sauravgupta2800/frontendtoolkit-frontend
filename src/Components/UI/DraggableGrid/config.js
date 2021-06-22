@@ -161,15 +161,15 @@ export const COMPONENTS = [
     dataGrid: { x: 0, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },
   },
   {
-    key_name: "svg-convertor",
+    key_name: "svg-converter",
     iconProps: {
       id: "svg",
       size: "lgx",
       iconClass: "",
     },
     drawerWidth: "90%",
-    title: "SVG Convertor",
-    subTitle: "svg-convertor",
+    title: "SVG Converter",
+    subTitle: "svg-converter",
     component: SVGConversionCard,
     detailComponent: SVGConversionDetails,
     dataGrid: { x: 3, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },

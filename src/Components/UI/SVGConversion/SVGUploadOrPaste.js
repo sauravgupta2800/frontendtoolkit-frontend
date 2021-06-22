@@ -32,7 +32,7 @@ const SVGUploadOrPaste = ({
         <Icon id="upload" size="xl" iconClass="ft-color-dark2" />
       </div>
 
-      <div className="ft-color-dark2">{text}</div>
+      <div className="ft-color-dark2 p-3">{text}</div>
     </Upload.Dragger>
   );
 };
