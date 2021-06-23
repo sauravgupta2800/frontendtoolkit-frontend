@@ -29,7 +29,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
 
   useEffect(() => {}, []);
 
-  const setStatewith = (key, value) => {
+  const setStateWith = (key, value) => {
     setState((prevState) => {
       return {
         ...prevState,
@@ -39,13 +39,13 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
   };
 
   const onFilterApply = (key) => {
-    setStatewith("selectedType", key);
+    setStateWith("selectedType", key);
     const svgText = state.optimized ? state.optimizedSvg : svg;
     filterHandler(key, svgText);
   };
 
   const onOptimizationChange = (value) => {
-    setStatewith("optimized", value);
+    setStateWith("optimized", value);
     const svgText = value ? state.optimizedSvg : svg;
     filterHandler(state.selectedType, svgText);
   };
@@ -64,7 +64,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
       parser: "typescript",
       plugins: [parserTypeScript],
     });
-    setStatewith("html", text);
+    setStateWith("html", text);
   };
 
   const handleJSXConversion = (svgText) => {
@@ -74,7 +74,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
           parser: "typescript",
           plugins: [parserTypeScript],
         });
-        setStatewith("jsx", text);
+        setStateWith("jsx", text);
       }
     );
   };
@@ -89,7 +89,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
         parser: "typescript",
         plugins: [parserTypeScript],
       });
-      setStatewith("tsx", text);
+      setStateWith("tsx", text);
     });
   };
 
@@ -103,7 +103,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
         parser: "typescript",
         plugins: [parserTypeScript],
       });
-      setStatewith("native", text);
+      setStateWith("native", text);
     });
   };
 
@@ -112,11 +112,11 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
       svgText
     )}'); `;
 
-    setStatewith("css", text);
+    setStateWith("css", text);
   };
 
   const handleBase64Conversion = (svgText) => {
-    setStatewith("base64", base64.encode(utf8.encode(svgText)));
+    setStateWith("base64", base64.encode(utf8.encode(svgText)));
   };
 
   const fetchOptimized = (options) => {
@@ -128,7 +128,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
         },
       })
       .then(({ data }) => {
-        setStatewith("optimizedSvg", data.data);
+        setStateWith("optimizedSvg", data.data);
         filterHandler(state.selectedType, data.data);
       })
       .catch();
