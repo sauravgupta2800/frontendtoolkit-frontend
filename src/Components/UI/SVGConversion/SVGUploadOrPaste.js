@@ -1,4 +1,4 @@
-import { Upload, message, Spin } from "antd";
+import { Upload, message, Spin, Input } from "antd";
 import { useState } from "react";
 import Icon from "../Common/Icon/Icon";
 
@@ -8,6 +8,7 @@ const SVGUploadOrPaste = ({
   wrapClass = "",
 }) => {
   const [loading, setLoading] = useState(false);
+  const [value, setValue] = useState("");
 
   const props = {
     // accept: ".svg",
@@ -42,19 +43,45 @@ const SVGUploadOrPaste = ({
     },
   };
 
+  const onPaste = (e) => {
+    const text = e.clipboardData?.getData("Text") ?? "";
+    const isValidSVG = /^(^<svg)([^>]*)/.test(text);
+    if (text && isValidSVG) {
+      onUploaded({ svg: text });
+    } else {
+      message.error("You can only paste a valid SVG file!");
+    }
+  };
+
+  const onInputClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <Upload.Dragger maxCount={1} showUploadList={false} {...props}>
-      <div className="">
-        {loading ? (
-          <div className="my-4">
-            <Spin size="large" />
-          </div>
-        ) : (
-          <Icon id="upload" size="xl" iconClass="ft-color-dark2" />
-        )}
-      </div>
+      <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+        <div className="">
+          {loading ? (
+            <div className="my-4">
+              <Spin size="large" />
+            </div>
+          ) : (
+            <Icon id="upload" size="xl" iconClass="ft-color-dark2" />
+          )}
+        </div>
 
-      <div className="ft-color-dark2 p-3">{text}</div>
+        <div className="ft-color-dark2 p-3">{text}</div>
+        <div className="w-70">
+          <Input
+            placeholder="paste your SVG code here"
+            value={value}
+            onClick={(e) => onInputClick(e)}
+            onPaste={(e) => onPaste(e)}
+            onChange={(e) => setValue(e.target.value)}
+            onBlur={() => setValue("")}
+          />
+        </div>
+      </div>
     </Upload.Dragger>
   );
 };
