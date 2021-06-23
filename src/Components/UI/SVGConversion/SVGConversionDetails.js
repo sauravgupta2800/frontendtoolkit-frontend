@@ -15,7 +15,6 @@ const SVGConversionDetails = ({ drawerExtraDetails = {} }) => {
   };
   useEffect(() => {
     if (!!drawerExtraDetails.svg) {
-      console.log("drawerExtraDetails?.svg: ", drawerExtraDetails?.svg);
       setStateWith("svg", drawerExtraDetails.svg);
       setStateWith("showUpload", false);
     }

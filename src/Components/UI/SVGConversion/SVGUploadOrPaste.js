@@ -36,7 +36,6 @@ const SVGUploadOrPaste = ({
       }
     },
     beforeUpload(file) {
-      console.log("beforeUpload", file, file.type);
       const isSvg = ["image/svg+xml", "image/svg"].includes(file.type);
       if (!isSvg) message.error("You can only upload SVG file!");
       return isSvg;
