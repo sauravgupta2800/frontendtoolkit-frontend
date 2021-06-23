@@ -83,6 +83,8 @@ export const fixedDecimalNoRoundOff = (num, fixedTill) => {
   return m ? parseFloat(m[1]) : num.valueOf();
 };
 
+export const byteSize = (str) => new Blob([str]).size;
+
 export const editorOptions = {
   quickSuggestions: {
     other: false,

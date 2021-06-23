@@ -19,4 +19,5 @@ export const MINIFY = {
 
 export const SVG_OPTIMIZE = {
   SETTING_OPTIONS: `${base}svgConvertor/config-list`,
+  OPTIMIZED: `${base}svgConvertor/optimize`,
 };
