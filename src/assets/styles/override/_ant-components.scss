@@ -26,21 +26,8 @@
 }
 
 .packages-autocomplete-input {
-  & > .ant-input-group {
-    & > .ant-input-group-addon {
-      .ant-btn {
-        background: $prime93;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid $prime88;
-        .ant-btn-loading-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-    }
+  .ant-input-group-addon {
+    padding: 0;
   }
 }
 

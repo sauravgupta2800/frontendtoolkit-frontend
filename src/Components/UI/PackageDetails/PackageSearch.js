@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { AutoComplete, Input } from "antd";
+import { AutoComplete, Input, Spin } from "antd";
 import useDebounce from "../../customHooks/useDebounce";
 import axios from "axios";
 import { PACKAGE } from "./../../../shared/endpoints";
+import Icon from "./../Common/Icon/Icon";
+
 const PackageSearch = ({
   onOptionSelect,
   clearOnSelect = false,
@@ -60,6 +62,27 @@ const PackageSearch = ({
     };
   };
 
+  const addOnAfter = () => {
+    return (
+      <div
+        className="d-flex align-items-center justify-content-center cursor-pointer  rounded-end ft-bg-prime93"
+        style={{
+          height: "38px",
+          width: "38px",
+        }}
+        onClick={() => {}}
+      >
+        {loading ? (
+          <div className="pt-2">
+            <Spin size="small" />
+          </div>
+        ) : (
+          <Icon id="search" iconClass="ft-color-dark2" size="sm" />
+        )}
+      </div>
+    );
+  };
+
   return (
     <AutoComplete
       value={value}
@@ -70,12 +93,12 @@ const PackageSearch = ({
       onSelect={onSelect}
       onChange={onChange}
     >
-      <Input.Search
+      <Input
         className="packages-autocomplete-input w-100"
         size="large"
         allowClear={true}
         placeholder="find package"
-        loading={loading}
+        addonBefore={addOnAfter()}
       />
     </AutoComplete>
   );
