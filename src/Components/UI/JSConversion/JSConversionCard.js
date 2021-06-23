@@ -3,7 +3,7 @@ import DragCard from "../Common/DragCard/DragCard";
 import { useDispatch } from "react-redux";
 import { setDrawerData } from "../../../store/cardSlice";
 import { useHistory } from "react-router-dom";
-import { Input, Button, Radio } from "antd";
+import { Input, Radio } from "antd";
 import { TYPES } from "./config";
 
 const JSConversionCard = ({ ...rest }) => {
