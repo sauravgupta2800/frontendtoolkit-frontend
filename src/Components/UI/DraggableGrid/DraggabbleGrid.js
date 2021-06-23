@@ -15,7 +15,7 @@ const DraggableGrid = () => {
   const cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 };
 
   return (
-    <div className="d-flex w-100 h-100">
+    <div className="d-flex w-100 h-100 overflow-auto ft-bg-prime97">
       <ResponsiveGridLayout
         layouts={layouts}
         cols={cols}
@@ -26,7 +26,7 @@ const DraggableGrid = () => {
         rowHeight={30}
         containerPadding={[30, 30]}
         margin={[20, 20]}
-        style={{ minWidth: "100%" }}
+        style={{ minWidth: "100%", paddingBottom: "5rem" }}
         isBounded={true}
       >
         {/* <div key="a" data-grid={{ x: 0, y: 0, w: 2, h: 5, minW: 1, minH: 5 }}>
