@@ -11,10 +11,13 @@ import { byteSize, fixedDecimal, bytesToSize } from "./../../utils";
 import Icon from "./../Common/Icon/Icon";
 import svgr from "@svgr/core";
 import axios from "axios";
+import { useClipboard } from "use-clipboard-copy";
+
 const base64 = require("base-64");
 const utf8 = require("utf8");
 
 const SVGConversionLayout = ({ svg, onUploadNew }) => {
+  const clipboard = useClipboard({ copiedTimeout: 750 });
   const [state, setState] = useState({
     optimizedSvg: "",
     optimized: true,
@@ -173,7 +176,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
             </div>
           </Button>
 
-          <div>
+          <div className="d-flex align-items-center">
             <Radio.Group
               value={state.selectedType}
               buttonStyle="solid"
@@ -186,6 +189,14 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
                 </Radio.Button>
               ))}
             </Radio.Group>
+            <div className="ft-card-action-icon ms-4">
+              <Icon
+                id="copy"
+                size="md"
+                title={clipboard.copied ? "Copied" : "Copy"}
+                onClick={() => clipboard.copy(state[state.selectedType])}
+              />
+            </div>
           </div>
         </div>
         <div className="ft-svg-layout--right--content d-flex w-100 rounded-3">
