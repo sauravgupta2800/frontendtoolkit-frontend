@@ -1,18 +1,27 @@
-import { Upload, message } from "antd";
+import { Upload, message, Spin } from "antd";
+import { useState } from "react";
 import Icon from "../Common/Icon/Icon";
 
 const SVGUploadOrPaste = ({
-  text = "Please upload the file by dragging or clicking it here",
+  text = "Please upload the .svg file by dragging or clicking it here",
   onUploaded,
   wrapClass = "",
 }) => {
+  const [loading, setLoading] = useState(false);
+
   const props = {
+    // accept: ".svg",
     name: "file",
     multiple: false,
     action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
     onChange(info) {
       const { status } = info.file;
+      if (info.file.status === "uploading") {
+        setLoading(true);
+        return;
+      }
       if (status === "done") {
+        setLoading(false);
         message.success(`${info.file.name} file uploaded successfully.`);
         const file = info.file.originFileObj;
         const reader = new FileReader();
@@ -21,15 +30,28 @@ const SVGUploadOrPaste = ({
         };
         reader.readAsText(file);
       } else if (status === "error") {
+        setLoading(false);
         message.error(`${info.file.name} file upload failed.`);
       }
+    },
+    beforeUpload(file) {
+      console.log("beforeUpload", file, file.type);
+      const isSvg = ["image/svg+xml", "image/svg"].includes(file.type);
+      if (!isSvg) message.error("You can only upload SVG file!");
+      return isSvg;
     },
   };
 
   return (
     <Upload.Dragger maxCount={1} showUploadList={false} {...props}>
       <div className="">
-        <Icon id="upload" size="xl" iconClass="ft-color-dark2" />
+        {loading ? (
+          <div className="my-4">
+            <Spin size="large" />
+          </div>
+        ) : (
+          <Icon id="upload" size="xl" iconClass="ft-color-dark2" />
+        )}
       </div>
 
       <div className="ft-color-dark2 p-3">{text}</div>
