@@ -60,21 +60,29 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
   };
 
   const handleHtmlConversion = (svgText) => {
-    const text = prettier.format(svgText, {
-      parser: "typescript",
-      plugins: [parserTypeScript],
-    });
-    setStateWith("html", text);
+    try {
+      const text = prettier.format(svgText, {
+        parser: "typescript",
+        plugins: [parserTypeScript],
+      });
+      setStateWith("html", text);
+    } catch {
+      //
+    }
   };
 
   const handleJSXConversion = (svgText) => {
     svgr(svgText, { icon: true }, { componentName: "MyComponent" }).then(
       (jsCode) => {
-        const text = prettier.format(jsCode, {
-          parser: "typescript",
-          plugins: [parserTypeScript],
-        });
-        setStateWith("jsx", text);
+        try {
+          const text = prettier.format(jsCode, {
+            parser: "typescript",
+            plugins: [parserTypeScript],
+          });
+          setStateWith("jsx", text);
+        } catch {
+          //
+        }
       }
     );
   };
@@ -85,11 +93,15 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
       { icon: true, typescript: true },
       { componentName: "MyComponent" }
     ).then((jsCode) => {
-      const text = prettier.format(jsCode, {
-        parser: "typescript",
-        plugins: [parserTypeScript],
-      });
-      setStateWith("tsx", text);
+      try {
+        const text = prettier.format(jsCode, {
+          parser: "typescript",
+          plugins: [parserTypeScript],
+        });
+        setStateWith("tsx", text);
+      } catch {
+        //
+      }
     });
   };
 
@@ -99,11 +111,15 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
       { icon: true, native: true },
       { componentName: "MyComponent" }
     ).then((jsCode) => {
-      const text = prettier.format(jsCode, {
-        parser: "typescript",
-        plugins: [parserTypeScript],
-      });
-      setStateWith("native", text);
+      try {
+        const text = prettier.format(jsCode, {
+          parser: "typescript",
+          plugins: [parserTypeScript],
+        });
+        setStateWith("native", text);
+      } catch {
+        //
+      }
     });
   };
 
@@ -116,7 +132,12 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
   };
 
   const handleBase64Conversion = (svgText) => {
-    setStateWith("base64", base64.encode(utf8.encode(svgText)));
+    try {
+      const base64Text = base64.encode(utf8.encode(svgText));
+      setStateWith("base64", base64Text);
+    } catch {
+      //
+    }
   };
 
   const fetchOptimized = (options) => {
@@ -180,7 +201,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
               }}
             />
             {state.optimized && (
-              <div className="d-flex ft-bg-light100 ft-style-2-shadow align-items-center justify-content-center border border-2 rounded-3 px-3">
+              <div className="mt-5 d-flex ft-bg-light100 ft-style-2-shadow align-items-center justify-content-center border border-2 rounded-3 px-3">
                 <div className="fs-4 mt-1">{`${
                   bytesToSize(byteSize(svg)).value
                 } ${bytesToSize(byteSize(svg)).label}`}</div>
