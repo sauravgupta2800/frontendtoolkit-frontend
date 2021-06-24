@@ -12,10 +12,10 @@ const MainLayout = () => {
       <div className="ft-main-layout__header">
         <Header />
       </div>
-      <div className="ft-main-layout__sidebar">
+      <div className="ft-main-layout__sidebar ft-bg-prime97">
         <Sidebar />
       </div>
-      <div className="ft-main-layout__container">
+      <div className="ft-main-layout__container ft-bg-prime97">
         <Switch>
           <Route exact path="/">
             <DraggableGrid />

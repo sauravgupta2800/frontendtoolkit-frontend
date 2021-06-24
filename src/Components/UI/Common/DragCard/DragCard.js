@@ -15,7 +15,7 @@ const DragCard = ({
   };
 
   return (
-    <div className="w-100 h-100 border rounded-6 d-flex flex-column ft-bg-light100 p-4 overflow-auto">
+    <div className="w-100 h-100 border ft-border-color-prime88 rounded-6 d-flex flex-column ft-bg-light100 p-4 overflow-auto">
       <div className="d-flex justify-content-between">
         <div className="d-flex  align-items-center">
           <Icon
