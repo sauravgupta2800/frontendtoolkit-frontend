@@ -12,7 +12,7 @@ const MainLayout = () => {
       <div className="ft-main-layout__header">
         <Header />
       </div>
-      <div className="ft-main-layout__sidebar ft-bg-prime97">
+      <div className="ft-main-layout__sidebar ft-bg-prime88">
         <Sidebar />
       </div>
       <div className="ft-main-layout__container ft-bg-prime97">

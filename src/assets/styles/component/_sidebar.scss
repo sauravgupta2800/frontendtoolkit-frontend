@@ -1,3 +1,13 @@
-.fe-sidebar {
-  // background: $prime;
+.ft-sidebar {
+  border-right: 1px solid $prime-shade-75 !important;
+  &--icon {
+    color: $light100;
+    background: $prime-shade-65;
+    transition: transform 0.3s;
+    &:hover {
+      background: $prime-shade-45;
+      transform: scale(1.05);
+      transition: transform 0.3s;
+    }
+  }
 }

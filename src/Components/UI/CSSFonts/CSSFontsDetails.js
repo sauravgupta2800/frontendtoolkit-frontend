@@ -167,6 +167,9 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
                 loading={<Spin size="medium" />}
                 options={{ ...editorOptions, readOnly: true }}
               />
+              {/* <pre>
+                <code class="html">{cssCode}</code>
+              </pre> */}
             </div>
           </div>
         </div>
