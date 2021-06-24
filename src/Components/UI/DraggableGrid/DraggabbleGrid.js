@@ -24,22 +24,17 @@ const DraggableGrid = () => {
           setLayouts(layouts);
         }}
         rowHeight={30}
-        containerPadding={[30, 30]}
-        margin={[20, 20]}
+        containerPadding={[20, 20]}
+        margin={[15, 15]}
         style={{ minWidth: "100%", paddingBottom: "5rem" }}
         isBounded={true}
       >
-        {/* <div key="a" data-grid={{ x: 0, y: 0, w: 2, h: 5, minW: 1, minH: 5 }}>
-          Some content
-        </div>
-        <div key="b" data-grid={{ x: 2, y: 0, w: 2, h: 5, minW: 1, minH: 5 }}>
-          Some content
-        </div>
-        <div key="c" data-grid={{ x: 4, y: 0, w: 2, h: 5, minW: 1, minH: 5 }}>
-          Some content
-        </div> */}
         {COMPONENTS.map((item) => (
-          <div key={item.key_name} data-grid={item.dataGrid}>
+          <div
+            key={item.key_name}
+            data-grid={item.dataGrid}
+            className="ft-style-1-shadow ft-style-2-shadow-hover"
+          >
             {React.createElement(item.component, {
               key: item.key_name,
               ...item,
