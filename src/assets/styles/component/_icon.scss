@@ -108,3 +108,9 @@ $icon-sizes: (
     color: $light2;
   }
 }
+
+.ft-icon-dark2 {
+  & .ft-icon-wrapper {
+    color: $dark2;
+  }
+}
