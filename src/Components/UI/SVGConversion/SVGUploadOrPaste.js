@@ -43,9 +43,13 @@ const SVGUploadOrPaste = ({
   };
 
   const onPaste = (e) => {
-    const text = e.clipboardData?.getData("Text") ?? "";
+    let text = e.clipboardData?.getData("Text") ?? "";
     const isValidSVG = /^(^<svg)([^>]*)/.test(text);
     if (text && isValidSVG) {
+      text = text.trim();
+      if (text.length && text[text.length - 1] === ";") {
+        text = text.slice(0, -1);
+      }
       onUploaded({ svg: text });
     } else {
       message.error("You can only paste a valid SVG file!");

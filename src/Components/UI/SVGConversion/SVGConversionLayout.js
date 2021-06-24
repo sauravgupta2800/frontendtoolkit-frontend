@@ -200,7 +200,7 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
           </div>
         </div>
         <div className="ft-svg-layout--right--content d-flex w-100 rounded-3">
-          <div className="ft-svg-layout--right--content--icon w-50 h-100 border d-flex flex-column align-items-center justify-content-center rounded-start">
+          <div className="ft-svg-layout--right--content--icon overflow-auto w-50 h-100 border d-flex flex-column align-items-center justify-content-center rounded-start">
             <img
               src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
               alt={svg}
