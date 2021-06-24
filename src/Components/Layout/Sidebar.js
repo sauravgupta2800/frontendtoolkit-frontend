@@ -7,12 +7,17 @@ const Sidebar = () => {
         <div className="d-flex h-100 flex-column justify-content-center align-items-center">
           <SideBarIcon />
           <SideBarIcon id="add" />
+          <SideBarIcon id="reset" />
+          <SideBarIcon id="card-plus" />
           <SideBarIcon id="card-list" />
           <SideBarIcon id="download" />
           <SideBarIcon id="upload" />
         </div>
       </div>
-      <div className="d-flex justify-content-center align-items-center pb-4">
+      <div className="d-flex flex-column justify-content-center align-items-center pb-4">
+        <div>
+          <Icon id="github" size="lg" />
+        </div>
         <a
           href={"https://www.buymeacoffee.com/sauravgupta"}
           target="_blank"
