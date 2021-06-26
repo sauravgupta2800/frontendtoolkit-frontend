@@ -1,8 +1,10 @@
 import { Popover, Button } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../UI/Common/Icon/Icon";
-
+import { setRemovedID } from "../../../store/widgetsSlice";
 export const AddPopover = (props) => {
+  const dispatch = useDispatch();
+
   const removedList = useSelector((state) => {
     const { list, removedIDs } = state.widgets;
     return list.filter((item) => removedIDs.includes(item.key_name));
@@ -27,6 +29,9 @@ export const AddPopover = (props) => {
               className={`d-flex align-items-center p-2 rounded-3 cursor-pointer add-items-selection ${
                 !index ? "mt-4" : ""
               }`}
+              onClick={() =>
+                dispatch(setRemovedID({ id: item.key_name, remove: false }))
+              }
             >
               <Icon {...item.iconProps} size="lg" />
               <div className="ms-2 fs-4">{item.title}</div>

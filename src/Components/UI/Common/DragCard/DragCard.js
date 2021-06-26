@@ -15,7 +15,8 @@ const DragCard = ({
     console.log("info handler");
   };
   const onDeleteClick = () => {
-    if (rest.key_name) dispatch(setRemovedID(rest.key_name));
+    if (rest.key_name)
+      dispatch(setRemovedID({ id: rest.key_name, remove: true }));
   };
 
   return (

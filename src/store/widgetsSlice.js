@@ -18,8 +18,10 @@ export const widgetsSlice = createSlice({
       state.q = action.payload;
     },
     setRemovedID: (state, action) => {
-      const removedIDs = [...state.removedIDs];
-      removedIDs.push(action.payload);
+      const { id, remove = true } = action.payload;
+      let removedIDs = [...state.removedIDs];
+      if (remove) removedIDs.push(id);
+      else removedIDs = removedIDs.filter((itemId) => itemId !== id);
       saveToLS("removedCardIds", removedIDs);
       state.removedIDs = removedIDs;
     },
