@@ -10,7 +10,13 @@ export default configureStore({
   middleware: getDefaultMiddleware({
     serializableCheck: {
       // Ignore these action types
-      ignoredActions: ["widgets/setList", "widgets/setRemovedID"],
+      ignoredActions: [
+        "widgets/setList",
+        "widgets/setRemovedID",
+        "widgets/setQuery",
+        "card/setDrawerData",
+        "card/resetDrawerData",
+      ],
     },
   }),
 });
