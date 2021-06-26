@@ -34,7 +34,7 @@ const Sidebar = () => {
               count={removedItemCount}
             />
           </AddPopover>
-          <SideBarIcon id="reset" tooltipText="Reset" />
+          {/* <SideBarIcon id="reset" tooltipText="Reset" /> */}
           <SideBarIcon id="card-list" tooltipText="Custom Fields List" />
           <SideBarIcon id="download" tooltipText="Download Cards" />
           <SideBarIcon id="upload" tooltipText="Upload Cards" />
