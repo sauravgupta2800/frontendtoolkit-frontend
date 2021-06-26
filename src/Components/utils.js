@@ -14,12 +14,19 @@ export const getFromLS = (key) => {
 
 export const saveToLS = (key, value) => {
   if (global.localStorage) {
-    global.localStorage.setItem(
-      "frontend-store",
-      JSON.stringify({
-        [key]: value,
-      })
-    );
+    try {
+      const ls =
+        JSON.parse(global.localStorage.getItem("frontend-store")) || {};
+      global.localStorage.setItem(
+        "frontend-store",
+        JSON.stringify({
+          ...ls,
+          [key]: value,
+        })
+      );
+    } catch {
+      //
+    }
   }
 };
 

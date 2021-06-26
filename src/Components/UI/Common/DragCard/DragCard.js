@@ -1,5 +1,7 @@
 import Icon from "../Icon/Icon";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setRemovedID } from "../../../../store/widgetsSlice";
 
 const DragCard = ({
   title = "title",
@@ -7,11 +9,13 @@ const DragCard = ({
   onDrawerClose,
   ...rest
 }) => {
+  const dispatch = useDispatch();
+
   const onInfoClick = async () => {
     console.log("info handler");
   };
   const onDeleteClick = () => {
-    console.log("delete handler");
+    if (rest.key_name) dispatch(setRemovedID(rest.key_name));
   };
 
   return (
