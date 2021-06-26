@@ -4,7 +4,6 @@ import { getFromLS, saveToLS } from "../../utils";
 import { useSelector, useDispatch } from "react-redux";
 import { COMPONENTS } from "./config";
 import { setList } from "../../../store/widgetsSlice";
-import { set } from "lodash";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};
