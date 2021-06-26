@@ -39,7 +39,11 @@ const Sidebar = () => {
             />
           </AddPopover>
           <div onClick={() => setStateWith("customWidgetVisible", true)}>
-            <SideBarIcon id="card-list" tooltipText="Custom Cards" />
+            <SideBarIcon
+              id="card-list"
+              tooltipText="Custom Cards"
+              selected={state.customWidgetVisible}
+            />
           </div>
           <SideBarIcon id="download" tooltipText="Download Cards" />
           <SideBarIcon id="upload" tooltipText="Upload Cards" />
