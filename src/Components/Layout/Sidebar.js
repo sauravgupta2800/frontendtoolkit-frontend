@@ -3,9 +3,13 @@ import { Tooltip, Badge } from "antd";
 import { AddPopover } from "./SidebarComponents/AddPopover";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import CustomWidgets from "./SidebarComponents/CustomWidgets";
 
 const Sidebar = () => {
-  const [state, setState] = useState({ addPopverVisible: false });
+  const [state, setState] = useState({
+    addPopverVisible: false,
+    customWidgetVisible: false,
+  });
   const removedItemCount = useSelector(
     (state) => state.widgets.removedIDs.length
   );
@@ -34,11 +38,16 @@ const Sidebar = () => {
               count={removedItemCount}
             />
           </AddPopover>
-          {/* <SideBarIcon id="reset" tooltipText="Reset" /> */}
-          <SideBarIcon id="card-list" tooltipText="Custom Fields List" />
+          <div onClick={() => setStateWith("customWidgetVisible", true)}>
+            <SideBarIcon id="card-list" tooltipText="Custom Fields List" />
+          </div>
           <SideBarIcon id="download" tooltipText="Download Cards" />
           <SideBarIcon id="upload" tooltipText="Upload Cards" />
         </div>
+        <CustomWidgets
+          visible={state.customWidgetVisible}
+          handleClose={() => setStateWith("customWidgetVisible", false)}
+        />
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center pb-4">
         <a

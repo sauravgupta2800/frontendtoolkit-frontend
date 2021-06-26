@@ -3,17 +3,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setRemovedID } from "../../../../store/widgetsSlice";
 
-const DragCard = ({
-  title = "title",
-  subTitle = "sub title",
-  onDrawerClose,
-  ...rest
-}) => {
+const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
   const dispatch = useDispatch();
 
-  const onInfoClick = async () => {
-    console.log("info handler");
-  };
+  // const onInfoClick = async () => {
+  //   console.log("info handler");
+  // };
   const onDeleteClick = () => {
     if (rest.key_name)
       dispatch(setRemovedID({ id: rest.key_name, remove: true }));
@@ -33,12 +28,12 @@ const DragCard = ({
           <div className="fs-2 fw-bold ms-3 ft-color-dark">{title}</div>
         </div>
         <div className="d-flex justify-content-between align-items-center ft-card-action-icon">
-          <Icon
+          {/* <Icon
             id="info"
             size={"md"}
             title={"View Info"}
             onClick={onInfoClick}
-          />
+          /> */}
           <Icon
             id="delete"
             size={"md"}
