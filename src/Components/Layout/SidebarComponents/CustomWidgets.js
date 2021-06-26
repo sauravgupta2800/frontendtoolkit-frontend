@@ -24,15 +24,18 @@ const Detail = () => {
       {item ? (
         <div className="w-100 h-100">
           <div className="d-flex justify-content-between">
-            <div onClick={() => setItem(null)}>
-              <Icon id="arrow-left" title="back to custom list" />
+            <div className="d-flex align-items-center">
+              <div onClick={() => setItem(null)}>
+                <Icon id="arrow-left" title="back to custom list" />
+              </div>
+              <div className="ms-3 fw-bold fs-3">{item.title}</div>
             </div>
             <Button className="ms-3">Add to dashboard</Button>
           </div>
           <iframe
             src={item.url}
             allow="clipboard-write"
-            className="w-100 ft-iframe-height"
+            className="w-100 ft-iframe-height border mt-2 rounded-3 ft-style-2-shadow"
             title={item.title}
           />
         </div>
@@ -42,7 +45,7 @@ const Detail = () => {
             {CUSTOM_CARDS.map((item, index) => (
               <div
                 key={index}
-                className="border p-3 rounded-3 w-20 d-flex flex-column justify-content-between m-3"
+                className="border p-4 rounded-3 w-20 d-flex flex-column justify-content-between m-3 ft-style-1-shadow ft-style-2-shadow-hover"
               >
                 <div>
                   <div className="fs-2 fw-bold ft-color-dark">{item.title}</div>
