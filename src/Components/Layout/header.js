@@ -1,5 +1,7 @@
 import Icon from "./../UI/Common/Icon/Icon";
 import { Input } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { setQuery } from "../../store/widgetsSlice";
 
 const Header = () => {
   return (
@@ -23,12 +25,20 @@ const Header = () => {
 };
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
+  const value = useSelector((state) => state.widgets.q);
   return (
     <div className="d-flex align-items-center border-start ms-4 px-4">
       <div className="ft-icon-dark2">
         <Icon id="search" size="xs" />
       </div>
-      <Input placeholder="Search tools ..... " size="large" bordered={false} />
+      <Input
+        placeholder="Search tools ..... "
+        size="large"
+        value={value}
+        bordered={false}
+        onInput={(event) => dispatch(setQuery(event.target.value))}
+      />
     </div>
   );
 };

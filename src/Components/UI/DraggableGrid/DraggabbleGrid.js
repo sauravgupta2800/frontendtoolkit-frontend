@@ -12,8 +12,15 @@ const DraggableGrid = () => {
   const dispatch = useDispatch();
 
   const selectedList = useSelector((state) => {
-    const { list, removedIDs } = state.widgets;
-    return list.filter((item) => !removedIDs.includes(item.key_name));
+    const { list, removedIDs, q } = state.widgets;
+    const filteredList = list.filter(
+      (item) => !removedIDs.includes(item.key_name)
+    );
+    return q.length
+      ? filteredList.filter((item) =>
+          item.title.trim().toLowerCase().includes(q.trim().toLowerCase())
+        )
+      : filteredList;
   });
 
   const [layouts, setLayouts] = useState(
