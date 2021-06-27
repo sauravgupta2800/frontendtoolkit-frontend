@@ -19,7 +19,7 @@ export const widgetsSlice = createSlice({
         addCustomComponent(field)
       );
       console.log("customList: ", customList);
-      state.list = [...action.payload, ...customList];
+      state.list = [...customList, ...action.payload];
     },
     setQuery: (state, action) => {
       state.q = action.payload;
@@ -34,16 +34,30 @@ export const widgetsSlice = createSlice({
     },
     addCustomCard: (state, action) => {
       const cardData = action.payload;
-      const customList = [...state.customList, ...[cardData]];
-      console.log("card data: ", cardData);
+      const customList = [...[cardData], ...state.customList];
       saveToLS("customList", customList);
-      state.list = [...state.list, ...[addCustomComponent(cardData)]];
+      state.customList = customList;
+      state.list = [...[addCustomComponent(cardData)], ...state.list];
+    },
+    removeCustomCard: (state, action) => {
+      const id = action.payload;
+      const customList = state.customList.filter(
+        (item) => item.key_name !== id
+      );
+      state.customList = customList;
+      saveToLS("customList", customList);
+      state.list = state.list.filter((item) => item.key_name !== id);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setList, setQuery, setRemovedID, addCustomCard } =
-  widgetsSlice.actions;
+export const {
+  setList,
+  setQuery,
+  setRemovedID,
+  addCustomCard,
+  removeCustomCard,
+} = widgetsSlice.actions;
 
 export default widgetsSlice.reducer;

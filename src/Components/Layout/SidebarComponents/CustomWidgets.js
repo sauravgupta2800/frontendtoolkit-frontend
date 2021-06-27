@@ -3,8 +3,8 @@ import { CUSTOM_CARDS } from "./config";
 import { Button, message } from "antd";
 import { useState } from "react";
 import Icon from "../../UI/Common/Icon/Icon";
-import { useDispatch } from "react-redux";
-import { addCustomCard } from "../../../store/widgetsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addCustomCard, removeCustomCard } from "../../../store/widgetsSlice";
 
 const CustomWidgets = ({ visible = false, handleClose }) => {
   return (
@@ -24,9 +24,18 @@ const Detail = () => {
 
   const [item, setItem] = useState(null);
 
+  const addedCards = useSelector((state) =>
+    state.widgets.customList.map((item) => item.key_name)
+  );
+
   const handleAddToDashboard = (item) => {
     dispatch(addCustomCard(item));
     message.success(`${item.title} card added to dashboard.`);
+  };
+
+  const handleRemoveFromDashboard = ({ key_name, title }) => {
+    dispatch(removeCustomCard(key_name));
+    message.success(`${title} card removed from dashboard.`);
   };
   return (
     <>
@@ -39,9 +48,27 @@ const Detail = () => {
               </div>
               <div className="ms-3 fw-bold fs-3">{item.title}</div>
             </div>
-            <Button className="ms-3" onClick={() => handleAddToDashboard(item)}>
-              Add to dashboard
-            </Button>
+
+            {addedCards.includes(item.key_name) ? (
+              <div
+                className="ms-2"
+                onClick={() => handleRemoveFromDashboard(item)}
+              >
+                <Icon
+                  id="delete"
+                  size="md"
+                  title="Remove from Dashboard"
+                  iconClass="ft-color-red"
+                />
+              </div>
+            ) : (
+              <Button
+                className="ms-3"
+                onClick={() => handleAddToDashboard(item)}
+              >
+                Add to dashboard
+              </Button>
+            )}
           </div>
           <iframe
             src={item.url}
@@ -64,16 +91,32 @@ const Detail = () => {
                     {item.subTitle}
                   </div>
                 </div>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center align-items-center">
                   <Button type="primary" onClick={() => setItem(item)}>
                     View
                   </Button>
                   <Button
                     onClick={() => handleAddToDashboard(item)}
                     className="ms-3"
+                    disabled={addedCards.includes(item.key_name)}
                   >
-                    Add to dashboard
+                    {addedCards.includes(item.key_name)
+                      ? "Added"
+                      : "Add to dashboard"}
                   </Button>
+                  {addedCards.includes(item.key_name) && (
+                    <div
+                      className="ms-2"
+                      onClick={() => handleRemoveFromDashboard(item)}
+                    >
+                      <Icon
+                        id="delete"
+                        size="md"
+                        title="Remove from Dashboard"
+                        iconClass="ft-color-red"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

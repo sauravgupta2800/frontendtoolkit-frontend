@@ -15,6 +15,7 @@ export default configureStore({
         "widgets/setRemovedID",
         "widgets/setQuery",
         "widgets/addCustomCard",
+        "widgets/removeCustomCard",
         "card/setDrawerData",
         "card/resetDrawerData",
       ],
