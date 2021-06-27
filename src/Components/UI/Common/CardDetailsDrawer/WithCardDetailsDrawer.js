@@ -46,6 +46,7 @@ const WithCardDetailsDrawer = ({
           <div className="w-100 h-100">
             {React.createElement(detailComponent, {
               ...rest,
+              onClose: onClose,
             })}
           </div>
         )}

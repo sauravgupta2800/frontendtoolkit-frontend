@@ -1,9 +1,8 @@
 import WithCardDetailsDrawer from "../../UI/Common/CardDetailsDrawer/WithCardDetailsDrawer";
 import { Button, message, Input } from "antd";
 import { useState } from "react";
-import Icon from "../../UI/Common/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
-import { addCustomCard, removeCustomCard } from "../../../store/widgetsSlice";
+import { addCustomCard } from "../../../store/widgetsSlice";
 import DragCard from "../../UI/Common/DragCard/DragCard";
 import { addCustomComponent } from "../../UI/DraggableGrid/config";
 
@@ -20,7 +19,7 @@ const CreateCustomCard = ({ visible = false, handleClose }) => {
   );
 };
 
-const CreateForm = () => {
+const CreateForm = ({ onClose }) => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
@@ -36,9 +35,9 @@ const CreateForm = () => {
     state.widgets.list.map((item) => item.title)
   );
 
-  const handleAddToDashboard = (item) => {
-    dispatch(addCustomCard(item));
-    message.success(`${item.title} card added to dashboard.`);
+  const handleAddToDashboard = () => {
+    //dispatch(addCustomCard(item));
+    message.success(`${"aa"} card added to dashboard.`);
   };
 
   const handleChange = (field, value) => {
@@ -58,7 +57,7 @@ const CreateForm = () => {
   return (
     <div className="w-100 h-100 d-flex">
       <div className="w-30 border rounded-3  ft-style-1-shadow d-flex flex-column justify-content-between">
-        <div className="p-4">
+        <div className="p-4  overflow-auto">
           <div>
             Make utilize this section to create your own embedded card with a
             full customization option
@@ -100,7 +99,16 @@ const CreateForm = () => {
           </div>
         </div>
         <div className="p-3 border-top d-flex justify-content-end">
-          <Button type="primary">Create</Button>
+          <Button type="text" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button
+            className="ms-2"
+            type="primary"
+            onClick={() => handleAddToDashboard()}
+          >
+            Create
+          </Button>
         </div>
       </div>
       <div className="w-70 h-100 ps-4">
