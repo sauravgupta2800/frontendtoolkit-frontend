@@ -28,15 +28,15 @@ export const widgetsSlice = createSlice({
       let removedIDs = [...state.removedIDs];
       if (remove) removedIDs.push(id);
       else removedIDs = removedIDs.filter((itemId) => itemId !== id);
-      saveToLS("removedCardIds", removedIDs);
       state.removedIDs = removedIDs;
+      saveToLS("removedCardIds", removedIDs);
     },
     addCustomCard: (state, action) => {
       const cardData = action.payload;
       const customList = [...[cardData], ...state.customList];
-      saveToLS("customList", customList);
       state.customList = customList;
       state.list = [...[addCustomComponent(cardData)], ...state.list];
+      saveToLS("customList", customList);
     },
     removeCustomCard: (state, action) => {
       const id = action.payload;
@@ -46,9 +46,9 @@ export const widgetsSlice = createSlice({
       const removedIDs = state.removedIDs.filter((itemId) => itemId !== id);
       state.customList = customList;
       state.removedIDs = removedIDs;
+      state.list = state.list.filter((item) => item.key_name !== id);
       saveToLS("customList", customList);
       saveToLS("removedCardIds", removedIDs);
-      state.list = state.list.filter((item) => item.key_name !== id);
     },
   },
 });
