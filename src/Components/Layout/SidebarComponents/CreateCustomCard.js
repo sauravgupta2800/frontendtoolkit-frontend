@@ -35,9 +35,45 @@ const CreateForm = ({ onClose }) => {
     state.widgets.list.map((item) => item.title)
   );
 
+  const handleValidation = () => {
+    let fields = state.fields;
+    let errors = {};
+    let formIsValid = true;
+
+    if (!fields["title"]) {
+      formIsValid = false;
+      errors["title"] = "Title Cannot be empty";
+    }
+    if (!fields["subTitle"]) {
+      formIsValid = false;
+      errors["subTitle"] = "Description Cannot be empty";
+    }
+    if (!fields["url"]) {
+      formIsValid = false;
+      errors["url"] = "Url Cannot be empty";
+    }
+    setStateWith("errors", errors);
+    return formIsValid;
+  };
+
   const handleAddToDashboard = () => {
-    //dispatch(addCustomCard(item));
-    message.success(`${"aa"} card added to dashboard.`);
+    if (handleValidation()) {
+      if (titleList.includes(state.fields.title)) {
+        message.error(
+          `${state.fields.title} title already exists. Please enter some other unique title`
+        );
+        return;
+      }
+      const item = {
+        ...state.fields,
+        key_name: state.fields.title,
+        dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+      };
+
+      dispatch(addCustomCard(item));
+      message.success(`${item.title} card added to dashboard.`);
+      onClose();
+    }
   };
 
   const handleChange = (field, value) => {
@@ -71,6 +107,9 @@ const CreateForm = ({ onClose }) => {
               value={state.fields["title"]}
               onChange={(event) => handleChange("title", event.target.value)}
             />
+            <span className="fs-5" style={{ color: "red" }}>
+              {!state.fields["title"] ? state.errors["title"] : ""}
+            </span>
           </div>
           <div className="mt-4">
             <div className="fw-bold mb-1">Description</div>
@@ -82,6 +121,9 @@ const CreateForm = ({ onClose }) => {
               value={state.fields["subTitle"]}
               onChange={(event) => handleChange("subTitle", event.target.value)}
             />
+            <span className="fs-5" style={{ color: "red" }}>
+              {!state.fields["subTitle"] ? state.errors["subTitle"] : ""}
+            </span>
           </div>
           <div className="mt-4">
             <div className="fw-bold mb-1">URL</div>
@@ -92,7 +134,10 @@ const CreateForm = ({ onClose }) => {
               value={state.fields["url"]}
               onChange={(event) => handleChange("url", event.target.value)}
             />
-            <div className="ft-color-dark3 fs-5 mt-3 fst-italic">
+            <span className="fs-5" style={{ color: "red" }}>
+              {!state.fields["url"] ? state.errors["url"] : ""}
+            </span>
+            <div className="ft-color-dark3 fs-5 mt-1 fst-italic">
               Also make sure that the origin allows embedding the content as
               iframe.
             </div>
