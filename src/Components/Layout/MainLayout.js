@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import Header from "./header";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
-import { COMPONENTS } from "../UI/DraggableGrid/config";
+import { useSelector } from "react-redux";
 
 const MainLayout = () => {
   return (
@@ -34,6 +34,7 @@ const MainLayout = () => {
 
 const RenderDrawer = () => {
   let { id } = useParams();
+  const COMPONENTS = useSelector((state) => state.widgets.list);
   const componentConfig = COMPONENTS.find(
     (component) => component.key_name === id
   );

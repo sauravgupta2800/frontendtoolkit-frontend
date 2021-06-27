@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import WithCardDetailsDrawer from "./WithCardDetailsDrawer";
-import { COMPONENTS } from "../../DraggableGrid/config";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { resetDrawerData } from "../../../../store/cardSlice";
@@ -11,6 +10,7 @@ const CardDetailsDrawer = ({ id }) => {
   const [componentConfig, setComponentConfig] = useState({});
   const history = useHistory();
   const transferedData = useSelector((state) => state.card);
+  const COMPONENTS = useSelector((state) => state.widgets.list);
 
   useEffect(() => {
     const componentConfig = COMPONENTS.find(

@@ -39,6 +39,7 @@ export const addCustomComponent = (field) => {
       size: "lgx",
       iconClass: "ft-color-prime",
     },
+    drawerWidth: "90%",
     component: CustomCard,
     detailComponent: CustomDetails,
   };
