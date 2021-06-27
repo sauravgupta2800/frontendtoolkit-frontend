@@ -97,7 +97,7 @@ const PackageSearch = ({
         className="packages-autocomplete-input w-100"
         size="large"
         allowClear={true}
-        placeholder="find package"
+        placeholder="type the package name .."
         addonBefore={addOnAfter()}
       />
     </AutoComplete>

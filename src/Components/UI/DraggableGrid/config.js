@@ -28,6 +28,22 @@ import CSSFontsDetails from "../CSSFonts/CSSFontsDetails";
 import SVGConversionCard from "../SVGConversion/SVGConversionCard";
 import SVGConversionDetails from "../SVGConversion/SVGConversionDetails";
 
+import CustomCard from "../CustomWidget/CustomCard";
+import CustomDetails from "../CustomWidget/CustomDetails";
+
+export const addCustomComponent = (field) => {
+  return {
+    ...field,
+    iconProps: {
+      id: "link",
+      size: "lgx",
+      iconClass: "ft-color-prime",
+    },
+    component: CustomCard,
+    detailComponent: CustomDetails,
+  };
+};
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
