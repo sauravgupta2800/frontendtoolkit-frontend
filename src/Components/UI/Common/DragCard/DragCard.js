@@ -7,7 +7,6 @@ const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
   const dispatch = useDispatch();
 
   // const onInfoClick = async () => {
-  //   console.log("info handler");
   // };
   const onDeleteClick = () => {
     if (rest.key_name)

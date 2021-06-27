@@ -18,7 +18,6 @@ export const widgetsSlice = createSlice({
       const customList = state.customList.map((field) =>
         addCustomComponent(field)
       );
-      console.log("customList: ", customList);
       state.list = [...customList, ...action.payload];
     },
     setQuery: (state, action) => {
