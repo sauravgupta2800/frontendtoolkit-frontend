@@ -1,8 +1,10 @@
 import WithCardDetailsDrawer from "../../UI/Common/CardDetailsDrawer/WithCardDetailsDrawer";
 import { CUSTOM_CARDS } from "./config";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import { useState } from "react";
 import Icon from "../../UI/Common/Icon/Icon";
+import { useDispatch } from "react-redux";
+import { addCustomCard } from "../../../store/widgetsSlice";
 
 const CustomWidgets = ({ visible = false, handleClose }) => {
   return (
@@ -18,7 +20,14 @@ const CustomWidgets = ({ visible = false, handleClose }) => {
 };
 
 const Detail = () => {
+  const dispatch = useDispatch();
+
   const [item, setItem] = useState(null);
+
+  const handleAddToDashboard = (item) => {
+    dispatch(addCustomCard(item));
+    message.success(`${item.title} card added to dashboard.`);
+  };
   return (
     <>
       {item ? (
@@ -30,7 +39,9 @@ const Detail = () => {
               </div>
               <div className="ms-3 fw-bold fs-3">{item.title}</div>
             </div>
-            <Button className="ms-3">Add to dashboard</Button>
+            <Button className="ms-3" onClick={() => handleAddToDashboard(item)}>
+              Add to dashboard
+            </Button>
           </div>
           <iframe
             src={item.url}
@@ -57,7 +68,12 @@ const Detail = () => {
                   <Button type="primary" onClick={() => setItem(item)}>
                     View
                   </Button>
-                  <Button className="ms-3">Add to dashboard</Button>
+                  <Button
+                    onClick={() => handleAddToDashboard(item)}
+                    className="ms-3"
+                  >
+                    Add to dashboard
+                  </Button>
                 </div>
               </div>
             ))}

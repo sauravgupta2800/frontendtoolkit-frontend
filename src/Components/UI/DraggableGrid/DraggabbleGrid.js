@@ -35,7 +35,7 @@ const DraggableGrid = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 };
+  const cols = { lg: 12, md: 8, sm: 6, xs: 4, xxs: 2 };
 
   return (
     <div className="d-flex w-100 h-100 overflow-auto">
