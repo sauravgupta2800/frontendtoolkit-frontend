@@ -66,7 +66,7 @@ const CreateForm = () => {
           <div className="mt-4">
             <div className="fw-bold mb-1">Title</div>
             <Input
-              placeholder="Enter the card title"
+              placeholder="Enter the card title *"
               size="large"
               className="w-100 rounded ft-style-1-shadow"
               value={state.fields["title"]}
@@ -76,7 +76,7 @@ const CreateForm = () => {
           <div className="mt-4">
             <div className="fw-bold mb-1">Description</div>
             <Input.TextArea
-              placeholder="Enter the card description"
+              placeholder="Enter the card description *"
               size="large"
               className="w-100 rounded ft-style-1-shadow"
               autoSize={{ minRows: 4, maxRows: 4 }}
@@ -87,12 +87,16 @@ const CreateForm = () => {
           <div className="mt-4">
             <div className="fw-bold mb-1">URL</div>
             <Input
-              placeholder="Enter the card url"
+              placeholder="Enter the card url *"
               size="large"
               className="w-100 rounded ft-style-1-shadow"
               value={state.fields["url"]}
               onChange={(event) => handleChange("url", event.target.value)}
             />
+            <div className="ft-color-dark3 fs-5 mt-3 fst-italic">
+              Also make sure that the origin allows embedding the content as
+              iframe.
+            </div>
           </div>
         </div>
         <div className="p-3 border-top d-flex justify-content-end">

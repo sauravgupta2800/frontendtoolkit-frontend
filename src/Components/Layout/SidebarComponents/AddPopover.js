@@ -35,7 +35,7 @@ export const AddPopover = (props) => {
         >
           <div className="d-flex align-items-center justify-content-center">
             <Icon id="card-plus" size="sm" />
-            <span className="ms-2">Create Custom Card</span>
+            <span className="ms-2">Add Custom Card</span>
           </div>
         </Button>
         {removedList.length ? (
