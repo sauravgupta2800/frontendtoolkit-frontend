@@ -1,7 +1,7 @@
-import { Popover, Button } from "antd";
+import { Popover, Button, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../UI/Common/Icon/Icon";
-import { setRemovedID } from "../../../store/widgetsSlice";
+import { setRemovedID, removeCustomCard } from "../../../store/widgetsSlice";
 export const AddPopover = (props) => {
   const dispatch = useDispatch();
 
@@ -9,6 +9,16 @@ export const AddPopover = (props) => {
     const { list, removedIDs } = state.widgets;
     return list.filter((item) => removedIDs.includes(item.key_name));
   });
+
+  const addedCustomCards = useSelector((state) =>
+    state.widgets.customList.map((item) => item.key_name)
+  );
+
+  const handleRemoveFromDashboard = (e, { key_name, title }) => {
+    e.stopPropagation();
+    dispatch(removeCustomCard(key_name));
+    message.success(`${title} card removed from dashboard.`);
+  };
 
   const text = () => {
     return <div className="fs-3 p-3 fw-bold">Control the Card Items</div>;
@@ -35,6 +45,14 @@ export const AddPopover = (props) => {
             >
               <Icon {...item.iconProps} size="lg" />
               <div className="ms-2 fs-4">{item.title}</div>
+              {addedCustomCards.includes(item.key_name) && (
+                <div
+                  className="ms-2 ft-table-action-icon-red"
+                  onClick={(e) => handleRemoveFromDashboard(e, item)}
+                >
+                  <Icon id="delete" title="Remove from Dashboard" />
+                </div>
+              )}
             </div>
           ))}
         </>

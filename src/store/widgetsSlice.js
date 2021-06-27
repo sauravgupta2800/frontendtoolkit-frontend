@@ -43,8 +43,11 @@ export const widgetsSlice = createSlice({
       const customList = state.customList.filter(
         (item) => item.key_name !== id
       );
+      const removedIDs = state.removedIDs.filter((itemId) => itemId !== id);
       state.customList = customList;
+      state.removedIDs = removedIDs;
       saveToLS("customList", customList);
+      saveToLS("removedCardIds", removedIDs);
       state.list = state.list.filter((item) => item.key_name !== id);
     },
   },

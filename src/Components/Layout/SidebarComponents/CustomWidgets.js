@@ -51,15 +51,10 @@ const Detail = () => {
 
             {addedCards.includes(item.key_name) ? (
               <div
-                className="ms-2"
+                className="ms-2 ft-table-action-icon-red"
                 onClick={() => handleRemoveFromDashboard(item)}
               >
-                <Icon
-                  id="delete"
-                  size="md"
-                  title="Remove from Dashboard"
-                  iconClass="ft-color-red"
-                />
+                <Icon id="delete" size="md" title="Remove from Dashboard" />
               </div>
             ) : (
               <Button
@@ -106,14 +101,13 @@ const Detail = () => {
                   </Button>
                   {addedCards.includes(item.key_name) && (
                     <div
-                      className="ms-2"
+                      className="ms-2 ft-table-action-icon-red"
                       onClick={() => handleRemoveFromDashboard(item)}
                     >
                       <Icon
                         id="delete"
-                        size="md"
+                        size="lg"
                         title="Remove from Dashboard"
-                        iconClass="ft-color-red"
                       />
                     </div>
                   )}
