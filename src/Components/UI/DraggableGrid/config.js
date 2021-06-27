@@ -40,7 +40,7 @@ export const COMPONENTS = [
     subTitle: "find the cost of adding a npm package to your bundle",
     component: PackageCard,
     detailComponent: PackageDrawerDetails,
-    dataGrid: { x: 0, y: 0, w: 3, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "package-comapre",
@@ -54,7 +54,21 @@ export const COMPONENTS = [
     drawerWidth: 1000,
     component: PackageCompareCard,
     detailComponent: PackageCompareDrawerDetails,
-    dataGrid: { x: 3, y: 0, w: 3, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+  },
+  {
+    key_name: "icons",
+    iconProps: {
+      id: "code-slash",
+      size: "lgx",
+      iconClass: "ft-color-blue1",
+    },
+    title: "Icons",
+    subTitle:
+      "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
+    component: OpenIconCard,
+    detailComponent: OpenIconsDetails,
+    dataGrid: { x: 8, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "color-spaces",
@@ -69,22 +83,9 @@ export const COMPONENTS = [
     drawerWidth: 800,
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
-    dataGrid: { x: 6, y: 0, w: 3.3, h: 5.4, minW: 3, minH: 5 },
+    dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 4, minH: 5 },
   },
-  {
-    key_name: "icons",
-    iconProps: {
-      id: "code-slash",
-      size: "lgx",
-      iconClass: "ft-color-blue1",
-    },
-    title: "Icons",
-    subTitle:
-      "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
-    component: OpenIconCard,
-    detailComponent: OpenIconsDetails,
-    dataGrid: { x: 10, y: 0, w: 2.7, h: 5, minW: 2.7, minH: 4 },
-  },
+
   {
     key_name: "code-diff",
     iconProps: {
@@ -95,10 +96,10 @@ export const COMPONENTS = [
     drawerWidth: "90%",
     title: "Code Diff",
     subTitle:
-      "Code Diff is a tool to compare text differences between two text files. Enter the contents of two files and click Find Difference",
+      "Code Diff is a tool to compare text differences between two text files. Enter the contents and check it",
     component: CodeDiffCard,
     detailComponent: CodeDiffDetails,
-    dataGrid: { x: 0, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "encode-decode-base64",
@@ -110,40 +111,10 @@ export const COMPONENTS = [
 
     title: "Base 64 Converter",
     subTitle:
-      "Code Diff is a tool to compare text differences between two text files. Enter the contents of two files and click Find Difference",
+      "Decode and Encode Base64 data or text with this online base64 decoder/encoder",
     component: Base64Card,
     detailComponent: Base64Details,
-    dataGrid: { x: 3, y: 5, w: 3, h: 5, minW: 3, minH: 4 },
-  },
-  {
-    key_name: "js-ts-mini-and-format",
-    iconProps: {
-      id: "javascript",
-      size: "xl",
-      iconClass: "ft-color-dark3",
-    },
-    drawerWidth: "90%",
-    title: "JS/TS Converter",
-    subTitle:
-      "Type you JS/TS code here and see it with correct formatted form or in minified form",
-    component: JSConversionCard,
-    detailComponent: JSConversionDetails,
-    dataGrid: { x: 6, y: 5, w: 3, h: 6.5, minW: 3, minH: 5 },
-  },
-  {
-    key_name: "css-mini-and-format",
-    iconProps: {
-      id: "css3",
-      size: "xl",
-      iconClass: "ft-color-dark3",
-    },
-    drawerWidth: "90%",
-    title: "CSS Converter",
-    subTitle:
-      "Type you CSS code here and see it with correct formatted form or in minified form",
-    component: CSSConversionCard,
-    detailComponent: CSSConversionDetails,
-    dataGrid: { x: 9, y: 5, w: 3, h: 6.5, minW: 3, minH: 5 },
+    dataGrid: { x: 8, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "css-font-preview",
@@ -158,7 +129,7 @@ export const COMPONENTS = [
       "CSS font preview tool allows you to preview the font or change the settings of the font properties.",
     component: CSSFontsCard,
     detailComponent: CSSFontsDetails,
-    dataGrid: { x: 0, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },
+    dataGrid: { x: 0, y: 10, w: 4, h: 5.5, minW: 3, minH: 5 },
   },
   {
     key_name: "svg-converter",
@@ -172,6 +143,37 @@ export const COMPONENTS = [
     subTitle: "svg-converter",
     component: SVGConversionCard,
     detailComponent: SVGConversionDetails,
-    dataGrid: { x: 3, y: 10, w: 3, h: 5.5, minW: 3, minH: 5 },
+    dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 4, minH: 5 },
+  },
+  {
+    key_name: "js-ts-mini-and-format",
+    iconProps: {
+      id: "javascript",
+      size: "xl",
+      iconClass: "ft-color-dark3",
+    },
+    drawerWidth: "90%",
+    title: "JS/TS Converter",
+    subTitle:
+      "Type you JS/TS code here and see it with correct formatted form or in minified form",
+    component: JSConversionCard,
+    detailComponent: JSConversionDetails,
+    dataGrid: { x: 8, y: 8, w: 4, h: 7, minW: 4, minH: 5 },
+  },
+
+  {
+    key_name: "css-mini-and-format",
+    iconProps: {
+      id: "css3",
+      size: "xl",
+      iconClass: "ft-color-dark3",
+    },
+    drawerWidth: "90%",
+    title: "CSS Converter",
+    subTitle:
+      "Type you CSS code here and see it with correct formatted form or in minified form",
+    component: CSSConversionCard,
+    detailComponent: CSSConversionDetails,
+    dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 4, minH: 5 },
   },
 ];
