@@ -52,8 +52,8 @@ const Sidebar = () => {
               selected={state.customWidgetVisible}
             />
           </div>
-          <SideBarIcon id="download" tooltipText="Download Cards" />
-          <SideBarIcon id="upload" tooltipText="Upload Cards" />
+          {/* <SideBarIcon id="download" tooltipText="Download Cards" />
+          <SideBarIcon id="upload" tooltipText="Upload Cards" /> */}
         </div>
         <CustomWidgets
           visible={state.customWidgetVisible}
