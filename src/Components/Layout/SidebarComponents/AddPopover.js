@@ -2,6 +2,7 @@ import { Popover, Button, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../UI/Common/Icon/Icon";
 import { setRemovedID, removeCustomCard } from "../../../store/widgetsSlice";
+
 export const AddPopover = (props) => {
   const dispatch = useDispatch();
 
@@ -26,7 +27,12 @@ export const AddPopover = (props) => {
   const content = () => {
     return (
       <div>
-        <Button type="primary" size="large" className="mx-2" onClick={() => {}}>
+        <Button
+          type="primary"
+          size="large"
+          className="mx-2"
+          onClick={props.handleOpenCreate}
+        >
           <div className="d-flex align-items-center justify-content-center">
             <Icon id="card-plus" size="sm" />
             <span className="ms-2">Create Custom Card</span>
@@ -68,6 +74,7 @@ export const AddPopover = (props) => {
       title={text()}
       content={content()}
       trigger="click"
+      visible={props.visible}
       onVisibleChange={props.onAddPopoverChange}
     >
       <div>{props.children}</div>

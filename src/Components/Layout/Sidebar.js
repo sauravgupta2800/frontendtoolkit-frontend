@@ -4,11 +4,13 @@ import { AddPopover } from "./SidebarComponents/AddPopover";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import CustomWidgets from "./SidebarComponents/CustomWidgets";
+import CreateCustomCard from "./SidebarComponents/CreateCustomCard";
 
 const Sidebar = () => {
   const [state, setState] = useState({
     addPopverVisible: false,
     customWidgetVisible: false,
+    createCustomVisible: false,
   });
   const removedItemCount = useSelector(
     (state) => state.widgets.removedIDs.length
@@ -28,12 +30,17 @@ const Sidebar = () => {
           <SideBarIcon id="home" tooltipText="Home" selected={true} />
 
           <AddPopover
+            visible={state.addPopverVisible}
             onAddPopoverChange={(value) =>
               setStateWith("addPopverVisible", value)
             }
+            handleOpenCreate={() => {
+              setStateWith("addPopverVisible", false);
+              setStateWith("createCustomVisible", true);
+            }}
           >
             <SideBarIcon
-              selected={state.addPopverVisible}
+              selected={state.addPopverVisible || state.createCustomVisible}
               id="add"
               count={removedItemCount}
             />
@@ -51,6 +58,10 @@ const Sidebar = () => {
         <CustomWidgets
           visible={state.customWidgetVisible}
           handleClose={() => setStateWith("customWidgetVisible", false)}
+        />
+        <CreateCustomCard
+          visible={state.createCustomVisible}
+          handleClose={() => setStateWith("createCustomVisible", false)}
         />
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center pb-4">
