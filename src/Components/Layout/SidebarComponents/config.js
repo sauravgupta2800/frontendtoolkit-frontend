@@ -12,7 +12,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Compress and compare images with different codecs, right in your browser.",
     url: "https://squoosh.app/",
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "heroicons",
@@ -28,7 +28,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "CSS gradient generator tool that lets you create colorful background gradients.",
     url: "https://cssgradient.io/",
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "wordmark",
@@ -43,7 +43,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Learn CSS Grid visually and build web layouts with this interactive CSS Grid Generator.",
     url: "https://grid.layoutit.com/",
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "type-scale",
@@ -58,7 +58,7 @@ export const CUSTOM_CARDS = [
     title: "Mockup Generator",
     subTitle: "Create beautiful product mockups in just a few clicks.",
     url: "https://mockups.pixeltrue.com/",
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "favicon-generator",
@@ -74,7 +74,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Make animations more realistic by picking the right easing function.",
     url: "https://easings.net/",
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
     key_name: "mockaroo",
@@ -89,6 +89,6 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Customizable blobs as SVG and Flutter Widget. Create random or fixed blobs, loop, animate, clip them with ease.",
     url: "https://blobs.app/",
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
 ];
