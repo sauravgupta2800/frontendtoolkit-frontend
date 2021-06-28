@@ -7,9 +7,13 @@ const Header = () => {
   return (
     <div className="fe-header d-flex justify-content-between align-items-center w-100 h-100 px-5">
       <div className="d-flex align-items-center">
-        <div>
-          <Icon id="logo" size="" />
+        <div className="d-flex align-items-center">
+          <Icon id="front" size="lg" iconClass="ft-color-prime" />
+          <div className="fs-1 fw-bold ms-2"> Frontend Devtools</div>
         </div>
+        {/* <div>
+          <Icon id="logo" size="" />
+        </div> */}
         <SearchBar />
       </div>
       <div>
