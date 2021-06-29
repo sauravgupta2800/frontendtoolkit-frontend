@@ -6,6 +6,7 @@ import { ICONS } from "../../../shared/endpoints";
 import { Spin } from "antd";
 import EmptyState from "../Common/EmptyState/EmptyState";
 import IconCards from "./IconCards";
+import { isDesktopView } from "../../utils";
 
 const OpenIconsDetails = () => {
   const [state, setState] = useState({
@@ -65,23 +66,27 @@ const OpenIconsDetails = () => {
   return (
     <div className="ft-icon-details w-100 h-100">
       <div className="ft-icon-details__header d-flex justify-content-between align-items-center">
-        <div className="fs-5 d-flex align-items-center">
-          {!state.loading && (
-            <>
-              <div className="fs-4 d-flex me-3">Showing Results: </div>
-              <div className="fs-3 d-flex ft-color-dark2">{`${state.filteredList.length} / ${state.list.length}`}</div>
-            </>
-          )}
-        </div>
+        {isDesktopView && (
+          <div className="fs-5 d-flex align-items-center">
+            {!state.loading && (
+              <>
+                <div className="fs-4 d-flex me-3">Showing Results: </div>
+                <div className="fs-3 d-flex ft-color-dark2">{`${state.filteredList.length} / ${state.list.length}`}</div>
+              </>
+            )}
+          </div>
+        )}
         <Input
-          placeholder="Search Icons"
+          placeholder={`Search out of ${state.list.length} icons`}
           addonAfter={addOnAfter()}
           value={state.query}
           size="large"
           defaultValue="mysite"
           disabled={state.loading}
           onChange={(event) => setStateWith("query", event.target.value)}
-          className="custom-color-input w-40 ft-style-1-shadow"
+          className={`custom-color-input ft-style-1-shadow w-${
+            isDesktopView ? 40 : 100
+          }`}
         />
       </div>
       <div className="ft-icon-details__details pt-1">

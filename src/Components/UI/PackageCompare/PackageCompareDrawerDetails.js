@@ -10,6 +10,7 @@ import Title from "./Title";
 import { Spin } from "antd";
 import EmptyState from "../Common/EmptyState/EmptyState";
 import { DROPDOWN_OPTIONS } from "./config";
+import { isDesktopView } from "../../utils";
 
 const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
   const {
@@ -58,7 +59,7 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
             <RowSeparator title="Select past download filter in" />
             <div className="px-5">
               <FeDropdown
-                wrapClass="w-30"
+                wrapClass={`w-${isDesktopView ? 30 : 100}`}
                 value={selectedFilterKey}
                 onSelect={onFilterSelect}
                 valueKey="key"
@@ -70,7 +71,7 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
 
           <div>
             <RowSeparator title="Compare Chart" wrapClass="my-5" />
-            <div className="px-5">
+            <div className={`px-${isDesktopView ? 5 : 0}`}>
               <CompareChart
                 packages={packages}
                 selectedFilterKey={selectedFilterKey}
@@ -80,7 +81,7 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
 
           <div>
             <RowSeparator title="Package Stats" wrapClass="mt-5" />
-            <div className="px-5 pb-5">
+            <div className={`px-${isDesktopView ? 5 : 0} pb-5 w-100`}>
               <PackageTable packages={packages} />
             </div>
           </div>

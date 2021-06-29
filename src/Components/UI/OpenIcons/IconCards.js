@@ -1,4 +1,5 @@
 import { useClipboard } from "use-clipboard-copy";
+import { isDesktopView } from "../../utils";
 
 const IconCards = ({ list }) => {
   return (
@@ -16,7 +17,11 @@ const IconCard = ({ item }) => {
 
   return (
     <div className="ft-icon-card w-fit h-fit m-3">
-      <div className="icon-wrap ft-bg-prime98 ft-style-1-shadow-hover position-relative">
+      <div
+        className={`icon-wrap ${
+          !isDesktopView ? "icon-wrap--mobile" : ""
+        } ft-bg-prime98 ft-style-1-shadow-hover position-relative`}
+      >
         <div className="icon-img-wrap w-100 h-100 d-flex align-items-center justify-content-center   ">
           <img
             src={`data:image/svg+xml;utf8,${encodeURIComponent(item.svg)}`}

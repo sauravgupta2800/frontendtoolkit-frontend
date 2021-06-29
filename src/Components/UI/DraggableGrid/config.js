@@ -53,6 +53,7 @@ export const COMPONENTS = [
       size: "xl",
       iconClass: "ft-color-red",
     },
+    drawerWidth: "60%",
     title: "Package Details",
     subTitle: "find the cost of adding a npm package to your bundle",
     component: PackageCard,
@@ -66,9 +67,9 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "ft-color-green1",
     },
+    drawerWidth: "60%",
     title: "Package Compare",
     subTitle: "Compare package download counts over time",
-    drawerWidth: 1000,
     component: PackageCompareCard,
     detailComponent: PackageCompareDrawerDetails,
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
@@ -80,6 +81,7 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "ft-color-blue1",
     },
+    drawerWidth: "60%",
     title: "Icons",
     subTitle:
       "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
@@ -94,10 +96,10 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "ft-color-green",
     },
+    drawerWidth: "60%",
     title: "Color Conversion Space",
     subTitle:
       "Select Color and convert into Other Color spaces such as Hex, RGB, HSL etc",
-    drawerWidth: 800,
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
     dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 3, minH: 5 },
@@ -125,7 +127,7 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "ft-color-dark3",
     },
-
+    drawerWidth: "60%",
     title: "Base 64 Converter",
     subTitle:
       "Decode and Encode Base64 data or text with this online base64 decoder/encoder",
@@ -140,7 +142,7 @@ export const COMPONENTS = [
       size: "lgx",
       iconClass: "",
     },
-    drawerWidth: 800,
+    drawerWidth: "60%",
     title: "CSS Font Preview",
     subTitle:
       "CSS font preview tool allows you to preview the font or change the settings of the font properties.",

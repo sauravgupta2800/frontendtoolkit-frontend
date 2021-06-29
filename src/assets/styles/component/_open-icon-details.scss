@@ -10,6 +10,10 @@
       .icon-wrap {
         height: 10rem;
         width: 16rem;
+        &--mobile {
+          height: 8rem;
+          width: 9rem;
+        }
         border-radius: 6px;
         .icon-img-wrap {
           visibility: visible;

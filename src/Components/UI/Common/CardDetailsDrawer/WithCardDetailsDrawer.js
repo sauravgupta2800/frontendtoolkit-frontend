@@ -1,6 +1,7 @@
 import React from "react";
 import { Drawer } from "antd";
 import Icon from "../Icon/Icon";
+import { isDesktopView } from "../../../utils";
 
 const WithCardDetailsDrawer = ({
   id,
@@ -29,7 +30,7 @@ const WithCardDetailsDrawer = ({
     <div className="w-100 h-100">
       {rest.children}
       <Drawer
-        width={rest.drawerWidth || 800}
+        width={isDesktopView ? rest.drawerWidth || 800 : "100%"}
         visible={visible}
         title={titleNode()}
         placement="right"
