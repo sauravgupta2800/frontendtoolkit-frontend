@@ -15,7 +15,12 @@ const SVGConversionCard = ({ ...rest }) => {
   };
 
   const contentSlot = () => {
-    return <SVGUploadOrPaste onUploaded={({ svg }) => openDetails(svg)} />;
+    return (
+      <SVGUploadOrPaste
+        icSize="lg"
+        onUploaded={({ svg }) => openDetails(svg)}
+      />
+    );
   };
 
   return (

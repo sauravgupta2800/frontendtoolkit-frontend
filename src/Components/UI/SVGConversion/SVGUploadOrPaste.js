@@ -6,6 +6,7 @@ const SVGUploadOrPaste = ({
   text = "Please upload the .svg file by dragging or clicking it here",
   onUploaded,
   wrapClass = "",
+  icSize = "xl",
 }) => {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("");
@@ -65,11 +66,11 @@ const SVGUploadOrPaste = ({
       <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
         <div className="">
           {loading ? (
-            <div className="my-4">
+            <div className={icSize === "xl" ? "my-4" : "my-1"}>
               <Spin size="large" />
             </div>
           ) : (
-            <Icon id="upload" size="xl" iconClass="ft-color-dark2" />
+            <Icon id="upload" size={icSize} iconClass="ft-color-dark2" />
           )}
         </div>
 
