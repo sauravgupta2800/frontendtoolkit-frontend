@@ -27,7 +27,7 @@ const FeDropdown = ({
   };
 
   return (
-    <div className={wrapClass}>
+    <div className={`ft-style-1-shadow  ${wrapClass}`}>
       <Dropdown
         overlayClassName="ft-dropdown w-fit"
         overlay={menu}

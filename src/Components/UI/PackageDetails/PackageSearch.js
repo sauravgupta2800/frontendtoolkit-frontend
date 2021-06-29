@@ -87,7 +87,7 @@ const PackageSearch = ({
     <AutoComplete
       value={value}
       options={options}
-      className="w-100 mt-4"
+      className="w-100 mt-4 ft-style-1-shadow rounded-3"
       defaultActiveFirstOption={true}
       dropdownClassName="packages-autocomplete-dropdown"
       onSelect={onSelect}

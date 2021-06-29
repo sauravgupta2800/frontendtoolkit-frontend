@@ -3,11 +3,11 @@ import PackageSearch from "./../PackageDetails/PackageSearch";
 import FeDropdown from "../Common/Dropdown/FeDropdown";
 import SuggestedPackages from "./SuggestedPackages";
 import SelectedPackages from "./SelectedPackages";
-import DiscoLoader from "../Common/Loader/DiscoLoader";
 import RowSeparator from "../Common/Separator/RowSeparator";
 import PackageTable from "./PackageTable";
 import CompareChart from "./CompareChart";
 import Title from "./Title";
+import { Spin } from "antd";
 import EmptyState from "../Common/EmptyState/EmptyState";
 import { DROPDOWN_OPTIONS } from "./config";
 
@@ -25,10 +25,12 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
 
   return (
     <div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap align-items-center">
         <Title selectedPackages={packages} />
-        <div className="ms-3 flex-wrap">
-          {(fetchingSuggestedPackages || fetchingPackages) && <DiscoLoader />}
+        <div className="ms-3 mt-3 flex-wrap">
+          {(fetchingSuggestedPackages || fetchingPackages) && (
+            <Spin size="default" />
+          )}
         </div>
       </div>
       <div>
@@ -78,7 +80,7 @@ const PackageCompareDrawerDetails = ({ drawerExtraDetails }) => {
 
           <div>
             <RowSeparator title="Package Stats" wrapClass="mt-5" />
-            <div className="px-5">
+            <div className="px-5 pb-5">
               <PackageTable packages={packages} />
             </div>
           </div>

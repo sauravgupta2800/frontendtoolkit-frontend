@@ -132,7 +132,10 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
 
           <RowSeparator title="Font Preview" />
           <div className="w-100 px-5">
-            <div className="w-100 p-4 border" style={styleCode}>
+            <div
+              className="w-100 p-4 border ft-style-1-shadow rounded-3"
+              style={styleCode}
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
               dapibus mi tristique ante imperdiet gravida. Fusce nulla lorem,
               accumsan vel lobortis vitae, rutrum et leo. Aliquam sapien leo,

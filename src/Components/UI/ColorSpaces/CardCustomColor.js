@@ -88,7 +88,7 @@ const CardCustomColor = ({ onDetailsClick, onChange, ...rest }) => {
           addonAfter={addOnAfter()}
           size="large"
           defaultValue="mysite"
-          className="custom-color-input"
+          className="custom-color-input ft-style-1-shadow"
           onChange={(event) => handleOnChange(event.target.value)}
           onBlur={() => handleOnBlur()}
         />

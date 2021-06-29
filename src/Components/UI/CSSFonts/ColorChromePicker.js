@@ -19,7 +19,7 @@ const ColorChromePicker = ({
   };
 
   return (
-    <div className="d-flex align-items-center border rounded-3">
+    <div className="d-flex align-items-center border rounded-3 ft-style-1-shadow">
       <Popover
         content={content}
         trigger="click"

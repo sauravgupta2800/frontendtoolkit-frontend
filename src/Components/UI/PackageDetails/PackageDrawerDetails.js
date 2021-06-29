@@ -70,7 +70,7 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
           <div className="d-flex flex-column justify-content-center align-items-center my-5 px-5">
             <div className="d-flex">
               {state.sizeDetails.size && (
-                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5">
+                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5 ft-style-1-shadow ft-normal-hover">
                   <div className="d-flex justify-content-center align-items-end">
                     <div className="ft-fs-1 fw-bold">
                       {bytesToSize(state.sizeDetails.size).value}
@@ -83,7 +83,7 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
                 </div>
               )}
               {state.sizeDetails.gzip && (
-                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5">
+                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 me-5 ft-style-1-shadow ft-normal-hover">
                   <div className="d-flex justify-content-center align-items-end">
                     <div className="ft-fs-1 fw-bold">
                       {bytesToSize(state.sizeDetails.gzip).value}
@@ -98,7 +98,7 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
                 </div>
               )}
               {state.sizeDetails.version && (
-                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6">
+                <div className="d-flex flex-column justify-content-center align-items-center border px-5 py-3 border-1 rounded-6 ft-style-1-shadow ft-normal-hover">
                   <div className="d-flex justify-content-center align-items-end">
                     <div className="ft-fs-1 fw-bold">
                       {state.sizeDetails.version}
@@ -112,7 +112,7 @@ const PackageDrawerDetails = ({ drawerExtraDetails = {} }) => {
         </div>
       )}
       {/* Chart */}
-      <div>
+      <div className="pb-5">
         {state.packageName && (
           <VersionHistoryChart packageName={state.packageName} />
         )}

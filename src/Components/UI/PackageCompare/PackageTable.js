@@ -74,6 +74,7 @@ const PackageTable = ({ packages }) => {
   return (
     <Table
       key="table"
+      className="border rounded-3 ft-style-1-shadow"
       columns={columns}
       dataSource={packages.map((item, index) => {
         return {

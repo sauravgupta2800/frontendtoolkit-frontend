@@ -80,6 +80,7 @@ const ColorInputs = ({ onValueChange, ...rest }) => {
             <Input
               placeholder={item.placeholder}
               size="large"
+              className="ft-style-1-shadow"
               addonAfter={addOnAfter(item.valueKey)}
               onBlur={(event) =>
                 handleOnBlur({
