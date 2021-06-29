@@ -65,10 +65,10 @@ const PackageSearch = ({
   const addOnAfter = () => {
     return (
       <div
-        className="d-flex align-items-center justify-content-center cursor-pointer  rounded-end ft-bg-prime93"
+        className="d-flex align-items-center justify-content-center cursor-pointer rounded-end ft-bg-prime93"
         style={{
           height: "38px",
-          width: "38px",
+          width: "40px",
         }}
         onClick={() => {}}
       >
@@ -98,7 +98,7 @@ const PackageSearch = ({
         size="large"
         allowClear={true}
         placeholder="type the package name .."
-        addonBefore={addOnAfter()}
+        addonAfter={addOnAfter()}
       />
     </AutoComplete>
   );

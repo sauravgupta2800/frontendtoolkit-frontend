@@ -81,7 +81,7 @@ const OpenIconsDetails = () => {
           defaultValue="mysite"
           disabled={state.loading}
           onChange={(event) => setStateWith("query", event.target.value)}
-          className="custom-color-input w-40"
+          className="custom-color-input w-40 ft-style-1-shadow"
         />
       </div>
       <div className="ft-icon-details__details pt-1">
