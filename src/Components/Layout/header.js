@@ -17,12 +17,19 @@ const Header = () => {
         <SearchBar />
       </div>
       <div>
-        <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
-          <div className="me-2">
-            <Icon id="github" size="md" />
+        <a
+          href={"https://github.com/sauravgupta2800/frontendtools"}
+          target="_blank"
+          className="text-decoration-none"
+          rel="noreferrer"
+        >
+          <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
+            <div className="me-2">
+              <Icon id="github" size="md" />
+            </div>
+            <div className="fs-4 fw-bold">Request a feature</div>
           </div>
-          <div className="fs-4 fw-bold">Request a feature</div>
-        </div>
+        </a>
       </div>
     </div>
   );
