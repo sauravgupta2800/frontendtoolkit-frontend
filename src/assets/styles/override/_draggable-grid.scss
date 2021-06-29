@@ -8,3 +8,10 @@
     border-radius: 8px;
   }
 }
+
+.ft-draggable-grid {
+  height: 100%;
+  &--mobile {
+    padding-bottom: 5rem;
+  }
+}

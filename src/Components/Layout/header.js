@@ -6,7 +6,11 @@ import { isDesktopView } from "../utils";
 
 const Header = () => {
   return (
-    <div className="fe-header d-flex justify-content-between align-items-center w-100 h-100 px-5">
+    <div
+      className={`fe-header d-flex justify-content-between align-items-center w-100 h-100 ${
+        isDesktopView ? "px-5" : "px-3"
+      }`}
+    >
       <div className="d-flex align-items-center">
         <div className="d-flex align-items-center">
           <Icon id="front" size="lg" iconClass="ft-color-prime" />
@@ -17,7 +21,18 @@ const Header = () => {
         </div> */}
         {isDesktopView && <SearchBar />}
       </div>
-      <div>
+      <div className="d-flex align-items-center">
+        {!isDesktopView && (
+          <div className="d-flex flex-column justify-content-center align-items-center me-2">
+            <a
+              href={"https://www.buymeacoffee.com/sauravgupta"}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon id="buy-me-coffee" size={isDesktopView ? "xl" : "md"} />
+            </a>
+          </div>
+        )}
         <a
           href={"https://github.com/sauravgupta2800/frontendtools"}
           target="_blank"
@@ -25,12 +40,12 @@ const Header = () => {
           rel="noreferrer"
         >
           <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
-            <div className="me-2">
+            <div>
               <Icon id="github" size="md" />
             </div>
 
             {isDesktopView && (
-              <div className="fs-4 fw-bold">Request a feature</div>
+              <div className="fs-4 ms-2 fw-bold">Request a feature</div>
             )}
           </div>
         </a>

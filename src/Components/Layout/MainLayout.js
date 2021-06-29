@@ -5,10 +5,15 @@ import Header from "./header";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
 import { useSelector } from "react-redux";
+import { isDesktopView } from "../utils";
 
 const MainLayout = () => {
   return (
-    <div className="ft-main-layout">
+    <div
+      className={`ft-main-layout ${
+        !isDesktopView ? "ft-main-layout--mobile" : ""
+      }`}
+    >
       <div className="ft-main-layout__header">
         <Header />
       </div>
@@ -16,6 +21,7 @@ const MainLayout = () => {
         <Sidebar />
       </div>
       <div className="ft-main-layout__container ft-bg-prime97">
+        {!isDesktopView && <Sidebar />}
         <Switch>
           <Route exact path="/">
             <DraggableGrid />

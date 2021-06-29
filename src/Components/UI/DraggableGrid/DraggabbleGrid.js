@@ -1,6 +1,6 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
 import React, { useEffect, useState } from "react";
-import { getFromLS, saveToLS } from "../../utils";
+import { getFromLS, isDesktopView, saveToLS } from "../../utils";
 import { useSelector, useDispatch } from "react-redux";
 import { COMPONENTS } from "./config";
 import { setList } from "../../../store/widgetsSlice";
@@ -38,7 +38,11 @@ const DraggableGrid = () => {
   const cols = { lg: 12, md: 8, sm: 6, xs: 4, xxs: 2 };
 
   return (
-    <div className="d-flex w-100 h-100 overflow-auto">
+    <div
+      className={`ft-draggable-grid d-flex w-100 h-100 overflow-auto ${
+        isDesktopView ? "" : "ft-draggable-grid--mobile"
+      }`}
+    >
       {show && (
         <ResponsiveGridLayout
           layouts={layouts}
