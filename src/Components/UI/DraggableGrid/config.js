@@ -100,7 +100,7 @@ export const COMPONENTS = [
     drawerWidth: 800,
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
-    dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 4, minH: 5 },
+    dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 3, minH: 5 },
   },
 
   {
@@ -161,7 +161,7 @@ export const COMPONENTS = [
       "Optimize the SVG and can be converted into JSX, TSX, React Native, CSS and Base64",
     component: SVGConversionCard,
     detailComponent: SVGConversionDetails,
-    dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 4, minH: 5 },
+    dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 3, minH: 5 },
   },
   {
     key_name: "js-ts-mini-and-format",
@@ -176,7 +176,7 @@ export const COMPONENTS = [
       "Type you JS/TS code here and see it with correct formatted form or in minified form",
     component: JSConversionCard,
     detailComponent: JSConversionDetails,
-    dataGrid: { x: 8, y: 8, w: 4, h: 7, minW: 4, minH: 5 },
+    dataGrid: { x: 8, y: 8, w: 4, h: 7, minW: 3, minH: 5 },
   },
 
   {
@@ -192,6 +192,6 @@ export const COMPONENTS = [
       "Type you CSS code here and see it with correct formatted form or in minified form",
     component: CSSConversionCard,
     detailComponent: CSSConversionDetails,
-    dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 4, minH: 5 },
+    dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 3, minH: 5 },
   },
 ];
