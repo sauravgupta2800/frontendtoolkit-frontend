@@ -96,7 +96,7 @@ export const COMPONENTS = [
     },
     title: "Color Conversion Space",
     subTitle:
-      "Select Color and cpnvert into Other Colr spaces such as Hex, RGB, HSL etc",
+      "Select Color and convert into Other Color spaces such as Hex, RGB, HSL etc",
     drawerWidth: 800,
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
