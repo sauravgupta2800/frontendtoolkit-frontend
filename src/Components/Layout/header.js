@@ -2,6 +2,7 @@ import Icon from "./../UI/Common/Icon/Icon";
 import { Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { setQuery } from "../../store/widgetsSlice";
+import { isDesktopView } from "../utils";
 
 const Header = () => {
   return (
@@ -9,12 +10,12 @@ const Header = () => {
       <div className="d-flex align-items-center">
         <div className="d-flex align-items-center">
           <Icon id="front" size="lg" iconClass="ft-color-prime" />
-          <div className="fs-1 fw-bold ms-2"> Frontend Devtools</div>
+          <div className="fs-1 fw-bold ms-2 text-nowrap">Frontend Devtools</div>
         </div>
         {/* <div>
           <Icon id="logo" size="" />
         </div> */}
-        <SearchBar />
+        {isDesktopView && <SearchBar />}
       </div>
       <div>
         <a
@@ -27,7 +28,10 @@ const Header = () => {
             <div className="me-2">
               <Icon id="github" size="md" />
             </div>
-            <div className="fs-4 fw-bold">Request a feature</div>
+
+            {isDesktopView && (
+              <div className="fs-4 fw-bold">Request a feature</div>
+            )}
           </div>
         </a>
       </div>

@@ -92,6 +92,8 @@ export const fixedDecimalNoRoundOff = (num, fixedTill) => {
 
 export const byteSize = (str) => new Blob([str]).size;
 
+export const isDesktopView = !window.matchMedia("(max-width:750px)").matches;
+
 export const editorOptions = {
   quickSuggestions: {
     other: false,
