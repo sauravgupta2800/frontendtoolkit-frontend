@@ -157,7 +157,8 @@ export const COMPONENTS = [
     },
     drawerWidth: "90%",
     title: "SVG Converter",
-    subTitle: "svg-converter",
+    subTitle:
+      "Optimize the SVG and can be converted into JSX, TSX, React Native, CSS and Base64",
     component: SVGConversionCard,
     detailComponent: SVGConversionDetails,
     dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 4, minH: 5 },
