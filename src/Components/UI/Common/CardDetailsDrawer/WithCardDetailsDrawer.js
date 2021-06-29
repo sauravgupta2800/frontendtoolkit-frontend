@@ -48,6 +48,7 @@ const WithCardDetailsDrawer = ({
             {React.createElement(detailComponent, {
               ...rest,
               onClose: onClose,
+              isDesktopView: isDesktopView,
             })}
           </div>
         )}
