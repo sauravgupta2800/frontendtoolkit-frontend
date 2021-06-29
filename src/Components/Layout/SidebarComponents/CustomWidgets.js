@@ -78,6 +78,7 @@ const Detail = () => {
             {CUSTOM_CARDS.map((item, index) => (
               <div
                 key={index}
+                style={{ minWidth: "25rem" }}
                 className="border p-4 rounded-3 w-20 d-flex flex-column justify-content-between m-3 ft-style-1-shadow ft-style-2-shadow-hover"
               >
                 <div>

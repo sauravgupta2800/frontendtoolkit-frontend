@@ -52,6 +52,7 @@ const DraggableGrid = () => {
           margin={[15, 15]}
           style={{ minWidth: "100%", paddingBottom: "5rem" }}
           isBounded={true}
+          draggableHandle=".draggableClassName"
         >
           {selectedList.map((item) => (
             <div

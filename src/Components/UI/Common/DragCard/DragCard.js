@@ -39,14 +39,14 @@ const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
             title={"Remove Card"}
             onClick={onDeleteClick}
           />
-          <div className="ms-2">
+          <div className="ms-2 draggableClassName px-2">
             <Icon
               id="drag"
               size={"sm"}
               withWrapper={false}
               showCursor={false}
               wrapperClass={"cursor-grab"}
-              iconClass="ft-color-light1"
+              iconClass="ft-drag-icon"
             />
           </div>
         </div>

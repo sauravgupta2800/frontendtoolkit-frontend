@@ -114,3 +114,9 @@ $icon-sizes: (
     color: $dark2;
   }
 }
+.ft-drag-icon {
+  color: $light1;
+  &:hover {
+    color: $dark5;
+  }
+}
