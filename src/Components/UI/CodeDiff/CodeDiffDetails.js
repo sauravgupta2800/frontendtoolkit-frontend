@@ -2,51 +2,9 @@ import Editor, { DiffEditor } from "@monaco-editor/react";
 import { Button, Spin } from "antd";
 import { useState } from "react";
 import EmptyState from "../Common/EmptyState/EmptyState";
+import { editorOptions } from "../../utils";
 
-const options = {
-  quickSuggestions: {
-    other: false,
-    comments: false,
-    strings: false,
-  },
-  parameterHints: {
-    enabled: false,
-  },
-  minimap: {
-    enabled: false,
-  },
-  ordBasedSuggestions: false,
-  suggestOnTriggerCharacters: false,
-  acceptSuggestionOnEnter: "off",
-  tabCompletion: "off",
-  wordBasedSuggestions: false,
-  codeLens: false,
-};
-// const options = {
-//   quickSuggestions: {
-//     other: false,
-//     comments: false,
-//     strings: false,
-//   },
-//   parameterHints: {
-//     enabled: false,
-//   },
-//   ordBasedSuggestions: false,
-//   suggestOnTriggerCharacters: false,
-//   acceptSuggestionOnEnter: "off",
-//   tabCompletion: "off",
-//   wordBasedSuggestions: false,
-//   codeLens: false,
-//   lineNumbers: "off",
-//   glyphMargin: false,
-//   folding: false,
-//   // Undocumented see https://github.com/Microsoft/vscode/issues/30795#issuecomment-410998882
-//   lineDecorationsWidth: 0,
-//   lineNumbersMinChars: 0,
-//    readOnly:true
-//   },
-// };
-const CodeDiffDetails = ({ drawerExtraDetails }) => {
+const CodeDiffDetails = ({ drawerExtraDetails, isDesktopView }) => {
   const [state, setState] = useState({
     originalText: "",
     changedText: "",
@@ -76,7 +34,7 @@ const CodeDiffDetails = ({ drawerExtraDetails }) => {
   return (
     <div className="w-100">
       <div className="w-100 d-flex">
-        <div className="w-50 pe-5">
+        <div className={`w-50 ${isDesktopView ? "pe-5" : ""}`}>
           <div className=" text-center fs-3 fw-bold mb-2">Original text</div>
           <div className="border rounded border-1 ft-style-2-shadow">
             <Editor
@@ -86,7 +44,13 @@ const CodeDiffDetails = ({ drawerExtraDetails }) => {
               //theme={"vs-dark"}
               loading={<Spin size="large" />}
               onChange={(value) => setStateWith("originalText", value)}
-              options={options}
+              options={{
+                ...editorOptions,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
             />
           </div>
         </div>
@@ -99,7 +63,13 @@ const CodeDiffDetails = ({ drawerExtraDetails }) => {
               defaultValue={state.changedText}
               loading={<Spin size="large" />}
               onChange={(value) => setStateWith("changedText", value)}
-              options={options}
+              options={{
+                ...editorOptions,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
             />
           </div>
         </div>
@@ -122,14 +92,20 @@ const CodeDiffDetails = ({ drawerExtraDetails }) => {
               original={state.diffOriginalText}
               modified={state.diffChangedText}
               keepCurrentOriginalModel={true}
-              options={options}
+              options={{
+                ...editorOptions,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
               loading={<Spin size="large" />}
             />
           </div>
         ) : (
           <div className="d-flex justify-content-center">
             <EmptyState
-              wrapClass="w-50"
+              wrapClass={`${isDesktopView ? "w-50" : "w-100"}`}
               iconId="code-slash"
               title="Please enter Original and Changed text then press Find Difference button to see the code differences here."
             />
