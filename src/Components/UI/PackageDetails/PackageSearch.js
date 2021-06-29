@@ -56,7 +56,7 @@ const PackageSearch = ({
       label: (
         <div className="d-flex flex-column">
           <div className="fw-bold ft-color-dark1">{name}</div>
-          <div className={"ft-color-$dark2"}>{description}</div>
+          <div className={"ft-color-dark2"}>{description}</div>
         </div>
       ),
     };
