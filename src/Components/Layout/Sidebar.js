@@ -95,7 +95,7 @@ const SideBarIcon = ({
   count = 0,
 }) => {
   return (
-    <Tooltip placement="right" title={tooltipText}>
+    <Tooltip placement="right" title={isDesktopView ? tooltipText : ""}>
       <div
         className={`position-relative ft-sidebar--icon rounded-circle ft-style-2-shadow-hover ${
           selected ? "ft-sidebar--icon--selected" : ""
@@ -104,7 +104,11 @@ const SideBarIcon = ({
         <Icon id={id} size={isDesktopView ? "md" : "sm"} />
         <Badge
           count={count}
-          className="position-absolute top-0 end-0 translate-middle-y"
+          className={`position-absolute ${
+            isDesktopView
+              ? "top-0 end-0 translate-middle-y"
+              : "top-0 start-100 translate-middle-x"
+          }`}
         />
       </div>
     </Tooltip>

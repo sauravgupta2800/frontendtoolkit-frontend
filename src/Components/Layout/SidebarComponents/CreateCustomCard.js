@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addCustomCard } from "../../../store/widgetsSlice";
 import DragCard from "../../UI/Common/DragCard/DragCard";
 import { addCustomComponent } from "../../UI/DraggableGrid/config";
+import { isDesktopView } from "../../utils";
 
 const CreateCustomCard = ({ visible = false, handleClose }) => {
   return (
@@ -91,8 +92,12 @@ const CreateForm = ({ onClose }) => {
   };
 
   return (
-    <div className="w-100 h-100 d-flex">
-      <div className="w-30 border rounded-3  ft-style-1-shadow d-flex flex-column justify-content-between">
+    <div className={`w-100 h-100 ${isDesktopView ? "d-flex" : ""}`}>
+      <div
+        className={`border rounded-3  ft-style-1-shadow d-flex flex-column justify-content-between ${
+          isDesktopView ? "w-30" : "w-100 mb-5"
+        }`}
+      >
         <div className="p-4  overflow-auto">
           <div>
             Make utilize this section to create your own embedded card with a
@@ -156,10 +161,10 @@ const CreateForm = ({ onClose }) => {
           </Button>
         </div>
       </div>
-      <div className="w-70 h-100 ps-4">
+      <div className={`h-100 ${isDesktopView ? "w-70 ps-4" : "w-100 pb-5"}`}>
         <div className="w-100 h-100 overflow-auto border rounded-3 ft-style-1-shadow  ft-bg-prime97">
           <div
-            style={{ width: "400px" }}
+            style={{ width: isDesktopView ? "400px" : "95%" }}
             className="overflow-auto mx-auto mt-5 ft-style-1-shadow ft-style-2-shadow-hover"
           >
             <DragCard

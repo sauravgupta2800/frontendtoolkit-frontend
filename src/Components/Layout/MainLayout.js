@@ -18,7 +18,7 @@ const MainLayout = () => {
         <Header />
       </div>
       <div className="ft-main-layout__sidebar ft-bg-prime88">
-        <Sidebar />
+        {isDesktopView && <Sidebar />}
       </div>
       <div className="ft-main-layout__container ft-bg-prime97">
         {!isDesktopView && <Sidebar />}
