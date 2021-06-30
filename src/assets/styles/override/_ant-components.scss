@@ -131,3 +131,8 @@
 .ant-drawer-title {
   padding-right: 5rem;
 }
+
+.ant-popover-inner {
+  max-height: 50rem;
+  overflow-y: scroll;
+}
