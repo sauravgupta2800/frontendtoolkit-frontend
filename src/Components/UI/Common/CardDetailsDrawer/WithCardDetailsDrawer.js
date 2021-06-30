@@ -2,12 +2,15 @@ import React from "react";
 import { Drawer } from "antd";
 import Icon from "../Icon/Icon";
 import { isDesktopView } from "../../../utils";
+import { Helmet } from "react-helmet";
 
 const WithCardDetailsDrawer = ({
   id,
   title,
+  subTitle,
   visible = false,
   onClose,
+  showLink = true,
   detailComponent,
   ...rest
 }) => {
@@ -45,6 +48,16 @@ const WithCardDetailsDrawer = ({
       >
         {visible && detailComponent && (
           <div className="w-100 h-100">
+            <Helmet>
+              <title>{`${title} - Frontend Devtools`}</title>
+              <meta name="description" content={subTitle} />
+              {showLink && (
+                <link
+                  rel="canonical"
+                  href={`http://frontendtools.dev/cards/${id}`}
+                />
+              )}
+            </Helmet>
             {React.createElement(detailComponent, {
               ...rest,
               onClose: onClose,

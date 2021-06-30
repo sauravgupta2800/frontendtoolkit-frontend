@@ -14,7 +14,9 @@ const CustomWidgets = ({ visible = false, handleClose }) => {
       onClose={handleClose}
       id="card-list"
       title="Custom Cards that you may like"
+      subTitle="You can add it to you personal dashboard if you find these add-ons as interesting"
       drawerWidth="90%"
+      showLink={false}
       detailComponent={Detail}
     />
   );

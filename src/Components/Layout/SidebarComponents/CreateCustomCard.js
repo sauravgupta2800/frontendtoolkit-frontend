@@ -14,7 +14,10 @@ const CreateCustomCard = ({ visible = false, handleClose }) => {
       onClose={handleClose}
       id="card-list"
       title="Add Custom Card"
+      subTitle="Make utilize this section to create your own embedded card with a
+      full customization option"
       drawerWidth="90%"
+      showLink={false}
       detailComponent={CreateForm}
     />
   );

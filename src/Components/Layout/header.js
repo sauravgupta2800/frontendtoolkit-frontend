@@ -3,8 +3,11 @@ import { Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { setQuery } from "../../store/widgetsSlice";
 import { isDesktopView } from "../utils";
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
+  const history = useHistory();
+
   return (
     <div
       className={`fe-header d-flex justify-content-between align-items-center w-100 h-100 ${
@@ -12,7 +15,10 @@ const Header = () => {
       }`}
     >
       <div className="d-flex align-items-center">
-        <div className="d-flex align-items-center">
+        <div
+          className="d-flex align-items-center"
+          onClick={() => history.replace("/")}
+        >
           <Icon id="front" size="lg" iconClass="ft-color-prime" />
           <div className="fs-1 fw-bold ms-2 text-nowrap">Frontend Devtools</div>
         </div>
