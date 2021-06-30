@@ -2,6 +2,7 @@ import { Popover, Button, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../UI/Common/Icon/Icon";
 import { setRemovedID, removeCustomCard } from "../../../store/widgetsSlice";
+import { isDesktopView } from "../../utils";
 
 export const AddPopover = (props) => {
   const dispatch = useDispatch();
@@ -70,7 +71,7 @@ export const AddPopover = (props) => {
   };
   return (
     <Popover
-      placement="right"
+      placement={isDesktopView ? "right" : "bottom"}
       title={text()}
       content={content()}
       trigger="click"
