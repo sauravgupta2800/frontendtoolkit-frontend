@@ -6,8 +6,10 @@ import { useSelector } from "react-redux";
 import CustomWidgets from "./SidebarComponents/CustomWidgets";
 import CreateCustomCard from "./SidebarComponents/CreateCustomCard";
 import { isDesktopView } from "../utils";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = () => {
+  const history = useHistory();
   const [state, setState] = useState({
     addPopverVisible: false,
     customWidgetVisible: false,
@@ -36,7 +38,9 @@ const Sidebar = () => {
             isDesktopView ? "flex-column" : ""
           } justify-content-center align-items-center `}
         >
-          <SideBarIcon id="home" tooltipText="Home" selected={true} />
+          <div onClick={() => history.replace("/")}>
+            <SideBarIcon id="home" tooltipText="Home" selected={true} />
+          </div>
 
           <AddPopover
             visible={state.addPopverVisible}

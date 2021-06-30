@@ -76,7 +76,11 @@ const DraggableGrid = () => {
             </ResponsiveGridLayout>
           ) : (
             <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
-              <Icon id="empty" size={isDesktopView ? "" : "xxxl"} />
+              <Icon
+                showCursor={false}
+                id="empty"
+                size={isDesktopView ? "" : "xxxl"}
+              />
               <div className="fs-1 mt-4">No card available</div>
             </div>
           )}

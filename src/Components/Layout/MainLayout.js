@@ -2,6 +2,7 @@ import React from "react";
 import DraggableGrid from "../UI/DraggableGrid/DraggabbleGrid";
 import Sidebar from "./Sidebar";
 import Header from "./header";
+import NoPageFound404 from "./SidebarComponents/NoPageFound404";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
 import { useSelector } from "react-redux";
@@ -32,6 +33,9 @@ const MainLayout = () => {
               <Route path="/cards/:id" children={<RenderDrawer />} />
             </Switch>
           </Route>
+          <Route path="*">
+            <NoPageFound404 />
+          </Route>
         </Switch>
       </div>
     </div>
@@ -47,7 +51,6 @@ const RenderDrawer = () => {
   if (!componentConfig) return null;
   return (
     <div>
-      <h3>ID: {id}</h3>
       <CardDetailsDrawer id={id} />
     </div>
   );
