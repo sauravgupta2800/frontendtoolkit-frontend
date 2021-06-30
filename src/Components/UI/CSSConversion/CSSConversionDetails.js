@@ -122,7 +122,13 @@ const CSSConversionDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
               defaultValue={state.originalText}
               loading={<Spin size="large" />}
               onChange={(value) => setStateWith("originalText", value)}
-              options={options}
+              options={{
+                ...options,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
             />
           </div>
         </div>
@@ -166,7 +172,13 @@ const CSSConversionDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
               value={state[state.selectedType]}
               loading={<Spin size="large" />}
               onChange={(value) => setStateWith(state.selectedType, value)}
-              options={options}
+              options={{
+                ...options,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
             />
           </div>
         </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SVGUploadOrPaste from "./SVGUploadOrPaste";
 import SVGConversionLayout from "./SVGConversionLayout";
 
-const SVGConversionDetails = ({ drawerExtraDetails = {} }) => {
+const SVGConversionDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
   const [state, setState] = useState({ showUpload: true, svg: "" });
 
   const setStateWith = (key, value) => {
@@ -25,7 +25,7 @@ const SVGConversionDetails = ({ drawerExtraDetails = {} }) => {
     <div className="w-100 h-100">
       {state.showUpload ? (
         <div className="w-100 h-100 d-flex align-items-center justify-content-center">
-          <div className="w-50 h-50">
+          <div className={`h-50 ${isDesktopView ? "w-50" : "w-90"}`}>
             <SVGUploadOrPaste
               onUploaded={({ svg }) => {
                 setStateWith("svg", svg);
@@ -39,6 +39,7 @@ const SVGConversionDetails = ({ drawerExtraDetails = {} }) => {
           <SVGConversionLayout
             svg={state.svg}
             onUploadNew={() => setStateWith("showUpload", true)}
+            isDesktopView={isDesktopView}
           />
         )
       )}

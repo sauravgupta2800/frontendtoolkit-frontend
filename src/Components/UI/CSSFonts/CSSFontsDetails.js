@@ -173,7 +173,14 @@ const CSSFontsDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
                 theme="vs-dark"
                 value={cssCode}
                 loading={<Spin size="medium" />}
-                options={{ ...editorOptions, readOnly: true }}
+                options={{
+                  ...editorOptions,
+                  readOnly: true,
+                  ...(!isDesktopView && {
+                    lineDecorationsWidth: 0,
+                    lineNumbersMinChars: 0,
+                  }),
+                }}
               />
               {/* <pre>
                 <code class="html">{cssCode}</code>

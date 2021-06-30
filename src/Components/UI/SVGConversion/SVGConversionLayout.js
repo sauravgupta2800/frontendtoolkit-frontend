@@ -16,7 +16,7 @@ import { useClipboard } from "use-clipboard-copy";
 const base64 = require("base-64");
 const utf8 = require("utf8");
 
-const SVGConversionLayout = ({ svg, onUploadNew }) => {
+const SVGConversionLayout = ({ svg, onUploadNew, isDesktopView = false }) => {
   const clipboard = useClipboard({ copiedTimeout: 750 });
   const [state, setState] = useState({
     optimizedSvg: "",
@@ -159,28 +159,49 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
   };
 
   return (
-    <div className="w-100 h-100 d-flex ft-svg-layout">
-      <div className="h-100 ft-svg-layout--left">
+    <div
+      className={`w-100 h-100 d-flex ft-svg-layout ${
+        !isDesktopView && "flex-column"
+      }`}
+    >
+      <div
+        className={`h-100 ft-svg-layout--left ${
+          !isDesktopView && "ft-svg-layout--left--full"
+        }`}
+      >
         <OptimizedSettings
           optimized={state.optimized}
           onOptimizedChange={(value) => onOptimizationChange(value)}
           onOptionChange={(options) => fetchOptimized(options)}
         />
       </div>
-      <div className="h-100 ft-svg-layout--right ps-5">
-        <div className="ft-svg-layout--right--header w-100  d-flex justify-content-between align-items-center">
-          <Button onClick={onUploadNew} type="dashed" size="large">
+      <div
+        className={`h-100 ft-svg-layout--right ${
+          isDesktopView ? "ps-5" : "ft-svg-layout--right--full"
+        }`}
+      >
+        <div
+          className={`w-100  d-flex justify-content-between align-items-center ${
+            isDesktopView ? "ft-svg-layout--right--header" : "flex-column py-4"
+          }`}
+        >
+          <Button
+            onClick={onUploadNew}
+            type="dashed"
+            size="large"
+            className={`${isDesktopView ? "" : "my-4"}`}
+          >
             <div className="d-flex align-items-center">
               <Icon size="sm" id="upload" />
               New Upload
             </div>
           </Button>
 
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center flex-wrap">
             <Radio.Group
               value={state.selectedType}
               buttonStyle="solid"
-              size="large"
+              size={isDesktopView ? "large" : "middle"}
               onChange={(e) => onFilterApply(e.target.value)}
             >
               {TYPES.map((item) => (
@@ -199,16 +220,24 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
             </div>
           </div>
         </div>
-        <div className="ft-svg-layout--right--content d-flex w-100 rounded-3">
-          <div className="ft-svg-layout--right--content--icon overflow-auto w-50 h-100 border d-flex flex-column align-items-center justify-content-center rounded-start">
+        <div
+          className={`ft-svg-layout--right--content w-100 d-flex w-100 rounded-3 ${
+            isDesktopView ? "" : "flex-column"
+          }`}
+        >
+          <div
+            className={`ft-svg-layout--right--content--icon overflow-auto h-100 border d-flex flex-column align-items-center justify-content-center rounded-start ${
+              isDesktopView ? "w-50" : "w-100"
+            }`}
+          >
             <img
               src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
               alt={svg}
               style={{
-                minwidth: "20rem",
-                minHeight: "20rem",
-                maxwidth: "40rem",
-                maxHeight: "40rem",
+                minwidth: isDesktopView ? "20rem" : "10rem",
+                minHeight: isDesktopView ? "20rem" : "10rem",
+                maxwidth: isDesktopView ? "40rem" : "20rem",
+                maxHeight: isDesktopView ? "40rem" : "20rem",
               }}
             />
             {state.optimized && (
@@ -233,14 +262,25 @@ const SVGConversionLayout = ({ svg, onUploadNew }) => {
               </div>
             )}
           </div>
-          <div className="w-50 h-100 border rounded-end">
+          <div
+            className={`h-100 border rounded-end ${
+              isDesktopView ? "w-50" : "w-100"
+            }`}
+          >
             <Editor
               height="100%"
               language="scss"
               theme="vs-dark"
               value={state[state.selectedType]}
               loading={<Spin size="medium" />}
-              options={{ ...editorOptions, readOnly: true }}
+              options={{
+                ...editorOptions,
+                readOnly: true,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
             />
           </div>
         </div>

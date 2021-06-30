@@ -1,6 +1,9 @@
 .ft-svg-layout {
   &--left {
     width: 30rem;
+    &--full {
+      width: 100%;
+    }
     .ft-optimized-settings {
       &--header {
         height: 5rem;
@@ -15,6 +18,9 @@
   }
   &--right {
     width: calc(100% - 30rem);
+    &--full {
+      width: 100%;
+    }
     &--header {
       height: 5rem;
     }

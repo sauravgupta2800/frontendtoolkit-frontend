@@ -121,7 +121,13 @@ const JSConversionDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
               defaultValue={state.originalText}
               loading={<Spin size="large" />}
               onChange={(value) => setStateWith("originalText", value)}
-              options={options}
+              options={{
+                ...options,
+                ...(!isDesktopView && {
+                  lineDecorationsWidth: 0,
+                  lineNumbersMinChars: 0,
+                }),
+              }}
             />
           </div>
         </div>
