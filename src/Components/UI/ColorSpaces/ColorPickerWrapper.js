@@ -3,7 +3,7 @@ import { CustomPicker } from "react-color";
 import ColorInputs from "./ColorInputs";
 const { Saturation, Hue, Alpha } = require("react-color/lib/components/common");
 
-const ColorPickerWrapper = ({ onChange, ...rest }) => {
+const ColorPickerWrapper = ({ onChange, isDesktopView, ...rest }) => {
   useEffect(() => {
     if (rest.defaultColor) onChange(rest.defaultColor);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -22,7 +22,11 @@ const ColorPickerWrapper = ({ onChange, ...rest }) => {
           <Alpha {...rest} onChange={onChange} />
         </div>
       </div>
-      <ColorInputs {...rest} onValueChange={onChange} />
+      <ColorInputs
+        {...rest}
+        onValueChange={onChange}
+        isDesktopView={isDesktopView}
+      />
     </div>
   );
 };

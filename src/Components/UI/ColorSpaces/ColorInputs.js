@@ -5,7 +5,7 @@ import Icon from "../Common/Icon/Icon";
 import { fixedDecimal, fixedDecimalNoRoundOff } from "./../../utils";
 import { useClipboard } from "use-clipboard-copy";
 
-const ColorInputs = ({ onValueChange, ...rest }) => {
+const ColorInputs = ({ onValueChange, isDesktopView, ...rest }) => {
   const [originalValues, setOriginal] = useState({});
   const [currentValues, setCurrent] = useState({});
   const clipboard = useClipboard({ copiedTimeout: 750 });
@@ -68,9 +68,9 @@ const ColorInputs = ({ onValueChange, ...rest }) => {
   };
 
   return (
-    <div className="d-flex flex-wrap justify-content-between px-5">
+    <div className="d-flex flex-wrap justify-content-between px-5 pb-5">
       {INPUT_VALUES.map((item, index) => (
-        <div className="w-45 my-3" key={index}>
+        <div className={`my-3 ${isDesktopView ? "w-45" : "w-100"}`} key={index}>
           {isValid(item.regEx, currentValues[item.valueKey]) ? (
             <div className="fw-bold fs-4">{item.title}</div>
           ) : (
