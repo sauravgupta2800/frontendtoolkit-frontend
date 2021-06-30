@@ -91,4 +91,20 @@ export const CUSTOM_CARDS = [
     url: "https://blobs.app/",
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
+  {
+    key_name: "svg-wave",
+    title: "SVG wave Generator",
+    subTitle:
+      "Customizable the wave design by controlling its wave, layers and height.",
+    url: "https://svgwave.in/",
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+  },
+  {
+    key_name: "undesign",
+    title: "Undesign",
+    subTitle:
+      "Collection of free design tools and resources for makers, developers and designers",
+    url: "https://undesign.learn.uno/",
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+  },
 ];

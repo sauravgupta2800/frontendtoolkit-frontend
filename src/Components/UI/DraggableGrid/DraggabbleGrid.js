@@ -4,6 +4,7 @@ import { getFromLS, isDesktopView, saveToLS } from "../../utils";
 import { useSelector, useDispatch } from "react-redux";
 import { COMPONENTS } from "./config";
 import { setList } from "../../../store/widgetsSlice";
+import Icon from "../Common/Icon/Icon";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};
@@ -44,33 +45,42 @@ const DraggableGrid = () => {
       }`}
     >
       {show && (
-        <ResponsiveGridLayout
-          layouts={layouts}
-          cols={cols}
-          onLayoutChange={(layout, layouts) => {
-            saveToLS("layouts", layouts);
-            setLayouts(layouts);
-          }}
-          rowHeight={30}
-          containerPadding={[20, 20]}
-          margin={[15, 15]}
-          style={{ minWidth: "100%", paddingBottom: "5rem" }}
-          isBounded={true}
-          draggableHandle=".draggableClassName"
-        >
-          {selectedList.map((item) => (
-            <div
-              key={item.key_name}
-              data-grid={item.dataGrid}
-              className="ft-style-1-shadow ft-style-2-shadow-hover"
+        <>
+          {selectedList.length ? (
+            <ResponsiveGridLayout
+              layouts={layouts}
+              cols={cols}
+              onLayoutChange={(layout, layouts) => {
+                saveToLS("layouts", layouts);
+                setLayouts(layouts);
+              }}
+              rowHeight={30}
+              containerPadding={[20, 20]}
+              margin={[15, 15]}
+              style={{ minWidth: "100%", paddingBottom: "5rem" }}
+              isBounded={true}
+              draggableHandle=".draggableClassName"
             >
-              {React.createElement(item.component, {
-                key: item.key_name,
-                ...item,
-              })}
+              {selectedList.map((item) => (
+                <div
+                  key={item.key_name}
+                  data-grid={item.dataGrid}
+                  className="ft-style-1-shadow ft-style-2-shadow-hover"
+                >
+                  {React.createElement(item.component, {
+                    key: item.key_name,
+                    ...item,
+                  })}
+                </div>
+              ))}
+            </ResponsiveGridLayout>
+          ) : (
+            <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+              <Icon id="empty" size={isDesktopView ? "" : "xxxl"} />
+              <div className="fs-1 mt-4">No card available</div>
             </div>
-          ))}
-        </ResponsiveGridLayout>
+          )}
+        </>
       )}
     </div>
   );
