@@ -7,7 +7,7 @@ import { useClipboard } from "use-clipboard-copy";
 const base64 = require("base-64");
 const utf8 = require("utf8");
 
-const Base64Details = ({ drawerExtraDetails }) => {
+const Base64Details = ({ drawerExtraDetails, isDesktopView }) => {
   const clipboard = useClipboard({ copiedTimeout: 750 });
   const [state, setState] = useState({
     selectedType: TYPES[0].key,
@@ -92,7 +92,7 @@ const Base64Details = ({ drawerExtraDetails }) => {
       <div className="d-flex justify-content-center w-100">
         <Radio.Group
           value={state.selectedType}
-          size="large"
+          size={isDesktopView ? "large" : "medium"}
           buttonStyle="solid"
           onChange={(e) => onChange(e.target.value)}
         >

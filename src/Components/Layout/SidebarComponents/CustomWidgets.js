@@ -5,6 +5,7 @@ import { useState } from "react";
 import Icon from "../../UI/Common/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomCard, removeCustomCard } from "../../../store/widgetsSlice";
+import { isDesktopView } from "../../utils";
 
 const CustomWidgets = ({ visible = false, handleClose }) => {
   return (
@@ -79,7 +80,9 @@ const Detail = () => {
               <div
                 key={index}
                 style={{ minWidth: "25rem" }}
-                className="border p-4 rounded-3 w-20 d-flex flex-column justify-content-between m-3 ft-style-1-shadow ft-style-2-shadow-hover"
+                className={`border p-4 rounded-3 w-20 d-flex flex-column justify-content-between m-3 ft-style-1-shadow ft-style-2-shadow-hover ${
+                  isDesktopView ? "" : "w-100"
+                }`}
               >
                 <div>
                   <div className="fs-2 fw-bold ft-color-dark">{item.title}</div>
@@ -107,7 +110,7 @@ const Detail = () => {
                     >
                       <Icon
                         id="delete"
-                        size="lg"
+                        size={isDesktopView ? "lg" : "md"}
                         title="Remove from Dashboard"
                       />
                     </div>
