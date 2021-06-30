@@ -12,7 +12,7 @@ import { useClipboard } from "use-clipboard-copy";
 import Icon from "../Common/Icon/Icon";
 import ColorChromePicker from "./ColorChromePicker";
 
-const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
+const CSSFontsDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
   const [state, setState] = useState({});
   const [cssCode, setCSSCode] = useState("");
   const [styleCode, setStyleCode] = useState({});
@@ -93,10 +93,15 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
       {!isEmpty(state) && (
         <div className="w-100 h-100">
           <RowSeparator title="Font Settings" />
-          <div className="w-100 px-5">
+          <div className={`w-100 ${isDesktopView ? "px-5" : "px-2"}`}>
             <div className="w-100 d-flex flex-wrap justify-content-between">
               {FIELDS.map((item, index) => (
-                <div className="w-45 my-3" key={index}>
+                <div
+                  className={`w-45 ${
+                    isDesktopView ? "w-45  my-3" : "w-100 my-2"
+                  }`}
+                  key={index}
+                >
                   <div className="d-flex">
                     <div className="fw-bold fs-4">{item.label} </div>
                     {!!item.slider && (
@@ -131,7 +136,7 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
           </div>
 
           <RowSeparator title="Font Preview" />
-          <div className="w-100 px-5">
+          <div className={`w-100 ${isDesktopView ? "px-5" : "px-2"}`}>
             <div
               className="w-100 p-4 border ft-style-1-shadow rounded-3"
               style={styleCode}
@@ -152,7 +157,7 @@ const CSSFontsDetails = ({ drawerExtraDetails = {} }) => {
           </div>
 
           <RowSeparator title="CSS Code" />
-          <div className="w-100 px-5 pb-5">
+          <div className={`w-100 pb-5 ${isDesktopView ? "px-5" : "px-2"}`}>
             <div className="ft-card-action-icon d-flex justify-content-end mb-3">
               <Icon
                 id="copy"

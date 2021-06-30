@@ -28,7 +28,7 @@ const options = {
   codeLens: false,
 };
 
-const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
+const CSSConversionDetails = ({ drawerExtraDetails = {}, isDesktopView }) => {
   const clipboard = useClipboard({ copiedTimeout: 750 });
   const [state, setState] = useState({
     originalText: "",
@@ -112,8 +112,8 @@ const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
 
   return (
     <div className="w-100 h-100">
-      <div className="w-100 d-flex">
-        <div className="w-50 pe-4">
+      <div className={`w-100 d-flex ${isDesktopView ? "" : "flex-column"}`}>
+        <div className={`${isDesktopView ? "w-50 pe-4" : "w-100 mb-5"}`}>
           <div className="w-100 fs-3 fw-bold mb-4">Original Text</div>
           <div className="border rounded border-1 ft-style-2-shadow">
             <Editor
@@ -126,8 +126,12 @@ const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
             />
           </div>
         </div>
-        <div className="w-50 ps-4">
-          <div className="w-100 d-flex justify-content-between">
+        <div className={`${isDesktopView ? "w-50 ps-4" : "w-100"}`}>
+          <div
+            className={`w-100 d-flex justify-content-between ${
+              isDesktopView ? "" : "flex-column"
+            }`}
+          >
             <div className="fs-3 fw-bold">Resultant Text</div>
             <div className="d-flex align-items-center">
               <div className="me-3 ft-color-dark2">Choose Filter type : </div>
@@ -143,14 +147,15 @@ const CSSConversionDetails = ({ drawerExtraDetails = {} }) => {
                   </Radio.Button>
                 ))}
               </Radio.Group>
-            </div>
-            <div className="ft-card-action-icon">
-              <Icon
-                id="copy"
-                size="md"
-                title={clipboard.copied ? "Copied" : "Copy"}
-                onClick={() => clipboard.copy(state[state.selectedType])}
-              />
+
+              <div className="ms-3 ft-card-action-icon">
+                <Icon
+                  id="copy"
+                  size="md"
+                  title={clipboard.copied ? "Copied" : "Copy"}
+                  onClick={() => clipboard.copy(state[state.selectedType])}
+                />
+              </div>
             </div>
           </div>
           <div className="border rounded ft-style-2-shadow">
