@@ -18,7 +18,7 @@ const MainLayout = () => {
     >
       <Helmet>
         <title>
-          Frontend Devtools: Controlled and customizable platform for Frontend
+          Frontend Devtools: Controlled and Customizable platform for Frontend
           developer's repetitive tasks
         </title>
         <meta
