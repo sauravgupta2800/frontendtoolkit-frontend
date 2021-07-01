@@ -7,6 +7,7 @@ import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
 import { useSelector } from "react-redux";
 import { isDesktopView } from "../utils";
+import { Helmet } from "react-helmet";
 
 const MainLayout = () => {
   return (
@@ -15,6 +16,18 @@ const MainLayout = () => {
         !isDesktopView ? "ft-main-layout--mobile" : ""
       }`}
     >
+      <Helmet>
+        <title>
+          Frontend Devtools: A Fully customizable platform for repetitive
+          Frontend tasks
+        </title>
+        <meta
+          name="description"
+          content="Frontend Devtools dashboard is made up of truly customizable cards which consists
+      package size details, package comparison, font preview, code diff, base64 encode decode, JS, TS, CSS, SVG
+       optimization and many more awesome modules."
+        />
+      </Helmet>
       <div className="ft-main-layout__header">
         <Header />
       </div>
