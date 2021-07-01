@@ -52,21 +52,29 @@ const Detail = () => {
               <div className="ms-3 fw-bold fs-3">{item.title}</div>
             </div>
 
-            {addedCards.includes(item.key_name) ? (
-              <div
-                className="ms-2 ft-table-action-icon-red"
-                onClick={() => handleRemoveFromDashboard(item)}
-              >
-                <Icon id="delete" size="md" title="Remove from Dashboard" />
+            <div className="d-flex">
+              {addedCards.includes(item.key_name) ? (
+                <div
+                  className="ms-2 ft-table-action-icon-red"
+                  onClick={() => handleRemoveFromDashboard(item)}
+                >
+                  <Icon id="delete" size="md" title="Remove from Dashboard" />
+                </div>
+              ) : (
+                <Button
+                  className="ms-3"
+                  onClick={() => handleAddToDashboard(item)}
+                >
+                  Add to dashboard
+                </Button>
+              )}
+
+              <div className="ms-3 ft-card-action-icon">
+                <a href={item.url} target="_blank" rel="noreferrer">
+                  <Icon id="new-url" />
+                </a>
               </div>
-            ) : (
-              <Button
-                className="ms-3"
-                onClick={() => handleAddToDashboard(item)}
-              >
-                Add to dashboard
-              </Button>
-            )}
+            </div>
           </div>
           <iframe
             src={item.url}
@@ -117,6 +125,11 @@ const Detail = () => {
                       />
                     </div>
                   )}
+                  <div className="ms-2 ft-card-action-icon">
+                    <a href={item.url} target="_blank" rel="noreferrer">
+                      <Icon id="new-url" title="visit original URL" />
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
