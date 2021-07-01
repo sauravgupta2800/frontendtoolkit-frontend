@@ -28,32 +28,36 @@ const Header = () => {
         {isDesktopView && <SearchBar />}
       </div>
       <div className="d-flex align-items-center">
-        {!isDesktopView && (
-          <div className="d-flex flex-column justify-content-center align-items-center me-2">
-            <a
-              href={"https://www.buymeacoffee.com/sauravgupta"}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon id="buy-me-coffee" size={isDesktopView ? "xl" : "md"} />
-            </a>
-          </div>
+        {isDesktopView && (
+          <a
+            href={"https://github.com/sauravgupta2800/frontendtools"}
+            target="_blank"
+            className="text-decoration-none"
+            rel="noreferrer"
+          >
+            <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
+              <div>
+                <Icon id="github" size="md" />
+              </div>
+
+              {isDesktopView && (
+                <div className="fs-4 ms-2 fw-bold">Request a feature</div>
+              )}
+            </div>
+          </a>
         )}
         <a
-          href={"https://github.com/sauravgupta2800/frontendtools"}
+          href="https://www.producthunt.com/posts/frontend-devtools?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-devtools"
           target="_blank"
-          className="text-decoration-none"
           rel="noreferrer"
+          className="ms-3"
         >
-          <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
-            <div>
-              <Icon id="github" size="md" />
-            </div>
-
-            {isDesktopView && (
-              <div className="fs-4 ms-2 fw-bold">Request a feature</div>
-            )}
-          </div>
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302650&theme=light"
+            alt="Frontend Devtools - Customized platform for Frontend Developer's repeated tasks | Product Hunt"
+            width={isDesktopView ? "170" : "120"}
+            height="42"
+          />
         </a>
       </div>
     </div>

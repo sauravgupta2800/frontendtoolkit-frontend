@@ -28,11 +28,17 @@ const Sidebar = () => {
   };
   return (
     <div
-      className={`ft-sidebar  w-100 d-flex flex-column ${
-        isDesktopView ? "border" : "ft-sidebar--mobile ft-bg-prime88"
+      className={`ft-sidebar  w-100 d-flex  ${
+        isDesktopView
+          ? "border flex-column"
+          : "ft-sidebar--mobile  ft-bg-prime88"
       }`}
     >
-      <div className="flex-grow-1">
+      <div
+        className={`flex-grow-1 ${
+          isDesktopView ? "" : "justify-content-center"
+        }`}
+      >
         <div
           className={`d-flex h-100 ${
             isDesktopView ? "flex-column" : ""
@@ -68,26 +74,31 @@ const Sidebar = () => {
           {/* <SideBarIcon id="download" tooltipText="Download Cards" />
           <SideBarIcon id="upload" tooltipText="Upload Cards" /> */}
         </div>
+
         <CustomWidgets
           visible={state.customWidgetVisible}
           handleClose={() => setStateWith("customWidgetVisible", false)}
         />
+
         <CreateCustomCard
           visible={state.createCustomVisible}
           handleClose={() => setStateWith("createCustomVisible", false)}
         />
       </div>
-      {isDesktopView && (
-        <div className="d-flex flex-column justify-content-center align-items-center pb-4">
-          <a
-            href={"https://www.buymeacoffee.com/sauravgupta"}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon id="buy-me-coffee" size={isDesktopView ? "xl" : "md"} />
-          </a>
-        </div>
-      )}
+
+      <div
+        className={`d-flex flex-column justify-content-center align-items-center ${
+          isDesktopView ? "pb-4" : " me-4"
+        }`}
+      >
+        <a
+          href={"https://www.buymeacoffee.com/sauravgupta"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon id="buy-me-coffee" size={isDesktopView ? "xl" : "md"} />
+        </a>
+      </div>
     </div>
   );
 };
