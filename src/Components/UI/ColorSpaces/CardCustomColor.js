@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { CUSTOM_COLORS } from "./config";
 import { CustomPicker } from "react-color";
-import { Input } from "antd";
+import { Input, Popover } from "antd";
 import Icon from "../Common/Icon/Icon";
 import { Tooltip } from "antd";
+import { ChromePicker } from "react-color";
 
 const CardCustomColor = ({ onDetailsClick, onChange, ...rest }) => {
   const [originalValue, setOriginal] = useState("");
@@ -33,16 +34,35 @@ const CardCustomColor = ({ onDetailsClick, onChange, ...rest }) => {
     setCurrent(originalValue);
   };
 
+  const popoverContent = () => {
+    return (
+      <div>
+        <ChromePicker
+          color={originalValue}
+          onChange={({ hex }) => setOriginal(hex)}
+        />
+      </div>
+    );
+  };
+
   const addOnBefore = () => {
     return (
-      <div
-        className="rounded-start"
-        style={{
-          width: "40px",
-          height: "40px",
-          background: `${originalValue}`,
-        }}
-      />
+      <>
+        <Popover
+          content={popoverContent}
+          trigger="click"
+          overlayClassName="ft-chrome-picker"
+        >
+          <div
+            className="rounded-start cursor-pointer"
+            style={{
+              width: "40px",
+              height: "40px",
+              background: `${originalValue}`,
+            }}
+          />
+        </Popover>
+      </>
     );
   };
   const addOnAfter = () => {
