@@ -39,7 +39,10 @@ const CardCustomColor = ({ onDetailsClick, onChange, ...rest }) => {
       <div>
         <ChromePicker
           color={originalValue}
-          onChange={({ hex }) => setOriginal(hex)}
+          onChange={({ hex }) => {
+            setOriginal(hex);
+            setCurrent(hex);
+          }}
         />
       </div>
     );
