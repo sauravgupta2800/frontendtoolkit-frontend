@@ -1,10 +1,11 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
 import React, { useEffect, useState } from "react";
-import { getFromLS, isDesktopView, saveToLS } from "../../utils";
+// import { getFromLS, isDesktopView, saveToLS } from "../../utils";
+import { getFromLS, isDesktopView, saveToLS } from "../../../utils";
 import { useSelector, useDispatch } from "react-redux";
-import { COMPONENTS } from "./config";
-import { setList } from "../../../store/widgetsSlice";
-import Icon from "../Common/Icon/Icon";
+import { COMPONENTS } from "../config";
+import { setList } from "../../../../store/widgetsSlice";
+import Icon from "../../Common/Icon/Icon";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};

@@ -2,6 +2,7 @@ import Icon from "../Icon/Icon";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setRemovedID } from "../../../../store/widgetsSlice";
+import { Tag } from "antd";
 
 const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
   const dispatch = useDispatch();
@@ -24,7 +25,9 @@ const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
             iconClass={"ft-color-prime"}
             {...(rest.iconProps || {})}
           />
-          <div className="fs-2 fw-bold ms-3 ft-color-dark">{title}</div>
+          <div>
+            <div className="fs-2 fw-bold ms-3 ft-color-dark">{title}</div>
+          </div>
         </div>
         <div className="d-flex justify-content-between align-items-center ft-card-action-icon">
           {/* <Icon
@@ -53,6 +56,15 @@ const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
       </div>
       <div className="w-100 d-flex flex-column justify-content-center">
         <div className="mt-4 mb-3 ft-color-dark2 fs-4">{subTitle}</div>
+        <div className="mb-3 d-flex">
+          <div className="fs-4 me-3">Tags</div>
+          <div>
+            <Tag color="cyan">cyan</Tag>
+            <Tag color="blue">Dev Tool</Tag>
+            <Tag color="geekblue">Design Tool</Tag>
+            <Tag color="purple">Edu tool</Tag>
+          </div>
+        </div>
         {rest.contentSlot}
       </div>
       <div className="w-100 d-flex justify-content-center">

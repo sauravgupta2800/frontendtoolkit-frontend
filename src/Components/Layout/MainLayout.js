@@ -1,5 +1,5 @@
 import React from "react";
-import DraggableGrid from "../UI/DraggableGrid/DraggabbleGrid";
+import DraggableGrid from "../UI/WidgetLayouts/DraggableGrid/DraggabbleGrid";
 import Sidebar from "./Sidebar";
 import Header from "./header";
 import NoPageFound404 from "./SidebarComponents/NoPageFound404";

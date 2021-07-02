@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getFromLS, saveToLS } from "../Components/utils";
-import { addCustomComponent } from "../Components/UI/DraggableGrid/config";
+import { addCustomComponent } from "../Components/UI/WidgetLayouts/config";
 
 const removedCardIds = getFromLS("removedCardIds") || [];
 const customList = getFromLS("customList") || [];

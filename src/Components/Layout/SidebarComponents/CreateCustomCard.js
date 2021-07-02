@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomCard } from "../../../store/widgetsSlice";
 import DragCard from "../../UI/Common/DragCard/DragCard";
-import { addCustomComponent } from "../../UI/DraggableGrid/config";
+import { addCustomComponent } from "../../UI/WidgetLayouts/config";
 import { isDesktopView } from "../../utils";
 
 const CreateCustomCard = ({ visible = false, handleClose }) => {
