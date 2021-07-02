@@ -40,11 +40,7 @@ const DraggableGrid = () => {
   const cols = { lg: 12, md: 8, sm: 6, xs: 4, xxs: 2 };
 
   return (
-    <div
-      className={`ft-draggable-grid d-flex w-100 h-100 overflow-auto ${
-        isDesktopView ? "" : "ft-draggable-grid--mobile"
-      }`}
-    >
+    <div className="ft-draggable-grid d-flex w-100 h-100 overflow-auto">
       {show && (
         <>
           {selectedList.length ? (

@@ -1,21 +1,17 @@
 import React from "react";
 import DraggableGrid from "../UI/WidgetLayouts/DraggableGrid/DraggabbleGrid";
-import Sidebar from "./Sidebar";
 import Header from "./header";
 import NoPageFound404 from "./SidebarComponents/NoPageFound404";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
 import { useSelector } from "react-redux";
 import { isDesktopView } from "../utils";
+import WidgetLayouts from "../UI/WidgetLayouts/WidgetLayouts";
 import { Helmet } from "react-helmet";
 
 const MainLayout = () => {
   return (
-    <div
-      className={`ft-main-layout ${
-        !isDesktopView ? "ft-main-layout--mobile" : ""
-      }`}
-    >
+    <div className="ft-main-layout">
       <Helmet>
         <title>
           Frontend Devtools: Controlled and Customizable platform for Frontend
@@ -31,17 +27,14 @@ const MainLayout = () => {
       <div className="ft-main-layout__header">
         <Header />
       </div>
-      <div className="ft-main-layout__sidebar ft-bg-prime88">
-        {isDesktopView && <Sidebar />}
-      </div>
+
       <div className="ft-main-layout__container ft-bg-prime97">
-        {!isDesktopView && <Sidebar />}
         <Switch>
           <Route exact path="/">
-            <DraggableGrid />
+            Home page
           </Route>
           <Route path="/cards">
-            <DraggableGrid />
+            <WidgetLayouts />
             <Switch>
               <Route path="/cards/:id" children={<RenderDrawer />} />
             </Switch>

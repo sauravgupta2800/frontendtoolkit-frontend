@@ -1,0 +1,9 @@
+.widget-layouts {
+  &--header {
+    height: 4.5rem;
+    border-bottom: 1px solid $prime88 !important;
+  }
+  &--content {
+    height: calc(100% - 4.5rem);
+  }
+}

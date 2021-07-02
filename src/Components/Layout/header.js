@@ -10,9 +10,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fe-header d-flex justify-content-between align-items-center w-100 h-100 ${
-        isDesktopView ? "px-5" : "px-3"
-      }`}
+      className={`fe-header d-flex justify-content-between align-items-center w-100 h-100 px-5`}
     >
       <div className="d-flex align-items-center">
         <div
@@ -22,30 +20,22 @@ const Header = () => {
           <Icon id="front" size="lg" iconClass="ft-color-prime" />
           <div className="fs-1 fw-bold ms-2 text-nowrap">Frontend Devtools</div>
         </div>
-        {/* <div>
-          <Icon id="logo" size="" />
-        </div> */}
-        {isDesktopView && <SearchBar />}
+        <SearchBar />
       </div>
       <div className="d-flex align-items-center">
-        {isDesktopView && (
-          <a
-            href={"https://github.com/sauravgupta2800/frontendtools"}
-            target="_blank"
-            className="text-decoration-none"
-            rel="noreferrer"
-          >
-            <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
-              <div>
-                <Icon id="github" size="md" />
-              </div>
-
-              {isDesktopView && (
-                <div className="fs-4 ms-2 fw-bold">Request a feature</div>
-              )}
+        {/* <a
+          href={"https://github.com/sauravgupta2800/frontendtools"}
+          target="_blank"
+          className="text-decoration-none"
+          rel="noreferrer"
+        >
+          <div className="border rounded-3 cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
+            <div>
+              <Icon id="github" size="md" />
             </div>
-          </a>
-        )}
+            <div className="fs-4 ms-2 fw-bold">Request a feature</div>
+          </div>
+        </a>
         <a
           href="https://www.producthunt.com/posts/frontend-devtools?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-devtools"
           target="_blank"
@@ -58,7 +48,7 @@ const Header = () => {
             width={isDesktopView ? "170" : "120"}
             height="42"
           />
-        </a>
+        </a> */}
       </div>
     </div>
   );

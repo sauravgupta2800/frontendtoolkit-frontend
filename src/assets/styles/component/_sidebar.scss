@@ -1,10 +1,6 @@
 .ft-sidebar {
   border-right: 1px solid $prime-shade-75 !important;
   height: 100%;
-  &--mobile {
-    height: 5rem;
-    border-right: 0px solid !important;
-  }
   &--icon {
     color: $light100;
     background: $prime-shade-65;
