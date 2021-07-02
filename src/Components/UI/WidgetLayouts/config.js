@@ -45,6 +45,13 @@ export const addCustomComponent = (field) => {
   };
 };
 
+export const TAGS = {
+  DEV: { title: "Dev tool", key: "DEV", color: "cyan" },
+  DESIGN: { title: "Design tool", key: "DESIGN", color: "blue" },
+  EDU: { title: "Edu Tools", key: "EDU", color: "geekblue" },
+  OTHER: { title: "Other", key: "OTHER", color: "purple" },
+};
+
 export const COMPONENTS = [
   {
     key_name: "package-search",
@@ -56,6 +63,7 @@ export const COMPONENTS = [
     drawerWidth: "60%",
     title: "Package Details",
     subTitle: "find the cost of adding a npm package to your bundle",
+    tags: [TAGS.DEV],
     component: PackageCard,
     detailComponent: PackageDrawerDetails,
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
@@ -70,6 +78,7 @@ export const COMPONENTS = [
     drawerWidth: "60%",
     title: "Package Compare",
     subTitle: "Compare package download counts over time",
+    tags: [TAGS.DEV],
     component: PackageCompareCard,
     detailComponent: PackageCompareDrawerDetails,
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
@@ -85,6 +94,7 @@ export const COMPONENTS = [
     title: "Icons",
     subTitle:
       "Free, high quality, open source icon library with 700+ icons. Include them anyway you like—SVGs, or CSS.",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     component: OpenIconCard,
     detailComponent: OpenIconsDetails,
     dataGrid: { x: 8, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
@@ -100,6 +110,7 @@ export const COMPONENTS = [
     title: "Color Conversion Space",
     subTitle:
       "Select Color and convert into Other Color spaces such as Hex, RGB, HSL etc",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
     dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 3, minH: 5 },
@@ -116,6 +127,7 @@ export const COMPONENTS = [
     title: "Code Diff",
     subTitle:
       "Code Diff is a tool to compare text differences between two text files. Enter the contents and check it",
+    tags: [TAGS.DEV, TAGS.OTHER],
     component: CodeDiffCard,
     detailComponent: CodeDiffDetails,
     dataGrid: { x: 4, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
@@ -131,6 +143,7 @@ export const COMPONENTS = [
     title: "Base 64 Converter",
     subTitle:
       "Decode and Encode Base64 data or text with this online base64 decoder/encoder",
+    tags: [TAGS.DEV, TAGS.OTHER],
     component: Base64Card,
     detailComponent: Base64Details,
     dataGrid: { x: 8, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
@@ -146,6 +159,7 @@ export const COMPONENTS = [
     title: "CSS Font Preview",
     subTitle:
       "CSS font preview tool allows you to preview the font or change the settings of the font properties.",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     component: CSSFontsCard,
     detailComponent: CSSFontsDetails,
     dataGrid: { x: 0, y: 10, w: 4, h: 5.5, minW: 3, minH: 5 },
@@ -161,6 +175,7 @@ export const COMPONENTS = [
     title: "SVG Converter",
     subTitle:
       "Optimize the SVG and can be converted into JSX, TSX, React Native, CSS and Base64",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     component: SVGConversionCard,
     detailComponent: SVGConversionDetails,
     dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 3, minH: 5 },
@@ -176,6 +191,7 @@ export const COMPONENTS = [
     title: "JS/TS Converter",
     subTitle:
       "Type you JS/TS code here and see it with correct formatted form or in minified form",
+    tags: [TAGS.DEV],
     component: JSConversionCard,
     detailComponent: JSConversionDetails,
     dataGrid: { x: 8, y: 8, w: 4, h: 7, minW: 3, minH: 5 },
@@ -192,6 +208,7 @@ export const COMPONENTS = [
     title: "CSS Converter",
     subTitle:
       "Type you CSS code here and see it with correct formatted form or in minified form",
+    tags: [TAGS.DEV],
     component: CSSConversionCard,
     detailComponent: CSSConversionDetails,
     dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 3, minH: 5 },

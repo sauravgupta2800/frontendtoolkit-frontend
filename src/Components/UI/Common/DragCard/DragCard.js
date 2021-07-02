@@ -56,15 +56,18 @@ const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
       </div>
       <div className="w-100 d-flex flex-column justify-content-center">
         <div className="mt-4 mb-3 ft-color-dark2 fs-4">{subTitle}</div>
-        <div className="mb-3 d-flex">
-          <div className="fs-4 me-3">Tags</div>
-          <div>
-            <Tag color="cyan">cyan</Tag>
-            <Tag color="blue">Dev Tool</Tag>
-            <Tag color="geekblue">Design Tool</Tag>
-            <Tag color="purple">Edu tool</Tag>
+        {rest.tags && rest.tags.length && (
+          <div className="mb-3 d-flex">
+            <div className="fs-4 me-3">Tags</div>
+            <div>
+              {rest.tags.map((tag) => (
+                <Tag key={tag.key} color={tag.color}>
+                  {tag.title}
+                </Tag>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         {rest.contentSlot}
       </div>
       <div className="w-100 d-flex justify-content-center">
