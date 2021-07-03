@@ -82,7 +82,7 @@ const ListView = ({ selectedList }) => {
               <Icon
                 id="delete"
                 size={"md"}
-                title={"Remove Card"}
+                title={"Remove Tool"}
                 onClick={() => {}}
               />
             </div>

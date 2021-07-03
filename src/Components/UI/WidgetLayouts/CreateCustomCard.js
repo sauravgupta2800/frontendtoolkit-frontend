@@ -14,7 +14,7 @@ const CreateCustomCard = ({ visible = false, handleClose }) => {
       onClose={handleClose}
       id="card-list"
       title="Add Custom Tool"
-      subTitle="Make utilize this section to create your own embedded card with a
+      subTitle="Make utilize this section to create your own embedded tool with a
       full customization option"
       drawerWidth="90%"
       showLink={false}
@@ -75,7 +75,7 @@ const CreateForm = ({ onClose }) => {
       };
 
       dispatch(addCustomCard(item));
-      message.success(`${item.title} card added to dashboard.`);
+      message.success(`${item.title} tool added to dashboard.`);
       onClose();
     }
   };
@@ -103,13 +103,13 @@ const CreateForm = ({ onClose }) => {
       >
         <div className="p-4  overflow-auto">
           <div>
-            Make utilize this section to create your own embedded card with a
+            Make utilize this section to create your own embedded tool with a
             full customization option
           </div>
           <div className="mt-4">
             <div className="fw-bold mb-1">Title</div>
             <Input
-              placeholder="Enter the card title *"
+              placeholder="Enter the tool title *"
               size="large"
               className="w-100 rounded ft-style-1-shadow"
               value={state.fields["title"]}
@@ -122,7 +122,7 @@ const CreateForm = ({ onClose }) => {
           <div className="mt-4">
             <div className="fw-bold mb-1">Description</div>
             <Input.TextArea
-              placeholder="Enter the card description *"
+              placeholder="Enter the tool description *"
               size="large"
               className="w-100 rounded ft-style-1-shadow"
               autoSize={{ minRows: 4, maxRows: 4 }}
@@ -136,7 +136,7 @@ const CreateForm = ({ onClose }) => {
           <div className="mt-4">
             <div className="fw-bold mb-1">URL</div>
             <Input
-              placeholder="Enter the card url *"
+              placeholder="Enter the tool url *"
               size="large"
               className="w-100 rounded ft-style-1-shadow"
               value={state.fields["url"]}
@@ -173,10 +173,10 @@ const CreateForm = ({ onClose }) => {
             <DragCard
               {...{
                 ...addCustomComponent(state.fields),
-                title: state.fields.title ? state.fields.title : "Card Title",
+                title: state.fields.title ? state.fields.title : "Tool Title",
                 subTitle: state.fields.subTitle
                   ? state.fields.subTitle
-                  : "Card description",
+                  : "Tool description",
               }}
               actionSlot={
                 <div className="w-100 d-flex justify-content-center">

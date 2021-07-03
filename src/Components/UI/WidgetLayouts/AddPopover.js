@@ -30,7 +30,7 @@ const AddPopover = (props) => {
       <div>
         {removedList.length ? (
           <>
-            <div className="mt-4 mb-2 fs-5 ft-color-dark2">REMOVED CARDS </div>
+            <div className="mt-4 mb-2 fs-5 ft-color-dark2">REMOVED TOOLS </div>
             {removedList.map((item, index) => (
               <div
                 key={index}

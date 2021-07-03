@@ -39,7 +39,7 @@ const DragCard = ({ title = "title", subTitle = "sub title", ...rest }) => {
           <Icon
             id="delete"
             size={"md"}
-            title={"Remove Card"}
+            title={"Remove tool"}
             onClick={onDeleteClick}
           />
           <div className="ms-2 draggableClassName px-2">

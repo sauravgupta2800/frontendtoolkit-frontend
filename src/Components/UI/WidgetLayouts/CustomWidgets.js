@@ -13,7 +13,7 @@ const CustomWidgets = ({ visible = false, handleClose }) => {
       visible={visible}
       onClose={handleClose}
       id="card-list"
-      title="Custom Cards that you may like"
+      title="Custom Tools that you may like"
       subTitle="You can add it to you personal dashboard if you find these add-ons as interesting"
       drawerWidth="90%"
       showLink={false}
@@ -33,12 +33,12 @@ const Detail = () => {
 
   const handleAddToDashboard = (item) => {
     dispatch(addCustomCard(item));
-    message.success(`${item.title} card added to dashboard.`);
+    message.success(`${item.title} tool added to dashboard.`);
   };
 
   const handleRemoveFromDashboard = ({ key_name, title }) => {
     dispatch(removeCustomCard(key_name));
-    message.success(`${title} card removed from dashboard.`);
+    message.success(`${title} tool removed from dashboard.`);
   };
   return (
     <>
