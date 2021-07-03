@@ -1,6 +1,5 @@
 import React from "react";
-import DraggableGrid from "../UI/WidgetLayouts/DraggableGrid/DraggabbleGrid";
-import Header from "./header";
+import Header from "./Header";
 import NoPageFound404 from "./SidebarComponents/NoPageFound404";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
@@ -28,7 +27,7 @@ const MainLayout = () => {
         <Header />
       </div>
 
-      <div className="ft-main-layout__container ft-bg-prime97">
+      <div className="ft-main-layout__container">
         <Switch>
           <Route exact path="/">
             Home page

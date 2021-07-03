@@ -136,3 +136,49 @@
   max-height: 50rem;
   overflow-y: scroll;
 }
+
+// Header Tabs
+
+.ft-header-tabs {
+  .ant-tabs-card {
+    height: 100%;
+    margin-top: 1px;
+    & > .ant-tabs-nav {
+      height: 100%;
+      margin: 0;
+    }
+  }
+  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
+    background: #fff;
+  }
+  .ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab,
+  .ant-tabs-card.ant-tabs-bottom > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab,
+  .ant-tabs-card.ant-tabs-top
+    > div
+    > .ant-tabs-nav
+    .ant-tabs-tab
+    + .ant-tabs-tab,
+  .ant-tabs-card.ant-tabs-bottom
+    > div
+    > .ant-tabs-nav
+    .ant-tabs-tab
+    + .ant-tabs-tab {
+    margin-left: 0;
+  }
+  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
+    background: transparent;
+    border-color: transparent;
+    border-bottom: 1px solid $prime88;
+  }
+
+  .ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab-active,
+  .ant-tabs-card.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-tab-active {
+    border: 1px solid $prime88;
+    border-bottom-color: #fff;
+    border-top-width: 3px;
+    border-top-color: $prime;
+    border-radius: 0;
+  }
+}
