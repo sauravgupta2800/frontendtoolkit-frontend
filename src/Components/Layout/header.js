@@ -69,7 +69,6 @@ const HeaderTabs = () => {
   const onTabChange = (activeKey) => {
     setActiveTab(activeKey);
     history.replace(`${activeKey}`);
-    console.log(location.pathname);
   };
 
   return (
