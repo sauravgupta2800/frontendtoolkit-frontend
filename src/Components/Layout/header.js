@@ -22,7 +22,7 @@ const Header = () => {
           onClick={() => history.replace("/")}
         >
           <Icon id="front" size="lg" iconClass="ft-color-prime" />
-          <div className="fs-1 fw-bold ms-2 text-nowrap">Frontend Devtools</div>
+          <div className="fs-1 fw-bold ms-2 text-nowrap">Frontend Tools</div>
         </div>
         <HeaderTabs />
         <SearchBar />

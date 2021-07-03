@@ -49,7 +49,7 @@ const WithCardDetailsDrawer = ({
         {visible && detailComponent && (
           <div className="w-100 h-100">
             <Helmet>
-              <title>{`${title} - Frontend Devtools`}</title>
+              <title>{`${title} - Frontend tools`}</title>
               <meta name="description" content={subTitle} />
               {showLink && (
                 <link

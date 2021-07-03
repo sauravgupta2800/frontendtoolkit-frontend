@@ -16,12 +16,12 @@ const MainLayout = () => {
     <div className="ft-main-layout">
       <Helmet>
         <title>
-          Frontend Devtools: Controlled and Customizable platform for Frontend
+          Frontend tools: Controlled and Customizable platform for Frontend
           developer's repetitive tasks
         </title>
         <meta
           name="description"
-          content="Frontend Devtools dashboard is made up of truly customizable cards which consists
+          content="Frontend Tools dashboard is made up of truly customizable cards which consists
       package size details, package comparison, font preview, code diff, base64 encode decode, JS, TS, CSS, SVG
        optimization and many more awesome modules."
         />
