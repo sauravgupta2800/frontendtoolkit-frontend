@@ -59,7 +59,7 @@ const AddPopover = (props) => {
               id="empty-delete-illustration"
               size={isDesktopView ? "xxxl" : "xxxl"}
             />
-            <div className="fs-5">Deleted tools will appear here</div>
+            <div className="fs-4">Removed tools will appear here</div>
           </div>
         )}
       </div>
