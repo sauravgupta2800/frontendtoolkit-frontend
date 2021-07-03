@@ -13,7 +13,7 @@ const CreateCustomCard = ({ visible = false, handleClose }) => {
       visible={visible}
       onClose={handleClose}
       id="card-list"
-      title="Add Custom Card"
+      title="Add Custom Tool"
       subTitle="Make utilize this section to create your own embedded card with a
       full customization option"
       drawerWidth="90%"

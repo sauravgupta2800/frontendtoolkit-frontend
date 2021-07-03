@@ -60,7 +60,7 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
           <SideBarIcon
             selected={state.addPopverVisible}
             id="trash"
-            tooltipText="Removed Cards"
+            tooltipText="Removed Tools"
             count={removedItemCount}
           />
         </AddPopover>
@@ -71,7 +71,7 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
         >
           <SideBarIcon
             id="card-list"
-            tooltipText="Custom Cards"
+            tooltipText="Custom Tools"
             selected={state.customWidgetVisible}
           />
         </div>

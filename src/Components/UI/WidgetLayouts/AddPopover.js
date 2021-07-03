@@ -23,7 +23,7 @@ const AddPopover = (props) => {
   };
 
   const text = () => {
-    return <div className="fs-3 p-3 fw-bold">Control the Card Items</div>;
+    return <div className="fs-3 p-3 fw-bold">Restore the tools</div>;
   };
   const content = () => {
     return (
@@ -53,7 +53,14 @@ const AddPopover = (props) => {
             ))}
           </>
         ) : (
-          ""
+          <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+            <Icon
+              showCursor={false}
+              id="empty-delete-illustration"
+              size={isDesktopView ? "xxxl" : "xxxl"}
+            />
+            <div className="fs-5">Deleted tools will appear here</div>
+          </div>
         )}
       </div>
     );
