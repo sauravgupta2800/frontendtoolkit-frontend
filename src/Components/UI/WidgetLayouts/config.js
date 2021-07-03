@@ -214,3 +214,27 @@ export const COMPONENTS = [
     dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 3, minH: 5 },
   },
 ];
+
+export const WIDGETS_TABS = [
+  {
+    title: "All",
+    key: "all",
+    id: "check-all",
+  },
+  {
+    ...TAGS.DEV,
+    id: "laptop",
+  },
+  {
+    ...TAGS.DESIGN,
+    id: "rainbow",
+  },
+  {
+    ...TAGS.EDU,
+    id: "note-pad",
+  },
+  {
+    ...TAGS.OTHER,
+    id: "question",
+  },
+];

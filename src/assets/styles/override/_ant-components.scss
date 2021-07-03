@@ -184,4 +184,24 @@
     border-top-color: $prime;
     border-radius: 0;
   }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: $prime;
+  }
+}
+
+.ft-widget-header {
+  margin-top: -1px;
+  .ant-tabs {
+    color: $prime-shade-75;
+    .ant-tabs-nav {
+      margin: 0;
+    }
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: $prime;
+  }
+  .ant-tabs-tab:hover {
+    color: $prime-shade-65;
+  }
 }
