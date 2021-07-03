@@ -11,3 +11,30 @@
     position: relative;
   }
 }
+
+.widget-layouts-header {
+  &--icon {
+    color: $light100;
+    background: $prime-shade-65;
+    &:not(&--selected):hover {
+      background: $prime-shade-45;
+    }
+    &--selected {
+      background: $prime;
+    }
+  }
+}
+
+.add-items-selection {
+  &:hover {
+    background: $prime93;
+  }
+}
+
+.ft-iframe-height {
+  height: calc(100% - 4rem);
+}
+
+.ft-create-iframe-height {
+  height: calc(100% - 24rem);
+}

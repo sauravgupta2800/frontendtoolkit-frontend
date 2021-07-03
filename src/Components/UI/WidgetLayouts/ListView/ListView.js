@@ -1,12 +1,19 @@
 import { Table, Tag } from "antd";
 import Icon from "../../Common/Icon/Icon";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setRemovedID } from "../../../../store/widgetsSlice";
 
 const ListView = ({ selectedList }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const openDetails = (key) => {
     history.replace(`/tools/${key}`);
+  };
+
+  const onDeleteClick = (key) => {
+    if (key) dispatch(setRemovedID({ id: key, remove: true }));
   };
 
   const columns = [
@@ -68,7 +75,10 @@ const ListView = ({ selectedList }) => {
               />
             </div>
 
-            <div className="ft-card-action-icon ms-3">
+            <div
+              className="ft-card-action-icon ms-3"
+              onClick={() => onDeleteClick(record.key_name)}
+            >
               <Icon
                 id="delete"
                 size={"md"}
@@ -84,7 +94,7 @@ const ListView = ({ selectedList }) => {
 
   return (
     <div className="w-80 mx-auto h-100 p-5">
-      <div className="w-100 h-100 overflow-auto rounded-3 border ft-style-1-shadow">
+      <div className="w-100 h-100 overflow-auto rounded-3 border ft-style-1-shadow ft-bg-light100">
         <Table
           pagination={false}
           dataSource={selectedList}

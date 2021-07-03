@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import NoPageFound404 from "./SidebarComponents/NoPageFound404";
+import NoPageFound404 from "./NoPageFound404";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
 import { useSelector } from "react-redux";

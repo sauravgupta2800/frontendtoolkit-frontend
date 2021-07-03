@@ -11,12 +11,20 @@ const WidgetLayouts = () => {
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
+  const [activeKey, setActiveKey] = useState("all");
 
   const selectedList = useSelector((state) => {
     const { list, removedIDs, q } = state.widgets;
-    const filteredList = list.filter(
+    let filteredList = list.filter(
       (item) => !removedIDs.includes(item.key_name)
     );
+    filteredList = filteredList.filter((item) => {
+      return activeKey === "all"
+        ? true
+        : activeKey &&
+            item.tags &&
+            item.tags.map((tag) => tag.key).includes(activeKey);
+    });
     return q.length
       ? filteredList.filter((item) =>
           item.title.trim().toLowerCase().includes(q.trim().toLowerCase())
@@ -33,7 +41,10 @@ const WidgetLayouts = () => {
   return (
     <div className="widget-layouts w-100 h-100">
       <div className="widget-layouts--header ft-style-1-shadow">
-        <WidgetsHeader />
+        <WidgetsHeader
+          activeKey={activeKey}
+          setActiveKey={(key) => setActiveKey(key)}
+        />
       </div>
       <div className="widget-layouts--content ft-bg-prime97">
         {show && (

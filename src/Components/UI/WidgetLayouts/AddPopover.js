@@ -1,10 +1,10 @@
-import { Popover, Button, message } from "antd";
+import { Popover, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import Icon from "../../UI/Common/Icon/Icon";
+import Icon from "../Common/Icon/Icon";
 import { setRemovedID, removeCustomCard } from "../../../store/widgetsSlice";
 import { isDesktopView } from "../../utils";
 
-export const AddPopover = (props) => {
+const AddPopover = (props) => {
   const dispatch = useDispatch();
 
   const removedList = useSelector((state) => {
@@ -28,17 +28,6 @@ export const AddPopover = (props) => {
   const content = () => {
     return (
       <div>
-        <Button
-          type="primary"
-          size="large"
-          className="mx-2"
-          onClick={props.handleOpenCreate}
-        >
-          <div className="d-flex align-items-center justify-content-center">
-            <Icon id="card-plus" size="sm" />
-            <span className="ms-2">Add Custom Card</span>
-          </div>
-        </Button>
         {removedList.length ? (
           <>
             <div className="mt-4 mb-2 fs-5 ft-color-dark2">REMOVED CARDS </div>
@@ -71,7 +60,7 @@ export const AddPopover = (props) => {
   };
   return (
     <Popover
-      placement={isDesktopView ? "right" : "bottom"}
+      placement="bottom"
       title={text()}
       content={content()}
       trigger="click"
@@ -82,3 +71,5 @@ export const AddPopover = (props) => {
     </Popover>
   );
 };
+
+export default AddPopover;

@@ -1,8 +1,8 @@
-import WithCardDetailsDrawer from "../../UI/Common/CardDetailsDrawer/WithCardDetailsDrawer";
+import WithCardDetailsDrawer from "../Common/CardDetailsDrawer/WithCardDetailsDrawer";
 import { CUSTOM_CARDS } from "./config";
 import { Button, message } from "antd";
 import { useState } from "react";
-import Icon from "../../UI/Common/Icon/Icon";
+import Icon from "../Common/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomCard, removeCustomCard } from "../../../store/widgetsSlice";
 import { isDesktopView } from "../../utils";

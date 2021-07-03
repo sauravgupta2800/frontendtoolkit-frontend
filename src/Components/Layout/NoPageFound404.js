@@ -1,5 +1,5 @@
-import Icon from "../../UI/Common/Icon/Icon";
-import { isDesktopView } from "../../utils";
+import Icon from "../UI/Common/Icon/Icon";
+import { isDesktopView } from "../utils";
 
 const NoPageFound404 = () => {
   return (
