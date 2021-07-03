@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "../Common/Icon/Icon";
 import WidgetsHeader from "./WidgetsHeader";
+import ListView from "./ListView/ListView";
 import { setList } from "../../../store/widgetsSlice";
 import { COMPONENTS } from "./config";
 
@@ -38,7 +39,8 @@ const WidgetLayouts = () => {
         {show && (
           <>
             {selectedList.length ? (
-              <DraggableGrid selectedList={selectedList} />
+              // <DraggableGrid selectedList={selectedList} />
+              <ListView selectedList={selectedList} />
             ) : (
               <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
                 <Icon showCursor={false} id="empty" size="xxxl" />
