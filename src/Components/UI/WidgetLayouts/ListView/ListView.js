@@ -99,7 +99,7 @@ const ListView = ({ selectedList }) => {
           pagination={false}
           dataSource={selectedList}
           columns={columns}
-          rowKey="index"
+          rowKey="key_name"
           // components={{
           //   body: {
           //     wrapper: this.DraggableContainer,

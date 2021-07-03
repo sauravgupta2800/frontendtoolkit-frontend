@@ -60,6 +60,7 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
           <SideBarIcon
             selected={state.addPopverVisible}
             id="trash"
+            tooltipText="Removed Cards"
             count={removedItemCount}
           />
         </AddPopover>
