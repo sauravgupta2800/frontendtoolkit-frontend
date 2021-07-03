@@ -54,7 +54,7 @@ const WithCardDetailsDrawer = ({
               {showLink && (
                 <link
                   rel="canonical"
-                  href={`http://frontendtools.dev/cards/${id}`}
+                  href={`http://frontendtools.dev/tools/${id}`}
                 />
               )}
             </Helmet>

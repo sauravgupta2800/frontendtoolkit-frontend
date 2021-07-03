@@ -15,7 +15,7 @@ const Base64Card = ({ ...rest }) => {
   const onButtonClick = (key) => {
     setValue(key);
     dispatch(setDrawerData({ type: key }));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const contentSlot = () => {

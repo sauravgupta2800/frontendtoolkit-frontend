@@ -11,7 +11,7 @@ const OpenIconCard = ({ ...rest }) => {
 
   const openDetails = () => {
     dispatch(setDrawerData({}));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const contentSlot = () => {

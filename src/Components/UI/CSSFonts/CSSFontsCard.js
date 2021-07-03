@@ -26,7 +26,7 @@ const CSSFontsCard = ({ ...rest }) => {
 
   const openDetails = () => {
     dispatch(setDrawerData({ fontKey: state.value }));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const onDropdownSelect = (value) => {

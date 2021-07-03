@@ -3,8 +3,9 @@ import { Input, Tabs } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { setQuery } from "../../store/widgetsSlice";
 import { isDesktopView } from "../utils";
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { MAIN_TABS } from "./config";
 
 const { TabPane } = Tabs;
 
@@ -51,10 +52,24 @@ const SearchBar = () => {
 };
 
 const HeaderTabs = () => {
-  const [activeTab, setActiveTab] = useState("1");
+  const history = useHistory();
+  const location = useLocation();
+
+  const [activeTab, setActiveTab] = useState("");
+
+  useEffect(() => {
+    let key = location.pathname;
+    if (location.pathname.indexOf("/", 1) !== -1)
+      key = location.pathname.substring(0, location.pathname.indexOf("/", 1));
+
+    setActiveTab(key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onTabChange = (activeKey) => {
     setActiveTab(activeKey);
+    history.replace(`${activeKey}`);
+    console.log(location.pathname);
   };
 
   return (
@@ -65,9 +80,9 @@ const HeaderTabs = () => {
         size="large"
         onChange={(key) => onTabChange(key)}
       >
-        <TabPane forceRender={true} tab="Tab Title 1" key="1"></TabPane>
-        <TabPane forceRender={true} tab="Tab Title 2" key="2"></TabPane>
-        <TabPane forceRender={true} tab="Tab Title 3" key="3"></TabPane>
+        {MAIN_TABS.map((tab) => (
+          <TabPane forceRender={true} tab={tab.name} key={tab.routeKey} />
+        ))}
       </Tabs>
     </div>
   );

@@ -5,7 +5,10 @@ import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
 import { useSelector } from "react-redux";
 import { isDesktopView } from "../utils";
+import HomeLayout from "../UI/HomeLayout/HomeLayout";
 import WidgetLayouts from "../UI/WidgetLayouts/WidgetLayouts";
+import FELayout from "../UI/FELayout/FELayout";
+import InterviewPrepLayout from "../UI/InterviewPrepLayout/InterviewPrepLayout";
 import { Helmet } from "react-helmet";
 
 const MainLayout = () => {
@@ -30,13 +33,19 @@ const MainLayout = () => {
       <div className="ft-main-layout__container">
         <Switch>
           <Route exact path="/">
-            Home page
+            <HomeLayout />
           </Route>
-          <Route path="/cards">
+          <Route path="/tools">
             <WidgetLayouts />
             <Switch>
-              <Route path="/cards/:id" children={<RenderDrawer />} />
+              <Route path="/tools/:id" children={<RenderDrawer />} />
             </Switch>
+          </Route>
+          <Route path="/roadmap">
+            <FELayout />
+          </Route>
+          <Route path="/interview">
+            <InterviewPrepLayout />
           </Route>
           <Route path="*">
             <NoPageFound404 />

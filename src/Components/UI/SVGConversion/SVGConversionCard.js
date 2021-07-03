@@ -11,7 +11,7 @@ const SVGConversionCard = ({ ...rest }) => {
 
   const openDetails = (svg) => {
     dispatch(setDrawerData({ svg }));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const contentSlot = () => {

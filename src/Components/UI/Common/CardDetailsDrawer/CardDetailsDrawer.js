@@ -25,7 +25,7 @@ const CardDetailsDrawer = ({ id }) => {
     setVisible(false);
     setComponentConfig({});
     dispatch(resetDrawerData());
-    history.replace("/");
+    history.replace("/tools");
   };
   return (
     <WithCardDetailsDrawer

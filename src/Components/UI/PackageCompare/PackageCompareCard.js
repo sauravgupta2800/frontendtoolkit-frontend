@@ -11,7 +11,7 @@ const PackageCompareCard = ({ ...rest }) => {
 
   const onOptionSelect = (data) => {
     dispatch(setDrawerData({ package: data }));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const contentSlot = () => {

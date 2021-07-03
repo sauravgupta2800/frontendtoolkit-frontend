@@ -12,7 +12,7 @@ const ColorSpacesCard = ({ ...rest }) => {
 
   const onDetailsSelect = (colorHex) => {
     dispatch(setDrawerData({ color: colorHex }));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const contentSlot = () => {

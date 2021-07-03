@@ -14,7 +14,7 @@ const JSConversionCard = ({ ...rest }) => {
 
   const openDetails = (key) => {
     dispatch(setDrawerData({ data: value, key }));
-    history.replace(`/cards/${rest.key_name}`);
+    history.replace(`/tools/${rest.key_name}`);
   };
 
   const contentSlot = () => {
