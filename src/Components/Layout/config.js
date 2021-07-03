@@ -6,17 +6,17 @@ export const MAIN_TABS = [
   },
   {
     name: "Tools",
-    id: "tools",
+    id: "nut-fill",
     routeKey: "/tools",
   },
   {
     name: "FE Roadmap",
-    id: "fe-roadmap",
+    id: "sign-post",
     routeKey: "/roadmap",
   },
   {
     name: "Interview",
-    id: "js-roadmap",
+    id: "book",
     routeKey: "/interview",
   },
 ];

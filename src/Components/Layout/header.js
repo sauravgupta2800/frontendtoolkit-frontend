@@ -81,7 +81,16 @@ const HeaderTabs = () => {
         onChange={(key) => onTabChange(key)}
       >
         {MAIN_TABS.map((tab) => (
-          <TabPane forceRender={true} tab={tab.name} key={tab.routeKey} />
+          <TabPane
+            forceRender={true}
+            tab={
+              <div className="d-flex align-items-center">
+                <Icon id={tab.id} size={"sm"} />
+                <div className="ms-2 fs-3">{tab.name}</div>
+              </div>
+            }
+            key={tab.routeKey}
+          />
         ))}
       </Tabs>
     </div>
