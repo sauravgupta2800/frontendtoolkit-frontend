@@ -349,3 +349,18 @@ export const CUSTOM_CARDS = [
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
 ];
+
+export const LAYOUTS = [
+  {
+    id: "table",
+    title: "Tabular View",
+  },
+  {
+    id: "mailbox",
+    title: "Mail Box View",
+  },
+  {
+    id: "masonry",
+    title: "Masonry View",
+  },
+];

@@ -4,13 +4,14 @@ import { addCustomComponent } from "../Components/UI/WidgetLayouts/config";
 
 const removedCardIds = getFromLS("removedCardIds") || [];
 const customList = getFromLS("customList") || [];
-
+const layout = getFromLS("layout") || "table";
 export const widgetsSlice = createSlice({
   name: "widgets",
   initialState: {
     list: [],
     customList: customList,
     removedIDs: removedCardIds,
+    layout: layout,
     q: "",
   },
   reducers: {
@@ -50,6 +51,11 @@ export const widgetsSlice = createSlice({
       saveToLS("customList", customList);
       saveToLS("removedCardIds", removedIDs);
     },
+    setLayout: (state, action) => {
+      const layout = action.payload;
+      saveToLS("layout", layout);
+      state.layout = layout;
+    },
   },
 });
 
@@ -59,6 +65,7 @@ export const {
   setQuery,
   setRemovedID,
   addCustomCard,
+  setLayout,
   removeCustomCard,
 } = widgetsSlice.actions;
 

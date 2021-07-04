@@ -15,6 +15,11 @@ const WidgetLayouts = () => {
   const [activeKey, setActiveKey] = useState("all");
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const currentLayout = useSelector((state) => {
+    const { layout } = state.widgets;
+    return layout;
+  });
+
   const selectedList = useSelector((state) => {
     const { list, removedIDs, q } = state.widgets;
     let filteredList = list.filter(
@@ -40,6 +45,10 @@ const WidgetLayouts = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [currentLayout]);
+
   return (
     <div className="widget-layouts w-100 h-100">
       <div className="widget-layouts--header ft-style-1-shadow">
@@ -55,13 +64,17 @@ const WidgetLayouts = () => {
         {show && (
           <>
             {selectedList.length ? (
-              // <DraggableGrid selectedList={selectedList} />
-              // <ListView selectedList={selectedList} />
-              <MailBoxView
-                selectedList={selectedList}
-                activeIndex={activeIndex}
-                setActiveIndex={(index) => setActiveIndex(index)}
-              />
+              currentLayout === "masonry" ? (
+                <DraggableGrid selectedList={selectedList} />
+              ) : currentLayout === "table" ? (
+                <ListView selectedList={selectedList} />
+              ) : (
+                <MailBoxView
+                  selectedList={selectedList}
+                  activeIndex={activeIndex}
+                  setActiveIndex={(index) => setActiveIndex(index)}
+                />
+              )
             ) : (
               <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
                 <Icon showCursor={false} id="empty" size="xxxl" />

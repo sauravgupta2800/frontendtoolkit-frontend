@@ -7,13 +7,14 @@ import { useSelector } from "react-redux";
 import AddPopover from "./AddPopover";
 import CustomWidgets from "./CustomWidgets";
 import CreateCustomCard from "./CreateCustomCard";
-
+import LayoutPopover from "./LayoutPopover";
 const { TabPane } = Tabs;
 const WidgetsHeader = ({ activeKey, setActiveKey }) => {
   const [state, setState] = useState({
     addPopverVisible: false,
     createCustomVisible: false,
     customWidgetVisible: false,
+    layoutPopverVisible: false,
   });
 
   const removedItemCount = useSelector(
@@ -74,6 +75,20 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
             tooltipText="Custom Tools"
             selected={state.customWidgetVisible}
           />
+        </div>
+        <div className="ms-4">
+          <LayoutPopover
+            visible={state.layoutPopverVisible}
+            onVisibleChange={(value) =>
+              setStateWith("layoutPopverVisible", value)
+            }
+          >
+            <SideBarIcon
+              id="layout-change"
+              tooltipText="Change Layout"
+              selected={state.layoutPopverVisible}
+            />
+          </LayoutPopover>
         </div>
 
         <Button
