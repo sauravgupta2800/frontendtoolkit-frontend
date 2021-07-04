@@ -245,6 +245,7 @@ export const CUSTOM_CARDS = [
     title: "Devhints",
     subTitle: "A collection of web development cheatsheets.",
     url: "https://devhints.io/",
+    tags: [TAGS.DEV],
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -253,6 +254,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Compress and compare images with different codecs, right in your browser.",
     url: "https://squoosh.app/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -261,6 +263,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.",
     url: "https://heroicons.com/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -269,6 +272,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "CSS gradient generator tool that lets you create colorful background gradients.",
     url: "https://cssgradient.io/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -276,6 +280,7 @@ export const CUSTOM_CARDS = [
     title: "Wordmark",
     subTitle: "Helps you choose fonts for your crafting projects.",
     url: "https://wordmark.it/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -284,6 +289,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Learn CSS Grid visually and build web layouts with this interactive CSS Grid Generator.",
     url: "https://grid.layoutit.com/",
+    tags: [TAGS.DEV, TAGS.EDU],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -292,6 +298,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Preview and choose the right type scale for your project. Experiment with font size, scale and different webfonts.",
     url: "https://type-scale.com/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -299,6 +306,7 @@ export const CUSTOM_CARDS = [
     title: "Mockup Generator",
     subTitle: "Create beautiful product mockups in just a few clicks.",
     url: "https://mockups.pixeltrue.com/",
+    tags: [TAGS.DEV],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -307,6 +315,8 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Quickly generate your favicon from text, image, or choose from hundreds of emojis.",
     url: "https://favicon.io/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
+
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -315,6 +325,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Make animations more realistic by picking the right easing function.",
     url: "https://easings.net/",
+    tags: [TAGS.DESIGN],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -322,6 +333,7 @@ export const CUSTOM_CARDS = [
     title: "Mockaroo",
     subTitle: "A free test data generator and API mocking tool.",
     url: "https://www.mockaroo.com/",
+    tags: [TAGS.DEV],
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -330,6 +342,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Customizable blobs as SVG and Flutter Widget. Create random or fixed blobs, loop, animate, clip them with ease.",
     url: "https://blobs.app/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -338,6 +351,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Customizable the wave design by controlling its wave, layers and height.",
     url: "https://svgwave.in/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
   {
@@ -346,6 +360,7 @@ export const CUSTOM_CARDS = [
     subTitle:
       "Collection of free design tools and resources for makers, developers and designers",
     url: "https://undesign.learn.uno/",
+    tags: [TAGS.DEV, TAGS.DESIGN],
     dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
   },
 ];

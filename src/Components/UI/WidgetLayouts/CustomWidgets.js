@@ -1,6 +1,6 @@
 import WithCardDetailsDrawer from "../Common/CardDetailsDrawer/WithCardDetailsDrawer";
 import { CUSTOM_CARDS } from "./config";
-import { Button, message } from "antd";
+import { Button, message, Tag } from "antd";
 import { useState } from "react";
 import Icon from "../Common/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
@@ -100,35 +100,44 @@ const Detail = () => {
                     {item.subTitle}
                   </div>
                 </div>
-                <div className="d-flex justify-content-center align-items-center">
-                  <Button type="primary" onClick={() => setItem(item)}>
-                    View
-                  </Button>
-                  <Button
-                    onClick={() => handleAddToDashboard(item)}
-                    className="ms-3"
-                    disabled={addedCards.includes(item.key_name)}
-                  >
-                    {addedCards.includes(item.key_name)
-                      ? "Added"
-                      : "Add to dashboard"}
-                  </Button>
-                  {addedCards.includes(item.key_name) && (
-                    <div
-                      className="ms-2 ft-table-action-icon-red"
-                      onClick={() => handleRemoveFromDashboard(item)}
+                <div>
+                  <div className="my-2">
+                    {item.tags.map((tag) => (
+                      <Tag key={tag.key} color={tag.color}>
+                        {tag.title}
+                      </Tag>
+                    ))}
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center">
+                    <Button type="primary" onClick={() => setItem(item)}>
+                      View
+                    </Button>
+                    <Button
+                      onClick={() => handleAddToDashboard(item)}
+                      className="ms-3"
+                      disabled={addedCards.includes(item.key_name)}
                     >
-                      <Icon
-                        id="delete"
-                        size={isDesktopView ? "lg" : "md"}
-                        title="Remove from Dashboard"
-                      />
+                      {addedCards.includes(item.key_name)
+                        ? "Added"
+                        : "Add to dashboard"}
+                    </Button>
+                    {addedCards.includes(item.key_name) && (
+                      <div
+                        className="ms-2 ft-table-action-icon-red"
+                        onClick={() => handleRemoveFromDashboard(item)}
+                      >
+                        <Icon
+                          id="delete"
+                          size={isDesktopView ? "lg" : "md"}
+                          title="Remove from Dashboard"
+                        />
+                      </div>
+                    )}
+                    <div className="ms-2 ft-card-action-icon">
+                      <a href={item.url} target="_blank" rel="noreferrer">
+                        <Icon id="new-url" title="visit original URL" />
+                      </a>
                     </div>
-                  )}
-                  <div className="ms-2 ft-card-action-icon">
-                    <a href={item.url} target="_blank" rel="noreferrer">
-                      <Icon id="new-url" title="visit original URL" />
-                    </a>
                   </div>
                 </div>
               </div>
