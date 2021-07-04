@@ -127,7 +127,7 @@ export const COMPONENTS = [
     title: "Code Diff",
     subTitle:
       "Code Diff is a tool to compare text differences between two text files. Enter the contents and check it",
-    tags: [TAGS.DEV, TAGS.OTHER],
+    tags: [TAGS.OTHER],
     component: CodeDiffCard,
     detailComponent: CodeDiffDetails,
     dataGrid: { x: 4, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
