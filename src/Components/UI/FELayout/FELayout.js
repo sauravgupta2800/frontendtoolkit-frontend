@@ -8,6 +8,10 @@ import Icon from "../Common/Icon/Icon";
 import { ROADMAP_MENU } from "./config";
 
 const FELayout = () => {
+  const handleDetailsClick = () => {
+    console.log("handleDetailsClick");
+  };
+
   return (
     <div className="ft-vertical-timeline w-100 h-100">
       <div className="ft-vertical-timeline--header ft-style-1-shadow ft-bg-light100">
@@ -44,6 +48,7 @@ const FELayout = () => {
                 <div
                   className="py-2 px-4 cursor-pointer fs-5 rounded-6"
                   style={{ background: menu.darkColor, color: "#fff" }}
+                  onClick={() => handleDetailsClick(menu)}
                 >
                   See Details
                 </div>
