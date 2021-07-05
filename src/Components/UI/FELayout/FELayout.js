@@ -25,8 +25,13 @@ const FELayout = () => {
                 borderRight: `10px solid ${menu.darkColor}`,
               }}
               iconStyle={menu.iconStyle}
-              iconClassName=""
-              icon={<Icon id={menu.key} size={menu.iconSize || "md"} />}
+              icon={
+                <Icon
+                  showCursor={false}
+                  id={menu.key}
+                  size={menu.iconSize || "md"}
+                />
+              }
             >
               <div
                 className="ft-color-primeshade45 fs-3 fw-bold"
