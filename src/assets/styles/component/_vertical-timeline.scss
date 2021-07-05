@@ -1,0 +1,22 @@
+.ft-vertical-timelin {
+  &-element {
+    &--card {
+      //
+    }
+  }
+}
+
+// Overrite
+.vertical-timeline-element-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: static !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+}
