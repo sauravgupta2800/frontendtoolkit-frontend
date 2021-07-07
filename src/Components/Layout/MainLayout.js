@@ -3,12 +3,14 @@ import Header from "./Header";
 import NoPageFound404 from "./NoPageFound404";
 import { Switch, Route, useParams } from "react-router-dom";
 import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawer";
+import RoadmapDetailsDrawer from "../UI/FELayout/RoadmapDetailsDrawer";
 import { useSelector } from "react-redux";
 import { isDesktopView } from "../utils";
 import HomeLayout from "../UI/HomeLayout/HomeLayout";
 import WidgetLayouts from "../UI/WidgetLayouts/WidgetLayouts";
 import FELayout from "../UI/FELayout/FELayout";
 import InterviewPrepLayout from "../UI/InterviewPrepLayout/InterviewPrepLayout";
+import { ROADMAP_MENU } from "../UI/FELayout/config";
 import { Helmet } from "react-helmet";
 
 const MainLayout = () => {
@@ -43,6 +45,9 @@ const MainLayout = () => {
           </Route>
           <Route path="/roadmap">
             <FELayout />
+            <Switch>
+              <Route path="/roadmap/:id" children={<RenderRoadmapDrawer />} />
+            </Switch>
           </Route>
           <Route path="/interview">
             <InterviewPrepLayout />
@@ -63,11 +68,14 @@ const RenderDrawer = () => {
     (component) => component.key_name === id
   );
   if (!componentConfig) return null;
-  return (
-    <div>
-      <CardDetailsDrawer id={id} />
-    </div>
-  );
+  return <CardDetailsDrawer id={id} />;
+};
+
+const RenderRoadmapDrawer = () => {
+  const { id } = useParams();
+  const componentConfig = ROADMAP_MENU.find((menu) => menu.key === id);
+  if (!componentConfig) return null;
+  return <RoadmapDetailsDrawer id={id} />;
 };
 
 export default MainLayout;
