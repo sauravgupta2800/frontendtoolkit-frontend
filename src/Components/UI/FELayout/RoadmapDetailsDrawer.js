@@ -28,15 +28,17 @@ const RoadmapDetailsDrawer = ({ id }) => {
 
   const titleNode = () => {
     return (
-      <div className="d-flex  align-items-center">
-        <Icon
-          id={id}
-          size={componentConfig.iconSize || "lg"}
-          withWrapper={false}
-          showCursor={false}
-          iconClass={"ft-color-prime"}
-        />
-        <div className="fs-1 fw-bold ms-3 ft-color-dark">
+      <div className="d-flex align-items-center">
+        <div
+          className="d-flex align-items-center"
+          style={{ color: componentConfig.darkColor }}
+        >
+          <Icon id={id} size={"lgx"} withWrapper={false} showCursor={false} />
+        </div>
+        <div
+          className="fs-1 fw-bold ms-4 ft-color-dark"
+          style={{ color: componentConfig.darkColor }}
+        >
           {componentConfig.title}
         </div>
       </div>
@@ -50,7 +52,7 @@ const RoadmapDetailsDrawer = ({ id }) => {
       width: "40%",
       render: (text, record) => (
         <div className="d-flex align-items-center">
-          <div className="fs-4 fw-bold ft-color-dark">{text}</div>
+          <div className="fs-4 fw-bold">{text}</div>
         </div>
       ),
     },
