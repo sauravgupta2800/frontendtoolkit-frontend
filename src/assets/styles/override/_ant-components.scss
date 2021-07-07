@@ -183,6 +183,8 @@
     border-top-width: 3px;
     border-top-color: $prime;
     border-radius: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: $prime;
