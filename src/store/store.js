@@ -11,7 +11,7 @@ export default configureStore({
     serializableCheck: {
       // Ignore these action types
       ignoredActions: [
-        "widgets/setList",
+        "widgets/initList",
         "widgets/setRemovedID",
         "widgets/setQuery",
         "widgets/addCustomCard",
