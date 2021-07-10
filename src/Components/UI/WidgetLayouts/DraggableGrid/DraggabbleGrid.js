@@ -12,7 +12,7 @@ const DraggableGrid = ({ selectedList = [] }) => {
   const cols = { lg: 12, md: 8, sm: 6, xs: 4, xxs: 2 };
 
   return (
-    <div className="ft-draggable-grid d-flex w-100 h-100 overflow-auto">
+    <div className="ft-draggable-grid d-flex w-100 h-100 overflow-auto pe-2">
       <ResponsiveGridLayout
         layouts={layouts}
         cols={cols}
