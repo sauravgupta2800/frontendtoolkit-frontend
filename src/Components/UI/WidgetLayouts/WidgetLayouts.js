@@ -7,6 +7,7 @@ import ListView from "./ListView/ListView";
 import MailBoxView from "./MailBoxView/MailBoxView";
 import { setList } from "../../../store/widgetsSlice";
 import { COMPONENTS } from "./config";
+import { isDesktopView } from "../../utils";
 
 const WidgetLayouts = () => {
   const dispatch = useDispatch();
@@ -64,7 +65,7 @@ const WidgetLayouts = () => {
         {show && (
           <>
             {selectedList.length ? (
-              currentLayout === "masonry" ? (
+              currentLayout === "masonry" || !isDesktopView ? (
                 <DraggableGrid selectedList={selectedList} />
               ) : currentLayout === "table" ? (
                 <ListView selectedList={selectedList} />

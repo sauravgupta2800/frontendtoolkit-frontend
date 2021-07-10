@@ -24,7 +24,7 @@ const Header = () => {
         </div>
         <HeaderTabs />
       </div>
-      <HeadeAction />
+      {isDesktopView && <HeadeAction />}
     </div>
   );
 };
@@ -65,7 +65,7 @@ const HeaderTabs = () => {
             tab={
               <div className="d-flex align-items-center">
                 <Icon id={tab.id} size={"sm"} />
-                <div className="ms-2 fs-3">{tab.name}</div>
+                {isDesktopView && <div className="ms-2 fs-3">{tab.name}</div>}
               </div>
             }
             key={tab.routeKey}

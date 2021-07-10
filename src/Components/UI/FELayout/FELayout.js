@@ -6,7 +6,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { useHistory } from "react-router-dom";
 import Icon from "../Common/Icon/Icon";
 import { ROADMAP_MENU } from "./config";
-
+import { isDesktopView } from "../../utils";
 const FELayout = () => {
   const history = useHistory();
 
@@ -17,10 +17,15 @@ const FELayout = () => {
   return (
     <div className="ft-vertical-timeline w-100 h-100">
       <div className="ft-vertical-timeline--header ft-style-1-shadow ft-bg-light100 fs-5 px-4 d-flex align-items-center">
-        Front-end Roadmap contains the well curated link of content by which any
-        one seeking to learn frontend technologies can learn it.
+        {isDesktopView
+          ? "Front-end Roadmap contains the well curated link of content by which any one seeking to learn frontend technologies can learn it."
+          : "Front-end Roadmap contains the well curated link of content"}
       </div>
-      <div className="ft-vertical-timeline--content ft-bg-prime93 overflow-auto">
+      <div
+        className={`ft-vertical-timeline--content ft-bg-prime93 overflow-auto ${
+          isDesktopView ? "" : "pe-5"
+        }`}
+      >
         <VerticalTimeline>
           {ROADMAP_MENU.map((menu) => (
             <VerticalTimelineElement

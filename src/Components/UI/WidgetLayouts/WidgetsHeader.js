@@ -32,8 +32,12 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
     });
   };
   return (
-    <div className="widget-layouts-header px-5 d-flex justify-content-between align-items-center">
-      <div className="ft-widget-header d-flex">
+    <div
+      className={`widget-layouts-header d-flex justify-content-between align-items-center ${
+        isDesktopView ? "px-5" : "px-0"
+      }`}
+    >
+      <div className={`ft-widget-header d-flex ${isDesktopView ? "" : "w-40"}`}>
         <Tabs
           activeKey={activeKey}
           onChange={(key) => setActiveKey(key)}
@@ -52,10 +56,10 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
           ))}
         </Tabs>
 
-        <SearchBar />
+        {isDesktopView && <SearchBar />}
       </div>
 
-      <div className="d-flex">
+      <div className={`d-flex ${isDesktopView ? "" : "w-50 me-4"}`}>
         <AddPopover
           visible={state.addPopverVisible}
           onAddPopoverChange={(value) =>
@@ -80,20 +84,22 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
             selected={state.customWidgetVisible}
           />
         </div>
-        <div className="ms-4">
-          <LayoutPopover
-            visible={state.layoutPopverVisible}
-            onVisibleChange={(value) =>
-              setStateWith("layoutPopverVisible", value)
-            }
-          >
-            <SideBarIcon
-              id="layout-change"
-              tooltipText="Change Layout"
-              selected={state.layoutPopverVisible}
-            />
-          </LayoutPopover>
-        </div>
+        {isDesktopView && (
+          <div className="ms-4">
+            <LayoutPopover
+              visible={state.layoutPopverVisible}
+              onVisibleChange={(value) =>
+                setStateWith("layoutPopverVisible", value)
+              }
+            >
+              <SideBarIcon
+                id="layout-change"
+                tooltipText="Change Layout"
+                selected={state.layoutPopverVisible}
+              />
+            </LayoutPopover>
+          </div>
+        )}
 
         <Button
           type="primary"
@@ -105,9 +111,22 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
         >
           <div className="d-flex align-items-center justify-content-center">
             <Icon id="add" size="xs" />
-            <span className="ms-2">Create</span>
+            {isDesktopView && <span className="ms-2">Create</span>}
           </div>
         </Button>
+
+        {!isDesktopView && (
+          <a
+            href={"https://github.com/sauravgupta2800/frontendtools"}
+            target="_blank"
+            className="text-decoration-none"
+            rel="noreferrer"
+          >
+            <div className="cursor-pointer d-flex align-items-center ft-color-dark1 ft-bg-prime98 ft-style-1-shadow ft-border-color-prime88 ft-style-2-shadow-hover  px-3 py-1">
+              <Icon id="github" size="md" />
+            </div>
+          </a>
+        )}
         <CustomWidgets
           visible={state.customWidgetVisible}
           handleClose={() => setStateWith("customWidgetVisible", false)}
