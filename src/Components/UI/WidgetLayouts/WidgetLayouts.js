@@ -5,7 +5,7 @@ import Icon from "../Common/Icon/Icon";
 import WidgetsHeader from "./WidgetsHeader";
 import ListView from "./ListView/ListView";
 import MailBoxView from "./MailBoxView/MailBoxView";
-import { setList } from "../../../store/widgetsSlice";
+import { initList } from "../../../store/widgetsSlice";
 import { COMPONENTS } from "./config";
 import { isDesktopView } from "../../utils";
 
@@ -41,7 +41,7 @@ const WidgetLayouts = () => {
   });
 
   useEffect(() => {
-    dispatch(setList(COMPONENTS));
+    dispatch(initList(COMPONENTS));
     setShow(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

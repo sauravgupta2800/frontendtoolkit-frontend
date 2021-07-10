@@ -15,7 +15,7 @@ export const widgetsSlice = createSlice({
     q: "",
   },
   reducers: {
-    setList: (state, action) => {
+    initList: (state, action) => {
       const customList = state.customList.map((field) =>
         addCustomComponent(field)
       );
@@ -61,7 +61,7 @@ export const widgetsSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-  setList,
+  initList,
   setQuery,
   setRemovedID,
   addCustomCard,
