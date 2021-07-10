@@ -66,7 +66,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV],
     component: PackageCard,
     detailComponent: PackageDrawerDetails,
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "package-comapre",
@@ -81,7 +81,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV],
     component: PackageCompareCard,
     detailComponent: PackageCompareDrawerDetails,
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "icons",
@@ -97,7 +97,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV, TAGS.DESIGN],
     component: OpenIconCard,
     detailComponent: OpenIconsDetails,
-    dataGrid: { x: 8, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 8, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "color-spaces",
@@ -113,7 +113,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV, TAGS.DESIGN],
     component: ColorSpacesCard,
     detailComponent: ColorSpaceDetails,
-    dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 3, minH: 5 },
+    dataGrid: { x: 0, y: 4, w: 4, h: 6, minW: 2, minH: 5 },
   },
 
   {
@@ -130,7 +130,7 @@ export const COMPONENTS = [
     tags: [TAGS.OTHER],
     component: CodeDiffCard,
     detailComponent: CodeDiffDetails,
-    dataGrid: { x: 4, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 4, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "encode-decode-base64",
@@ -146,7 +146,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV, TAGS.OTHER],
     component: Base64Card,
     detailComponent: Base64Details,
-    dataGrid: { x: 8, y: 4, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 8, y: 4, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "css-font-preview",
@@ -162,7 +162,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV, TAGS.DESIGN],
     component: CSSFontsCard,
     detailComponent: CSSFontsDetails,
-    dataGrid: { x: 0, y: 10, w: 4, h: 5.5, minW: 3, minH: 5 },
+    dataGrid: { x: 0, y: 10, w: 4, h: 5.5, minW: 2, minH: 5 },
   },
   {
     key_name: "svg-converter",
@@ -178,7 +178,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV, TAGS.DESIGN],
     component: SVGConversionCard,
     detailComponent: SVGConversionDetails,
-    dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 3, minH: 5 },
+    dataGrid: { x: 4, y: 8, w: 4, h: 7, minW: 2, minH: 5 },
   },
   {
     key_name: "js-ts-mini-and-format",
@@ -194,7 +194,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV],
     component: JSConversionCard,
     detailComponent: JSConversionDetails,
-    dataGrid: { x: 8, y: 8, w: 4, h: 7, minW: 3, minH: 5 },
+    dataGrid: { x: 8, y: 8, w: 4, h: 7, minW: 2, minH: 5 },
   },
 
   {
@@ -211,7 +211,7 @@ export const COMPONENTS = [
     tags: [TAGS.DEV],
     component: CSSConversionCard,
     detailComponent: CSSConversionDetails,
-    dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 3, minH: 5 },
+    dataGrid: { x: 0, y: 14, w: 4, h: 7, minW: 2, minH: 5 },
   },
 ];
 
@@ -246,7 +246,7 @@ export const CUSTOM_CARDS = [
     subTitle: "A collection of web development cheatsheets.",
     url: "https://devhints.io/",
     tags: [TAGS.DEV],
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "squoosh",
@@ -255,7 +255,7 @@ export const CUSTOM_CARDS = [
       "Compress and compare images with different codecs, right in your browser.",
     url: "https://squoosh.app/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "heroicons",
@@ -264,7 +264,7 @@ export const CUSTOM_CARDS = [
       "Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.",
     url: "https://heroicons.com/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "css-gradient",
@@ -273,7 +273,7 @@ export const CUSTOM_CARDS = [
       "CSS gradient generator tool that lets you create colorful background gradients.",
     url: "https://cssgradient.io/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "wordmark",
@@ -281,7 +281,7 @@ export const CUSTOM_CARDS = [
     subTitle: "Helps you choose fonts for your crafting projects.",
     url: "https://wordmark.it/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "css-grid-generator",
@@ -290,7 +290,7 @@ export const CUSTOM_CARDS = [
       "Learn CSS Grid visually and build web layouts with this interactive CSS Grid Generator.",
     url: "https://grid.layoutit.com/",
     tags: [TAGS.DEV, TAGS.EDU],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "type-scale",
@@ -299,7 +299,7 @@ export const CUSTOM_CARDS = [
       "Preview and choose the right type scale for your project. Experiment with font size, scale and different webfonts.",
     url: "https://type-scale.com/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "mockup-generator",
@@ -307,7 +307,7 @@ export const CUSTOM_CARDS = [
     subTitle: "Create beautiful product mockups in just a few clicks.",
     url: "https://mockups.pixeltrue.com/",
     tags: [TAGS.DEV],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "favicon-generator",
@@ -317,7 +317,7 @@ export const CUSTOM_CARDS = [
     url: "https://favicon.io/",
     tags: [TAGS.DEV, TAGS.DESIGN],
 
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "css-easing-cheatsheet",
@@ -326,7 +326,7 @@ export const CUSTOM_CARDS = [
       "Make animations more realistic by picking the right easing function.",
     url: "https://easings.net/",
     tags: [TAGS.DESIGN],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "mockaroo",
@@ -334,7 +334,7 @@ export const CUSTOM_CARDS = [
     subTitle: "A free test data generator and API mocking tool.",
     url: "https://www.mockaroo.com/",
     tags: [TAGS.DEV],
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "blobs-generator",
@@ -343,7 +343,7 @@ export const CUSTOM_CARDS = [
       "Customizable blobs as SVG and Flutter Widget. Create random or fixed blobs, loop, animate, clip them with ease.",
     url: "https://blobs.app/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "svg-wave",
@@ -352,7 +352,7 @@ export const CUSTOM_CARDS = [
       "Customizable the wave design by controlling its wave, layers and height.",
     url: "https://svgwave.in/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
   {
     key_name: "undesign",
@@ -361,7 +361,7 @@ export const CUSTOM_CARDS = [
       "Collection of free design tools and resources for makers, developers and designers",
     url: "https://undesign.learn.uno/",
     tags: [TAGS.DEV, TAGS.DESIGN],
-    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 3, minH: 4 },
+    dataGrid: { x: 4, y: 0, w: 4, h: 5, minW: 2, minH: 4 },
   },
 ];
 

@@ -2,8 +2,9 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setOriginalLayout } from "../../../../store/widgetsSlice";
+import { isDesktopView } from "../../../utils";
+
 const ResponsiveGridLayout = WidthProvider(Responsive);
-// const originalLayouts = getFromLS("layouts") || {};
 
 const DraggableGrid = ({ selectedList = [] }) => {
   const dispatch = useDispatch();
@@ -12,7 +13,11 @@ const DraggableGrid = ({ selectedList = [] }) => {
   const cols = { lg: 12, md: 8, sm: 6, xs: 4, xxs: 2 };
 
   return (
-    <div className="ft-draggable-grid d-flex w-100 h-100 overflow-auto pe-2">
+    <div
+      className={`ft-draggable-grid d-flex w-100 h-100 overflow-auto ${
+        isDesktopView ? "" : "pe-2"
+      }`}
+    >
       <ResponsiveGridLayout
         layouts={layouts}
         cols={cols}
