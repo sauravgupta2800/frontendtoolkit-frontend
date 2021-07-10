@@ -1,7 +1,5 @@
 import Icon from "../UI/Common/Icon/Icon";
-import { Input, Tabs } from "antd";
-import { useSelector, useDispatch } from "react-redux";
-import { setQuery } from "../../store/widgetsSlice";
+import { Tabs } from "antd";
 import { isDesktopView } from "../utils";
 import { useHistory, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -25,28 +23,8 @@ const Header = () => {
           <div className="fs-1 fw-bold ms-2 text-nowrap">Frontend Tools</div>
         </div>
         <HeaderTabs />
-        <SearchBar />
       </div>
       <HeadeAction />
-    </div>
-  );
-};
-
-const SearchBar = () => {
-  const dispatch = useDispatch();
-  const value = useSelector((state) => state.widgets.q);
-  return (
-    <div className="d-flex align-items-center  ms-2 px-4">
-      <div className="ft-icon-dark2">
-        <Icon id="search" size="xs" />
-      </div>
-      <Input
-        placeholder="Search tools ..... "
-        size="large"
-        value={value}
-        bordered={false}
-        onInput={(event) => dispatch(setQuery(event.target.value))}
-      />
     </div>
   );
 };
@@ -61,6 +39,8 @@ const HeaderTabs = () => {
     let key = location.pathname;
     if (location.pathname.indexOf("/", 1) !== -1)
       key = location.pathname.substring(0, location.pathname.indexOf("/", 1));
+
+    if (key === "/") key = "/tools";
 
     setActiveTab(key);
     // eslint-disable-next-line react-hooks/exhaustive-deps

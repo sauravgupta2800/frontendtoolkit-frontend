@@ -1,13 +1,15 @@
-import { Tabs, Tooltip, Badge, Button } from "antd";
+import { Tabs, Tooltip, Badge, Button, Input } from "antd";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Icon from "../Common/Icon/Icon";
 import { WIDGETS_TABS } from "./config";
 import { isDesktopView } from "../../utils";
-import { useSelector } from "react-redux";
 import AddPopover from "./AddPopover";
 import CustomWidgets from "./CustomWidgets";
 import CreateCustomCard from "./CreateCustomCard";
 import LayoutPopover from "./LayoutPopover";
+import { setQuery } from "../../../store/widgetsSlice";
+
 const { TabPane } = Tabs;
 const WidgetsHeader = ({ activeKey, setActiveKey }) => {
   const [state, setState] = useState({
@@ -31,7 +33,7 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
   };
   return (
     <div className="widget-layouts-header px-5 d-flex justify-content-between align-items-center">
-      <div className="ft-widget-header">
+      <div className="ft-widget-header d-flex">
         <Tabs
           activeKey={activeKey}
           onChange={(key) => setActiveKey(key)}
@@ -49,6 +51,8 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
             />
           ))}
         </Tabs>
+
+        <SearchBar />
       </div>
 
       <div className="d-flex">
@@ -114,6 +118,25 @@ const WidgetsHeader = ({ activeKey, setActiveKey }) => {
           handleClose={() => setStateWith("createCustomVisible", false)}
         />
       </div>
+    </div>
+  );
+};
+
+const SearchBar = () => {
+  const dispatch = useDispatch();
+  const value = useSelector((state) => state.widgets.q);
+  return (
+    <div className="d-flex align-items-center  ms-4 px-4">
+      <div className="ft-icon-dark2">
+        <Icon id="search" size="xs" />
+      </div>
+      <Input
+        placeholder="Search tools ..... "
+        size="large"
+        value={value}
+        bordered={false}
+        onInput={(event) => dispatch(setQuery(event.target.value))}
+      />
     </div>
   );
 };

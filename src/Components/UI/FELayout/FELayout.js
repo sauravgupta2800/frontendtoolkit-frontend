@@ -16,8 +16,9 @@ const FELayout = () => {
 
   return (
     <div className="ft-vertical-timeline w-100 h-100">
-      <div className="ft-vertical-timeline--header ft-style-1-shadow ft-bg-light100">
-        hello
+      <div className="ft-vertical-timeline--header ft-style-1-shadow ft-bg-light100 fs-5 px-4 d-flex align-items-center">
+        Front-end Roadmap contains the well curated link of content by which any
+        one seeking to learn frontend technologies can learn it.
       </div>
       <div className="ft-vertical-timeline--content ft-bg-prime93 overflow-auto">
         <VerticalTimeline>

@@ -6,10 +6,10 @@ import CardDetailsDrawer from "./../UI/Common/CardDetailsDrawer/CardDetailsDrawe
 import RoadmapDetailsDrawer from "../UI/FELayout/RoadmapDetailsDrawer";
 import { useSelector } from "react-redux";
 import { isDesktopView } from "../utils";
-import HomeLayout from "../UI/HomeLayout/HomeLayout";
+// import HomeLayout from "../UI/HomeLayout/HomeLayout";
 import WidgetLayouts from "../UI/WidgetLayouts/WidgetLayouts";
 import FELayout from "../UI/FELayout/FELayout";
-import InterviewPrepLayout from "../UI/InterviewPrepLayout/InterviewPrepLayout";
+// import InterviewPrepLayout from "../UI/InterviewPrepLayout/InterviewPrepLayout";
 import { ROADMAP_MENU } from "../UI/FELayout/config";
 import { Helmet } from "react-helmet";
 
@@ -35,7 +35,10 @@ const MainLayout = () => {
       <div className="ft-main-layout__container">
         <Switch>
           <Route exact path="/">
-            <HomeLayout />
+            <WidgetLayouts />
+            <Switch>
+              <Route path="/tools/:id" children={<RenderDrawer />} />
+            </Switch>
           </Route>
           <Route path="/tools">
             <WidgetLayouts />
@@ -49,9 +52,9 @@ const MainLayout = () => {
               <Route path="/roadmap/:id" children={<RenderRoadmapDrawer />} />
             </Switch>
           </Route>
-          <Route path="/interview">
+          {/* <Route path="/interview">
             <InterviewPrepLayout />
-          </Route>
+          </Route> */}
           <Route path="*">
             <NoPageFound404 />
           </Route>

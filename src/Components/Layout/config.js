@@ -1,9 +1,9 @@
 export const MAIN_TABS = [
-  {
-    name: "Home",
-    id: "home",
-    routeKey: "/",
-  },
+  // {
+  //   name: "Home",
+  //   id: "home",
+  //   routeKey: "/",
+  // },
   {
     name: "Tools",
     id: "nut-fill",
@@ -14,9 +14,9 @@ export const MAIN_TABS = [
     id: "sign-post",
     routeKey: "/roadmap",
   },
-  {
-    name: "Interview",
-    id: "book",
-    routeKey: "/interview",
-  },
+  // {
+  //   name: "Interview",
+  //   id: "book",
+  //   routeKey: "/interview",
+  // },
 ];
