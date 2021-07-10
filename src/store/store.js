@@ -17,6 +17,7 @@ export default configureStore({
         "widgets/addCustomCard",
         "widgets/removeCustomCard",
         "widgets/setLayout",
+        "widgets/setOriginalLayout",
         "card/setDrawerData",
         "card/resetDrawerData",
       ],
